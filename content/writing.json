@@ -1,0 +1,145 @@
+[
+  {
+    "id": "writing-paragraph",
+    "type": "Writing",
+    "title": "Paragraph Writing",
+    "structure": ["Topic sentence", "Two or three supporting ideas", "Example", "Concluding sentence"],
+    "usefulPhrases": ["The first reason is ...", "For example, ...", "Also, ...", "For these reasons, ..."],
+    "outline": ["State the main idea", "Explain reason 1", "Explain reason 2", "End with a clear conclusion"],
+    "sample": "Volunteering is very useful for young people. First, it teaches them responsibility because they learn to help others without waiting for money. Also, it helps them develop communication skills by working with different people. For example, students who join a school clean-up campaign learn teamwork and respect for public spaces. For these reasons, volunteering should be encouraged in Moroccan schools.",
+    "commonMistakes": ["Writing without a topic sentence", "Mixing many unrelated ideas", "Forgetting examples"],
+    "checklist": ["My paragraph has one clear idea", "I used connectors", "I gave an example", "I checked spelling and punctuation"]
+  },
+  {
+    "id": "writing-essay",
+    "type": "Writing",
+    "title": "Essay Writing",
+    "structure": ["Introduction", "Body paragraph 1", "Body paragraph 2", "Conclusion"],
+    "usefulPhrases": ["Nowadays, ...", "There are several reasons why ...", "Another important point is ...", "In conclusion, ..."],
+    "outline": ["Introduce the topic", "Present the first main idea", "Present the second main idea", "Summarize your opinion"],
+    "sample": "Nowadays, technology plays an important role in education. It helps students find information quickly and learn through videos, applications, and online exercises. For instance, a student in a small town can watch lessons and practice English at home. However, technology can also distract learners if they spend too much time on games or social media. Therefore, students should use digital tools wisely. In conclusion, technology is beneficial when it supports learning and does not replace effort.",
+    "commonMistakes": ["Writing one block instead of paragraphs", "Starting with a memorized sentence that does not fit the topic", "Repeating the same connector"],
+    "checklist": ["I answered the question", "Each paragraph has a purpose", "I used examples", "My conclusion is short and clear"]
+  },
+  {
+    "id": "writing-formal-letter",
+    "type": "Writing",
+    "title": "Formal Letter",
+    "structure": ["Sender address if required", "Date if required", "Greeting", "Purpose", "Details", "Polite closing"],
+    "usefulPhrases": ["Dear Sir or Madam,", "I am writing to ...", "I would like to ...", "I look forward to your reply.", "Yours faithfully,"],
+    "outline": ["Say why you are writing", "Explain the problem or request", "Suggest action", "Close politely"],
+    "sample": "Dear Sir or Madam,\n\nI am writing to complain about the lack of clean bins near our school. Many students throw paper and plastic bottles on the ground because there are not enough places for waste. This situation makes the area dirty and unhealthy. I would like to ask the local council to provide more bins and organize an awareness campaign for students.\n\nI look forward to your reply.\n\nYours faithfully,\nA concerned student",
+    "commonMistakes": ["Using Hi in a formal letter", "Writing slang", "Forgetting the purpose in the first paragraph"],
+    "checklist": ["My tone is polite", "I used formal expressions", "I explained the problem clearly", "I ended with a suitable closing"]
+  },
+  {
+    "id": "writing-informal-letter",
+    "type": "Writing",
+    "title": "Informal Letter",
+    "structure": ["Friendly greeting", "Opening question or reason", "Main message", "Friendly ending"],
+    "usefulPhrases": ["Dear ...", "How are you?", "I am writing to tell you about ...", "Write back soon.", "Best wishes,"],
+    "outline": ["Greet your friend", "Explain the reason", "Add details", "End warmly"],
+    "sample": "Dear Youssef,\n\nHow are you? I hope your Bac revision is going well. I am writing to tell you about our new English club. We meet every Friday afternoon and practice speaking, vocabulary, and writing. Last week, we discussed how young people can volunteer in their neighborhoods. I think you should join us because it will help you become more confident in English.\n\nWrite back soon.\nBest wishes,\nOmar",
+    "commonMistakes": ["Being too formal with a close friend", "No clear reason for writing", "Using very short undeveloped sentences"],
+    "checklist": ["My tone is friendly", "I included details", "I used correct greeting and ending", "I checked verb tenses"]
+  },
+  {
+    "id": "writing-email",
+    "type": "Writing",
+    "title": "Email",
+    "structure": ["Subject if needed", "Greeting", "Short opening", "Message", "Closing"],
+    "usefulPhrases": ["I hope you are well.", "I am writing about ...", "Could you please ...?", "Thank you for your help.", "Best regards,"],
+    "outline": ["State the purpose", "Give necessary information", "Ask or suggest action", "Close clearly"],
+    "sample": "Subject: English Study Group\n\nDear classmates,\n\nI hope you are well. I am writing about the English study group we discussed yesterday. I suggest that we meet every Wednesday after school in the library. We can review grammar, practice functions, and correct one writing task each week. Please let me know if this time is suitable for you.\n\nBest regards,\nSalma",
+    "commonMistakes": ["No subject when the task asks for one", "Writing too much irrelevant detail", "Mixing formal and informal tone"],
+    "checklist": ["My email has a clear purpose", "The tone matches the receiver", "I included the necessary details", "My closing is suitable"]
+  },
+  {
+    "id": "writing-article",
+    "type": "Writing",
+    "title": "Article",
+    "structure": ["Title", "Introduction", "Main ideas", "Recommendation or conclusion"],
+    "usefulPhrases": ["Have you ever thought about ...?", "One major advantage is ...", "Another point is ...", "To make a difference, we should ..."],
+    "outline": ["Write a clear title", "Introduce the issue", "Explain two or three points", "End with advice or a call to action"],
+    "sample": "Protecting Our School Environment\n\nA clean school is not only beautiful; it also helps students feel comfortable and responsible. One major problem is that some students throw paper and plastic bottles in the yard. Another problem is wasting water in bathrooms. To solve this, each class can create a green team to remind students to use bins and save water. The school can also organize a monthly clean-up day. If everyone takes part, our school will become a better place to learn.",
+    "commonMistakes": ["No title", "Writing like a personal letter", "Ending without a recommendation"],
+    "checklist": ["My article has a title", "The introduction attracts attention", "I used examples", "I ended with advice or a conclusion"]
+  },
+  {
+    "id": "writing-report",
+    "type": "Writing",
+    "title": "Report",
+    "structure": ["Title", "Introduction or purpose", "Findings", "Recommendations"],
+    "usefulPhrases": ["The aim of this report is to ...", "Most students said that ...", "It was found that ...", "I recommend that ..."],
+    "outline": ["Say the purpose", "Present facts or results", "Mention problems", "Give recommendations"],
+    "sample": "Report on Students' Reading Habits\n\nThe aim of this report is to describe reading habits among students in our class. Most students said that they read online posts every day, but only a few read books regularly. The main reasons are lack of time and the attraction of social media. It was also found that students prefer short stories and books related to real life. I recommend that the school library organize reading clubs and display interesting books for teenagers.",
+    "commonMistakes": ["Giving personal feelings instead of findings", "No recommendations", "Using a casual tone"],
+    "checklist": ["My report has a clear title", "I used factual language", "I included findings", "I gave recommendations"]
+  },
+  {
+    "id": "writing-book-review",
+    "type": "Writing",
+    "title": "Book Review",
+    "structure": ["Book title and author if known", "Short summary", "Opinion", "Recommendation"],
+    "usefulPhrases": ["The book tells the story of ...", "What I liked most was ...", "The message of the book is ...", "I recommend it to ..."],
+    "outline": ["Introduce the book", "Summarize without too many details", "Explain your opinion", "Recommend or not"],
+    "sample": "I recently read a short book about a village girl who wanted to continue her education. The story shows how determination and family support can change a person's life. What I liked most was the main character's courage. She faced many difficulties, but she did not give up her dream. The language was simple and the message was powerful. I recommend this book to students because it reminds us that education is a key to a better future.",
+    "commonMistakes": ["Retelling the whole story", "No personal opinion", "No recommendation"],
+    "checklist": ["I mentioned the story briefly", "I gave my opinion", "I explained why", "I recommended the book to a reader"]
+  },
+  {
+    "id": "writing-film-review",
+    "type": "Writing",
+    "title": "Film Review",
+    "structure": ["Film title", "Type of film", "Short summary", "Opinion", "Recommendation"],
+    "usefulPhrases": ["The film is about ...", "The main character is ...", "The best part was ...", "I would recommend this film because ..."],
+    "outline": ["Introduce the film", "Give the main idea", "Discuss acting, message, or scenes", "Say who should watch it"],
+    "sample": "The film I watched recently is about a group of students who create a small project to help their community. It is a social drama with a positive message. The main characters face problems such as lack of money and discouragement, but they continue working together. The best part was the final scene, where the whole neighborhood supports them. I would recommend this film to young people because it shows the value of teamwork and hope.",
+    "commonMistakes": ["Spoiling every detail", "Using only good or bad without explanation", "Forgetting the recommendation"],
+    "checklist": ["I named or described the film", "I summarized briefly", "I gave reasons for my opinion", "I recommended it clearly"]
+  },
+  {
+    "id": "writing-opinion-essay",
+    "type": "Writing",
+    "title": "Opinion Essay",
+    "structure": ["Introduction with opinion", "Reason 1", "Reason 2", "Conclusion"],
+    "usefulPhrases": ["I believe that ...", "The main reason is ...", "Another reason is ...", "For these reasons, I think ..."],
+    "outline": ["State your opinion clearly", "Support it with reasons", "Add examples", "Restate your opinion"],
+    "sample": "I believe that students should take part in school clubs. The main reason is that clubs help students develop skills that they do not always learn in class, such as teamwork, leadership, and communication. Another reason is that clubs make school life more interesting and reduce stress. For example, an English club can help students speak with confidence before the Bac exam. For these reasons, I think school clubs should be encouraged in all high schools.",
+    "commonMistakes": ["Not stating a clear opinion", "Giving arguments for both sides without control", "No examples"],
+    "checklist": ["My opinion is clear", "I gave two reasons", "I used examples", "My conclusion matches my opinion"]
+  },
+  {
+    "id": "writing-describe-person",
+    "type": "Writing",
+    "title": "Describing a Person",
+    "structure": ["Who the person is", "Appearance if useful", "Personality", "Actions or achievements", "Why you admire them"],
+    "usefulPhrases": ["The person I admire is ...", "He/She is known for ...", "What makes him/her special is ...", "I admire this person because ..."],
+    "outline": ["Introduce the person", "Describe qualities", "Give examples of actions", "End with your feeling"],
+    "sample": "The person I admire most is my English teacher. She is patient, organized, and encouraging. What makes her special is the way she explains difficult lessons using simple examples from our daily life. She also gives us useful writing practice and corrects our mistakes kindly. Thanks to her support, many students have become more confident in speaking and writing English. I admire her because she shows that a good teacher can change students' lives.",
+    "commonMistakes": ["Only describing appearance", "No examples of qualities", "Using many repeated adjectives"],
+    "checklist": ["I described personality", "I gave examples", "I explained why the person matters", "I used varied adjectives"]
+  },
+  {
+    "id": "writing-describe-place",
+    "type": "Writing",
+    "title": "Describing a Place",
+    "structure": ["Name and location", "Main features", "Activities", "Feelings or recommendation"],
+    "usefulPhrases": ["It is located in ...", "It is famous for ...", "Visitors can ...", "What I like most is ..."],
+    "outline": ["Introduce the place", "Describe what people can see", "Mention activities", "Say why it is special"],
+    "sample": "Chefchaouen is a beautiful city in northern Morocco. It is famous for its blue streets, calm atmosphere, and mountain views. Visitors can walk through the old medina, take photos, buy traditional products, and enjoy local food. What I like most about the city is its peaceful feeling and clean streets. I think it is a wonderful place for people who want to relax and discover Moroccan culture.",
+    "commonMistakes": ["Listing details without organization", "No location", "No personal feeling"],
+    "checklist": ["I mentioned location", "I described features", "I used place vocabulary", "I ended with a feeling or recommendation"]
+  },
+  {
+    "id": "writing-argumentative",
+    "type": "Writing",
+    "title": "Argumentative Writing",
+    "structure": ["Introduce the issue", "Argument for", "Argument against or counterargument", "Your position"],
+    "usefulPhrases": ["Some people argue that ...", "Others believe that ...", "It is true that ..., but ...", "In my view, ..."],
+    "outline": ["Present the debate", "Give one side", "Give the other side", "State your final position"],
+    "sample": "Some people argue that social media is harmful for students because it wastes time and distracts them from revision. This is true when students use it without control. However, others believe that social media can be useful for learning, communication, and sharing educational videos. In my view, the problem is not social media itself, but the way students use it. If they manage their time and follow reliable pages, social media can support their studies.",
+    "commonMistakes": ["Only giving one side when the topic asks for debate", "Attacking the opposite opinion", "No final position"],
+    "checklist": ["I presented both sides", "I used contrast connectors", "I gave my position", "I checked that my conclusion answers the question"]
+  }
+]

@@ -1,0 +1,329 @@
+[
+  {
+    "id": "grammar-tenses",
+    "type": "Grammar",
+    "title": "English Tenses Review",
+    "rule": "Choose the tense according to time and meaning: habit, action now, past event, completed action, or future plan.",
+    "explanation": "Bac exercises often test simple present, present continuous, simple past, present perfect, past perfect, and future forms.",
+    "examples": [
+      "Many students revise English every week.",
+      "She is preparing for the national exam now.",
+      "They visited the library yesterday.",
+      "He has already finished the report.",
+      "By the time the teacher arrived, we had completed the task."
+    ],
+    "commonMistakes": [
+      "Using present perfect with a finished past time: I have visited Rabat yesterday.",
+      "Forgetting -s with he, she, it in the simple present.",
+      "Using will after when in time clauses: When I will finish is incorrect."
+    ],
+    "practice": [
+      {"q": "My sister usually ___ English after dinner. (study)", "a": "studies", "explanation": "Usually shows a habit, so use simple present with -s."},
+      {"q": "They ___ a school project at the moment. (prepare)", "a": "are preparing", "explanation": "At the moment shows an action happening now."},
+      {"q": "We ___ the museum last Saturday. (visit)", "a": "visited", "explanation": "Last Saturday is a finished past time."},
+      {"q": "I ___ never ___ such an interesting article. (read)", "a": "have never read", "explanation": "Never with life experience usually takes present perfect."},
+      {"q": "By 8 p.m., the students ___ the essay. (finish)", "a": "had finished", "explanation": "By a past time can show an earlier completed action, so use past perfect."}
+    ]
+  },
+  {
+    "id": "grammar-gerund-infinitive",
+    "type": "Grammar",
+    "title": "Gerund and Infinitive",
+    "rule": "Some verbs are followed by a gerund (-ing), some by to + verb, and some by both.",
+    "explanation": "Learn common patterns: enjoy doing, avoid doing, decide to do, want to do, would like to do.",
+    "examples": [
+      "Students enjoy working in groups.",
+      "She decided to join the English club.",
+      "He avoids wasting time on his phone.",
+      "I would like to improve my pronunciation."
+    ],
+    "commonMistakes": [
+      "I want improving my English.",
+      "She enjoys to read stories.",
+      "They decided studying abroad."
+    ],
+    "practice": [
+      {"q": "Many teenagers enjoy ___ videos in English. (watch)", "a": "watching", "explanation": "Enjoy is followed by a gerund."},
+      {"q": "He hopes ___ a scholarship. (get)", "a": "to get", "explanation": "Hope is followed by to + verb."},
+      {"q": "We should avoid ___ plastic bags. (use)", "a": "using", "explanation": "Avoid is followed by a gerund."},
+      {"q": "She agreed ___ the presentation. (prepare)", "a": "to prepare", "explanation": "Agree is followed by to + verb."},
+      {"q": "They are interested in ___ for an NGO. (volunteer)", "a": "volunteering", "explanation": "After a preposition, use the gerund."}
+    ]
+  },
+  {
+    "id": "grammar-modals",
+    "type": "Grammar",
+    "title": "Modals: Present and Past",
+    "rule": "Use modal + base verb for present meaning. Use modal + have + past participle for past meaning.",
+    "explanation": "Common modals include can, could, must, should, may, might, have to, and had better.",
+    "examples": [
+      "Students should revise regularly.",
+      "You must not cheat in the exam.",
+      "She may join the club next week.",
+      "He should have apologized earlier.",
+      "They must have forgotten the meeting."
+    ],
+    "commonMistakes": [
+      "Using to after a modal: must to revise.",
+      "Using past simple after should have: should have went.",
+      "Confusing must not with do not have to."
+    ],
+    "practice": [
+      {"q": "You ___ respect exam rules. (obligation)", "a": "must", "explanation": "Must expresses strong obligation."},
+      {"q": "Students ___ use their phones during the exam. (prohibition)", "a": "must not", "explanation": "Must not expresses prohibition."},
+      {"q": "She ___ be at home; the lights are on. (strong deduction)", "a": "must", "explanation": "Must expresses strong certainty."},
+      {"q": "He failed because he ___ harder. (study)", "a": "should have studied", "explanation": "Should have + past participle expresses past advice or regret."},
+      {"q": "You ___ bring a dictionary; it is not allowed. (permission)", "a": "cannot", "explanation": "Cannot expresses lack of permission."}
+    ]
+  },
+  {
+    "id": "grammar-passive",
+    "type": "Grammar",
+    "title": "Passive Voice",
+    "rule": "Passive = be + past participle. Use it when the action is more important than the doer.",
+    "explanation": "The tense is shown by the verb be. The object of the active sentence becomes the subject of the passive sentence.",
+    "examples": [
+      "Active: The association planted trees.",
+      "Passive: Trees were planted by the association.",
+      "English is taught in Moroccan high schools.",
+      "The report will be submitted tomorrow."
+    ],
+    "commonMistakes": [
+      "Forgetting be: The trees planted by students.",
+      "Using the wrong participle: was wrote.",
+      "Keeping the active object after passive unnecessarily."
+    ],
+    "practice": [
+      {"q": "They clean the classroom every day. Rewrite in passive.", "a": "The classroom is cleaned every day.", "explanation": "Simple present passive uses is/are + past participle."},
+      {"q": "The students organized a campaign. Rewrite in passive.", "a": "A campaign was organized by the students.", "explanation": "Simple past passive uses was/were + past participle."},
+      {"q": "People speak English around the world. Rewrite in passive.", "a": "English is spoken around the world.", "explanation": "English is singular, so use is spoken."},
+      {"q": "They will build a new library. Rewrite in passive.", "a": "A new library will be built.", "explanation": "Future passive uses will be + past participle."},
+      {"q": "Someone has stolen my phone. Rewrite in passive.", "a": "My phone has been stolen.", "explanation": "Present perfect passive uses has/have been + past participle."}
+    ]
+  },
+  {
+    "id": "grammar-reported-speech",
+    "type": "Grammar",
+    "title": "Reported Speech",
+    "rule": "When reporting past speech, usually move the tense one step back and change pronouns and time expressions.",
+    "explanation": "Direct speech gives exact words. Reported speech tells what someone said without quotation marks.",
+    "examples": [
+      "Direct: I am tired. Reported: He said that he was tired.",
+      "Direct: We visited Rabat. Reported: They said that they had visited Rabat.",
+      "Direct: I will help you. Reported: She said that she would help me."
+    ],
+    "commonMistakes": [
+      "Not changing pronouns.",
+      "Keeping tomorrow instead of the next day when needed.",
+      "Using said me instead of told me."
+    ],
+    "practice": [
+      {"q": "She said, I am ready. Report it.", "a": "She said that she was ready.", "explanation": "Am changes to was."},
+      {"q": "He said, I have finished my homework. Report it.", "a": "He said that he had finished his homework.", "explanation": "Present perfect changes to past perfect."},
+      {"q": "They said, We will volunteer tomorrow. Report it.", "a": "They said that they would volunteer the next day.", "explanation": "Will changes to would; tomorrow changes to the next day."},
+      {"q": "The teacher said to me, Revise the lesson. Report it.", "a": "The teacher told me to revise the lesson.", "explanation": "Imperatives use told/asked + object + to + verb."},
+      {"q": "She asked, Where do you live? Report it.", "a": "She asked where I lived.", "explanation": "Question word remains; word order becomes statement order."}
+    ]
+  },
+  {
+    "id": "grammar-conditionals",
+    "type": "Grammar",
+    "title": "Conditional Sentences",
+    "rule": "Conditionals connect a condition with a result: if + condition, result.",
+    "explanation": "Type 0 is general truth, type 1 is real future, type 2 is imaginary present/future, and type 3 is imaginary past.",
+    "examples": [
+      "If you heat water, it boils.",
+      "If I revise well, I will pass.",
+      "If I had more time, I would read more books.",
+      "If she had studied harder, she would have passed."
+    ],
+    "commonMistakes": [
+      "Using will in the if-clause of type 1.",
+      "Using would in both clauses of type 2.",
+      "Forgetting have in type 3."
+    ],
+    "practice": [
+      {"q": "If students ___ regularly, they get better marks. (revise)", "a": "revise", "explanation": "Type 0 uses present + present."},
+      {"q": "If he studies hard, he ___ the exam. (pass)", "a": "will pass", "explanation": "Type 1 uses present + will."},
+      {"q": "If I had money, I ___ a laptop. (buy)", "a": "would buy", "explanation": "Type 2 uses past simple + would + verb."},
+      {"q": "If she had arrived early, she ___ the bus. (catch)", "a": "would have caught", "explanation": "Type 3 uses past perfect + would have + past participle."},
+      {"q": "Unless you revise, you ___ ready. (not be)", "a": "will not be", "explanation": "Unless means if not; use type 1 for real future."}
+    ]
+  },
+  {
+    "id": "grammar-relative-clauses",
+    "type": "Grammar",
+    "title": "Relative Clauses",
+    "rule": "Use who for people, which for things, where for places, when for time, and whose for possession.",
+    "explanation": "Relative clauses add information about a noun. Defining clauses are necessary; non-defining clauses add extra information and use commas.",
+    "examples": [
+      "The student who won the prize is from Agadir.",
+      "The app which helps revision is free.",
+      "This is the school where I studied.",
+      "Amina, who is my classmate, volunteers every weekend."
+    ],
+    "commonMistakes": [
+      "Using who for things.",
+      "Forgetting commas in non-defining clauses.",
+      "Using where for people."
+    ],
+    "practice": [
+      {"q": "This is the teacher ___ helped me. (who/which)", "a": "who", "explanation": "Teacher is a person."},
+      {"q": "The book ___ I bought is useful. (who/which)", "a": "which", "explanation": "Book is a thing."},
+      {"q": "Rabat is the city ___ my cousin studies. (where/when)", "a": "where", "explanation": "City is a place."},
+      {"q": "That is the girl ___ father is a doctor. (whose/who)", "a": "whose", "explanation": "Whose shows possession."},
+      {"q": "2026 is the year ___ he will take the Bac. (when/where)", "a": "when", "explanation": "Year refers to time."}
+    ]
+  },
+  {
+    "id": "grammar-connectors",
+    "type": "Grammar",
+    "title": "Linking Words and Connectors",
+    "rule": "Connectors organize ideas and show relationships such as addition, contrast, cause, effect, example, and conclusion.",
+    "explanation": "Good writing needs connectors, but each connector has a specific meaning and grammar pattern.",
+    "examples": [
+      "Many students use technology. However, they should avoid addiction.",
+      "Education is important because it gives people opportunities.",
+      "The city created bike lanes; therefore, pollution decreased.",
+      "Although the task was difficult, we completed it."
+    ],
+    "commonMistakes": [
+      "Using although and but together.",
+      "Using because and so together in the same sentence.",
+      "Starting every sentence with the same connector."
+    ],
+    "practice": [
+      {"q": "Choose a connector: The text was long; ___, it was easy to understand. (however/therefore)", "a": "however", "explanation": "The second idea contrasts with the first."},
+      {"q": "I joined the club ___ I wanted to improve my English. (because/although)", "a": "because", "explanation": "It gives a reason."},
+      {"q": "She was ill. ___, she went to school. (However/Therefore)", "a": "However", "explanation": "This shows contrast."},
+      {"q": "The campaign was successful. ___, many students joined it. (As a result/Although)", "a": "As a result", "explanation": "This shows effect."},
+      {"q": "Use one connector: ___ he was tired, he finished the essay.", "a": "Although", "explanation": "Although introduces contrast."}
+    ]
+  },
+  {
+    "id": "grammar-phrasal-verbs",
+    "type": "Grammar",
+    "title": "Phrasal Verbs",
+    "rule": "A phrasal verb is verb + particle, such as give up, look after, turn on, find out, and take part in.",
+    "explanation": "The meaning is often different from the main verb alone, so learn common exam phrasal verbs in context.",
+    "examples": [
+      "Do not give up when revision becomes difficult.",
+      "Students should look up new words in a dictionary.",
+      "Many young people take part in volunteering.",
+      "She found out the answer from the text."
+    ],
+    "commonMistakes": [
+      "Translating each word separately.",
+      "Using a wrong particle: depend in instead of depend on.",
+      "Forgetting that some phrasal verbs need an object."
+    ],
+    "practice": [
+      {"q": "Never ___ your dreams. (give up / look up)", "a": "give up", "explanation": "Give up means stop trying."},
+      {"q": "Please ___ the lights. It is dark. (turn on / take off)", "a": "turn on", "explanation": "Turn on means start a machine or light."},
+      {"q": "Students should ___ new words. (look up / give in)", "a": "look up", "explanation": "Look up means search for information."},
+      {"q": "She ___ her younger brother after school. (looks after / looks for)", "a": "looks after", "explanation": "Look after means take care of."},
+      {"q": "Many students ___ the environmental campaign. (took part in / put off)", "a": "took part in", "explanation": "Take part in means participate."}
+    ]
+  },
+  {
+    "id": "grammar-articles",
+    "type": "Grammar",
+    "title": "Articles",
+    "rule": "Use a/an for one non-specific singular countable noun, the for a specific noun, and no article for general plural or uncountable nouns.",
+    "explanation": "Use an before a vowel sound. Use the when the reader knows which thing you mean.",
+    "examples": [
+      "A student asked a question.",
+      "An honest person tells the truth.",
+      "The teacher corrected the essays.",
+      "Education is important for development."
+    ],
+    "commonMistakes": [
+      "Using the with general ideas: the education is important.",
+      "Using a with plural nouns: a students.",
+      "Choosing an by spelling, not sound."
+    ],
+    "practice": [
+      {"q": "She is ___ active member of the club. (a/an/the)", "a": "an", "explanation": "Active begins with a vowel sound."},
+      {"q": "___ environment needs protection. (A/The/No article)", "a": "The", "explanation": "The environment refers to the natural world around us."},
+      {"q": "___ education helps people succeed. (A/The/No article)", "a": "No article", "explanation": "Education as a general uncountable idea needs no article."},
+      {"q": "I bought ___ book yesterday. ___ book is about technology.", "a": "a / The", "explanation": "First mention uses a; second mention uses the."},
+      {"q": "He wants to become ___ engineer. (a/an/the)", "a": "an", "explanation": "Engineer begins with a vowel sound."}
+    ]
+  },
+  {
+    "id": "grammar-comparatives",
+    "type": "Grammar",
+    "title": "Comparatives and Superlatives",
+    "rule": "Use comparatives to compare two things and superlatives to compare one thing with a group.",
+    "explanation": "Short adjectives usually take -er and -est. Long adjectives use more and the most.",
+    "examples": [
+      "English is easier when students practice daily.",
+      "This exercise is more difficult than the first one.",
+      "She is the most active member of the club.",
+      "Education is as important as technology."
+    ],
+    "commonMistakes": [
+      "Using more with -er: more easier.",
+      "Forgetting than after comparatives.",
+      "Using the with comparatives unnecessarily."
+    ],
+    "practice": [
+      {"q": "This lesson is ___ than the previous one. (easy)", "a": "easier", "explanation": "Easy changes y to ier."},
+      {"q": "Technology is becoming ___ in education. (important)", "a": "more important", "explanation": "Long adjectives use more."},
+      {"q": "She is ___ student in our group. (active)", "a": "the most active", "explanation": "Superlative of a long adjective uses the most."},
+      {"q": "Casablanca is ___ than many Moroccan cities. (large)", "a": "larger", "explanation": "Large takes -r."},
+      {"q": "This is ___ exercise in the test. (difficult)", "a": "the most difficult", "explanation": "Superlative of difficult uses the most."}
+    ]
+  },
+  {
+    "id": "grammar-word-formation",
+    "type": "Grammar",
+    "title": "Word Formation",
+    "rule": "Change the form of a word to fit the sentence: noun, verb, adjective, or adverb.",
+    "explanation": "Look before and after the gap. Articles often need nouns, be often needs adjectives, and verbs need correct tense.",
+    "examples": [
+      "Education is important. (noun)",
+      "Educated people can help society. (adjective)",
+      "Students should communicate clearly. (adverb)",
+      "Technology has changed communication. (noun)"
+    ],
+    "commonMistakes": [
+      "Using a verb after an article.",
+      "Forgetting plural nouns.",
+      "Using an adjective where an adverb is needed."
+    ],
+    "practice": [
+      {"q": "Good ___ helps students understand each other. (communicate)", "a": "communication", "explanation": "Good + noun is needed."},
+      {"q": "She answered the question ___. (clear)", "a": "clearly", "explanation": "The verb answered needs an adverb."},
+      {"q": "Morocco needs more ___ projects. (develop)", "a": "development", "explanation": "Development functions as a noun before projects."},
+      {"q": "The club organized an ___ campaign. (environment)", "a": "environmental", "explanation": "The noun campaign needs an adjective."},
+      {"q": "Hard work is the key to ___. (succeed)", "a": "success", "explanation": "After to as a preposition in this expression, a noun is needed."}
+    ]
+  },
+  {
+    "id": "grammar-prefixes-suffixes",
+    "type": "Grammar",
+    "title": "Prefixes and Suffixes",
+    "rule": "Prefixes come before a word and often change meaning. Suffixes come after a word and often change word class.",
+    "explanation": "Common prefixes include un-, in-, im-, re-, and dis-. Common suffixes include -tion, -ment, -ness, -ful, -less, -able, and -ly.",
+    "examples": [
+      "happy -> unhappy",
+      "possible -> impossible",
+      "develop -> development",
+      "care -> careful / careless",
+      "quick -> quickly"
+    ],
+    "commonMistakes": [
+      "Using in- before p or m instead of im-.",
+      "Confusing -ful and -less.",
+      "Adding a suffix without checking spelling changes."
+    ],
+    "practice": [
+      {"q": "Add a prefix: possible -> ___", "a": "impossible", "explanation": "Use im- before p."},
+      {"q": "Add a suffix: educate -> ___", "a": "education", "explanation": "The noun form is education."},
+      {"q": "Add a prefix: agree -> ___", "a": "disagree", "explanation": "Disagree means not agree."},
+      {"q": "Add a suffix: care -> ___ meaning without care", "a": "careless", "explanation": "-less means without."},
+      {"q": "Add a suffix: slow -> ___", "a": "slowly", "explanation": "-ly forms an adverb."}
+    ]
+  }
+]

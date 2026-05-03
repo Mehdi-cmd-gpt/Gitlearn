@@ -1,0 +1,241 @@
+[
+  {
+    "id": "function-opinion",
+    "type": "Functions",
+    "title": "Expressing Opinion",
+    "expressions": {
+      "formal": ["In my opinion, ...", "From my point of view, ...", "I strongly believe that ..."],
+      "informal": ["I think ...", "To me, ...", "For me, ..."]
+    },
+    "dialogue": [
+      "A: What do you think about online learning?",
+      "B: In my opinion, it is useful, but students still need classroom interaction."
+    ],
+    "practice": {
+      "task": "Give your opinion about volunteering.",
+      "answerKey": "In my opinion, volunteering is important because it teaches responsibility and solidarity."
+    }
+  },
+  {
+    "id": "function-agreement",
+    "type": "Functions",
+    "title": "Agreeing and Disagreeing",
+    "expressions": {
+      "formal": ["I completely agree.", "I share your view.", "I am afraid I disagree."],
+      "informal": ["You are right.", "Exactly.", "I do not think so."]
+    },
+    "dialogue": [
+      "A: Students should use phones only for learning.",
+      "B: I completely agree. Phones can distract students if they are not used wisely."
+    ],
+    "practice": {
+      "task": "Disagree politely with this idea: Exams are useless.",
+      "answerKey": "I am afraid I disagree. Exams can help students organize their revision and measure progress."
+    }
+  },
+  {
+    "id": "function-requests",
+    "type": "Functions",
+    "title": "Making Requests",
+    "expressions": {
+      "formal": ["Could you please ...?", "Would you mind ...?", "I would be grateful if you could ..."],
+      "informal": ["Can you ...?", "Could you ...?", "Please ..."]
+    },
+    "dialogue": [
+      "A: Could you please explain the passive voice again?",
+      "B: Of course. Passive voice uses be plus past participle."
+    ],
+    "practice": {
+      "task": "Ask your teacher politely to correct your essay.",
+      "answerKey": "Could you please correct my essay when you have time?"
+    }
+  },
+  {
+    "id": "function-advice",
+    "type": "Functions",
+    "title": "Giving Advice",
+    "expressions": {
+      "formal": ["You should ...", "You ought to ...", "It would be better to ..."],
+      "informal": ["Why do not you ...?", "You had better ...", "Try to ..."]
+    },
+    "dialogue": [
+      "A: I am worried about the English exam.",
+      "B: You should practice past papers and write one paragraph every day."
+    ],
+    "practice": {
+      "task": "Advise a friend who wastes time on social media.",
+      "answerKey": "You should make a revision timetable and turn off notifications while studying."
+    }
+  },
+  {
+    "id": "function-complaining",
+    "type": "Functions",
+    "title": "Complaining",
+    "expressions": {
+      "formal": ["I am writing to complain about ...", "I am not satisfied with ...", "I would like to draw your attention to ..."],
+      "informal": ["This is not fair.", "I am really unhappy about ...", "There is a problem with ..."]
+    },
+    "dialogue": [
+      "A: I am writing to complain about the noise near the library.",
+      "B: Thank you for informing us. We will look into the problem."
+    ],
+    "practice": {
+      "task": "Complain politely about a broken classroom window.",
+      "answerKey": "I would like to draw your attention to a broken window in our classroom."
+    }
+  },
+  {
+    "id": "function-apologizing",
+    "type": "Functions",
+    "title": "Apologizing",
+    "expressions": {
+      "formal": ["I sincerely apologize for ...", "Please accept my apologies.", "I am sorry for the inconvenience."],
+      "informal": ["Sorry.", "I am really sorry.", "My mistake."]
+    },
+    "dialogue": [
+      "A: I am sorry for submitting the homework late.",
+      "B: It is all right, but please respect the deadline next time."
+    ],
+    "practice": {
+      "task": "Apologize for missing a group meeting.",
+      "answerKey": "I sincerely apologize for missing the group meeting. I had an urgent family matter."
+    }
+  },
+  {
+    "id": "function-purpose",
+    "type": "Functions",
+    "title": "Expressing Purpose",
+    "expressions": {
+      "formal": ["in order to ...", "so as to ...", "with the aim of ..."],
+      "informal": ["to ...", "so that ..."]
+    },
+    "dialogue": [
+      "A: Why did the students organize the campaign?",
+      "B: They organized it in order to raise awareness about recycling."
+    ],
+    "practice": {
+      "task": "Join the sentences: Students use dictionaries. They want to learn new words.",
+      "answerKey": "Students use dictionaries in order to learn new words."
+    }
+  },
+  {
+    "id": "function-cause-effect",
+    "type": "Functions",
+    "title": "Expressing Cause and Effect",
+    "expressions": {
+      "formal": ["because of ...", "due to ...", "therefore", "as a result"],
+      "informal": ["because", "so", "that is why"]
+    },
+    "dialogue": [
+      "A: Why did many students join the club?",
+      "B: Because they wanted to improve their speaking skills."
+    ],
+    "practice": {
+      "task": "Show effect: The city planted trees. The air became cleaner.",
+      "answerKey": "The city planted trees; as a result, the air became cleaner."
+    }
+  },
+  {
+    "id": "function-addition-contrast",
+    "type": "Functions",
+    "title": "Expressing Addition and Contrast",
+    "expressions": {
+      "formal": ["Moreover", "Furthermore", "In addition", "However", "On the other hand"],
+      "informal": ["also", "but", "besides"]
+    },
+    "dialogue": [
+      "A: Online learning is flexible.",
+      "B: Moreover, it gives students access to many resources. However, it needs self-discipline."
+    ],
+    "practice": {
+      "task": "Combine with contrast: Technology is useful. It can waste time.",
+      "answerKey": "Technology is useful; however, it can waste time."
+    }
+  },
+  {
+    "id": "function-clarification",
+    "type": "Functions",
+    "title": "Asking For and Giving Clarification",
+    "expressions": {
+      "formal": ["Could you clarify that, please?", "Could you explain what you mean?", "In other words, ..."],
+      "informal": ["What do you mean?", "Sorry, I do not understand.", "Do you mean ...?"]
+    },
+    "dialogue": [
+      "A: This answer needs evidence.",
+      "B: Could you explain what you mean?",
+      "A: I mean you should quote a short phrase from the text."
+    ],
+    "practice": {
+      "task": "Ask for clarification when you do not understand a grammar rule.",
+      "answerKey": "Could you explain this grammar rule again, please?"
+    }
+  },
+  {
+    "id": "function-inviting",
+    "type": "Functions",
+    "title": "Inviting",
+    "expressions": {
+      "formal": ["Would you like to attend ...?", "We would be pleased to invite you to ...", "You are cordially invited to ..."],
+      "informal": ["Do you want to come to ...?", "How about joining us?", "Come with us."]
+    },
+    "dialogue": [
+      "A: Would you like to attend our English club presentation?",
+      "B: Thank you. I would be happy to attend."
+    ],
+    "practice": {
+      "task": "Invite a friend to a school environmental campaign.",
+      "answerKey": "Would you like to join our school environmental campaign this Saturday?"
+    }
+  },
+  {
+    "id": "function-accept-refuse",
+    "type": "Functions",
+    "title": "Accepting and Refusing Invitations",
+    "expressions": {
+      "formal": ["I would be delighted to attend.", "Thank you for your invitation.", "I regret that I cannot attend."],
+      "informal": ["Sure, I would love to.", "That sounds great.", "Sorry, I cannot make it."]
+    },
+    "dialogue": [
+      "A: Would you like to join our study group?",
+      "B: That sounds great. What time shall we meet?"
+    ],
+    "practice": {
+      "task": "Refuse an invitation politely because you have an exam.",
+      "answerKey": "Thank you for your invitation, but I regret that I cannot attend because I have an exam."
+    }
+  },
+  {
+    "id": "function-suggestions",
+    "type": "Functions",
+    "title": "Making Suggestions",
+    "expressions": {
+      "formal": ["I suggest that we ...", "It would be a good idea to ...", "We could ..."],
+      "informal": ["Let us ...", "Why do not we ...?", "How about ...?"]
+    },
+    "dialogue": [
+      "A: Our class needs more speaking practice.",
+      "B: Why do not we create an English conversation club?"
+    ],
+    "practice": {
+      "task": "Suggest a solution for plastic waste at school.",
+      "answerKey": "It would be a good idea to place recycling bins in the schoolyard."
+    }
+  },
+  {
+    "id": "function-certainty",
+    "type": "Functions",
+    "title": "Expressing Certainty and Uncertainty",
+    "expressions": {
+      "formal": ["I am certain that ...", "It is likely that ...", "I am not sure whether ..."],
+      "informal": ["I am sure ...", "Maybe ...", "I doubt that ..."]
+    },
+    "dialogue": [
+      "A: Do you think artificial intelligence will change education?",
+      "B: I am certain that it will help learning, but I am not sure it can replace teachers."
+    ],
+    "practice": {
+      "task": "Express uncertainty about studying abroad.",
+      "answerKey": "I am not sure whether studying abroad is the best choice for every student."
+    }
+  }
+]

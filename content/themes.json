@@ -1,0 +1,422 @@
+[
+  {
+    "id": "theme-youth",
+    "type": "Vocabulary",
+    "title": "Gifts of Youth",
+    "explanation": "This theme focuses on young people's energy, creativity, talents, ambitions, and challenges. In the exam, texts may discuss youth clubs, volunteering, unemployment, dreams, or how teenagers can serve society.",
+    "vocabulary": [
+      {"term": "potential", "definition": "the ability to develop and succeed"},
+      {"term": "ambition", "definition": "a strong desire to achieve something"},
+      {"term": "challenge", "definition": "a difficult task or problem"},
+      {"term": "self-confidence", "definition": "belief in your own abilities"},
+      {"term": "creativity", "definition": "the ability to produce new ideas"},
+      {"term": "peer pressure", "definition": "influence from friends of the same age"}
+    ],
+    "collocations": ["youth potential", "face challenges", "develop talents", "build confidence"],
+    "expressions": ["Young people can make a difference.", "Youth is a period of discovery.", "Students need guidance and opportunities."],
+    "examples": [
+      "Many Moroccan students join clubs to develop their talents.",
+      "Volunteering helps young people build self-confidence.",
+      "Peer pressure can affect teenagers' choices."
+    ],
+    "writingTopics": [
+      "How can young people contribute to their community?",
+      "Write about the challenges facing Moroccan youth.",
+      "Describe a young person who inspires you."
+    ],
+    "readingTips": [
+      "Expect words about dreams, problems, clubs, and community service.",
+      "For attitude questions, check if the writer is hopeful or critical about youth."
+    ]
+  },
+  {
+    "id": "theme-humour",
+    "type": "Vocabulary",
+    "title": "Humour",
+    "explanation": "Humour is about jokes, laughter, comedy, and the social value of smiling. Exam texts may show how humour reduces stress, improves relationships, or criticizes problems politely.",
+    "vocabulary": [
+      {"term": "laughter", "definition": "the act of laughing"},
+      {"term": "comedian", "definition": "a person who makes people laugh"},
+      {"term": "sense of humour", "definition": "the ability to understand or make jokes"},
+      {"term": "satire", "definition": "humour used to criticize society"},
+      {"term": "amusing", "definition": "funny and enjoyable"},
+      {"term": "stress relief", "definition": "something that reduces worry"}
+    ],
+    "collocations": ["tell a joke", "make fun of", "reduce stress", "a funny story"],
+    "expressions": ["Laughter is good for health.", "Humour can send a serious message.", "A good joke should not hurt people."],
+    "examples": [
+      "Humour helps students relax before exams.",
+      "Some comedians use satire to discuss social issues.",
+      "A person with a good sense of humour can make difficult moments easier."
+    ],
+    "writingTopics": [
+      "Write a funny story that happened at school.",
+      "Is humour important in our daily life?",
+      "Can jokes sometimes hurt people?"
+    ],
+    "readingTips": [
+      "Pay attention to whether humour is presented as positive or harmful.",
+      "Vocabulary from context may include adjectives like amusing, ridiculous, or serious."
+    ]
+  },
+  {
+    "id": "theme-education",
+    "type": "Vocabulary",
+    "title": "Education: Formal, Informal, and Non-formal",
+    "explanation": "Education includes school learning, life experience, training centers, online courses, family learning, and community programs. Exam texts often discuss equal access, literacy, dropout, e-learning, or lifelong learning.",
+    "vocabulary": [
+      {"term": "formal education", "definition": "learning in schools and universities"},
+      {"term": "informal education", "definition": "learning from family, friends, media, and experience"},
+      {"term": "non-formal education", "definition": "organized learning outside the school system"},
+      {"term": "literacy", "definition": "the ability to read and write"},
+      {"term": "scholarship", "definition": "money given to help a student study"},
+      {"term": "dropout", "definition": "a student who leaves school before finishing"}
+    ],
+    "collocations": ["lifelong learning", "school dropout", "equal access", "online learning"],
+    "expressions": ["Education opens doors.", "Learning does not stop at school.", "Every child deserves access to education."],
+    "examples": [
+      "Online learning can help students in remote areas.",
+      "Non-formal education gives adults a second chance.",
+      "Scholarships encourage talented students to continue their studies."
+    ],
+    "writingTopics": [
+      "The importance of education for development.",
+      "Advantages and disadvantages of online learning.",
+      "How can Morocco reduce school dropout?"
+    ],
+    "readingTips": [
+      "Look for causes and effects when the text discusses dropout.",
+      "Distinguish between formal, informal, and non-formal examples."
+    ]
+  },
+  {
+    "id": "theme-culture",
+    "type": "Vocabulary",
+    "title": "Cultural Issues and Values",
+    "explanation": "This theme deals with traditions, customs, identity, stereotypes, cultural diversity, and respect for difference. Exam texts may compare cultures or discuss how people keep their identity in a global world.",
+    "vocabulary": [
+      {"term": "custom", "definition": "a traditional way of behaving"},
+      {"term": "tradition", "definition": "a belief or practice passed from generation to generation"},
+      {"term": "identity", "definition": "who a person or group is"},
+      {"term": "stereotype", "definition": "an unfair fixed idea about a group"},
+      {"term": "diversity", "definition": "variety of people, cultures, or ideas"},
+      {"term": "tolerance", "definition": "respecting people who are different"}
+    ],
+    "collocations": ["cultural identity", "respect differences", "break stereotypes", "preserve traditions"],
+    "expressions": ["Culture shapes our identity.", "Diversity enriches society.", "Respect is the basis of coexistence."],
+    "examples": [
+      "Moroccan culture is known for hospitality and diversity.",
+      "Stereotypes can create misunderstanding between people.",
+      "Young people can preserve traditions while learning from other cultures."
+    ],
+    "writingTopics": [
+      "The importance of preserving cultural identity.",
+      "How can people fight stereotypes?",
+      "Write about a Moroccan tradition you value."
+    ],
+    "readingTips": [
+      "For inference questions, check how the writer describes difference.",
+      "Reference words often refer to cultures, traditions, or groups."
+    ]
+  },
+  {
+    "id": "theme-women-power",
+    "type": "Vocabulary",
+    "title": "Women and Power",
+    "explanation": "This theme is about women's rights, equality, education, leadership, and empowerment. Exam texts may present successful women or discuss obstacles women face in education, work, or public life.",
+    "vocabulary": [
+      {"term": "empowerment", "definition": "giving people power, confidence, and opportunities"},
+      {"term": "equality", "definition": "having the same rights and chances"},
+      {"term": "leadership", "definition": "the ability to guide or influence others"},
+      {"term": "discrimination", "definition": "unfair treatment of a person or group"},
+      {"term": "achievement", "definition": "something important that someone succeeds in doing"},
+      {"term": "role model", "definition": "a person others admire and follow"}
+    ],
+    "collocations": ["gender equality", "women's rights", "female leadership", "equal opportunities"],
+    "expressions": ["Educating girls benefits the whole society.", "Women can be leaders in every field.", "Equality means fair chances for all."],
+    "examples": [
+      "Many Moroccan women have become successful entrepreneurs.",
+      "Education helps women participate in public life.",
+      "Discrimination prevents society from using all its talents."
+    ],
+    "writingTopics": [
+      "Why is girls' education important?",
+      "Write about a woman who inspires you.",
+      "How can society support women's empowerment?"
+    ],
+    "readingTips": [
+      "Notice whether the text focuses on achievements, obstacles, or solutions.",
+      "Cause and effect questions may ask how education changes women's lives."
+    ]
+  },
+  {
+    "id": "theme-science-technology",
+    "type": "Vocabulary",
+    "title": "Science and Technology",
+    "explanation": "This theme covers inventions, the internet, artificial intelligence, medicine, communication, and the effects of technology on daily life. Exam texts often ask students to balance advantages and disadvantages.",
+    "vocabulary": [
+      {"term": "innovation", "definition": "a new idea, method, or product"},
+      {"term": "device", "definition": "a machine or tool"},
+      {"term": "artificial intelligence", "definition": "computer systems that do tasks needing human intelligence"},
+      {"term": "digital", "definition": "using computer technology"},
+      {"term": "privacy", "definition": "control over personal information"},
+      {"term": "addiction", "definition": "a strong harmful need to do or use something"}
+    ],
+    "collocations": ["digital skills", "modern technology", "protect privacy", "solve problems"],
+    "expressions": ["Technology is a tool, not a goal.", "Innovation can improve people's lives.", "Students should use the internet wisely."],
+    "examples": [
+      "Smartphones help students access information quickly.",
+      "Too much screen time can harm concentration.",
+      "Artificial intelligence may change many jobs in the future."
+    ],
+    "writingTopics": [
+      "Advantages and disadvantages of technology.",
+      "Should students use smartphones at school?",
+      "How can technology improve education?"
+    ],
+    "readingTips": [
+      "Look for contrast connectors when a text discusses pros and cons.",
+      "Author attitude may be balanced, optimistic, or worried."
+    ]
+  },
+  {
+    "id": "theme-sustainable-development",
+    "type": "Vocabulary",
+    "title": "Sustainable Development",
+    "explanation": "Sustainable development means improving life today without destroying resources for future generations. Exam texts may discuss pollution, renewable energy, water, recycling, climate change, or local associations.",
+    "vocabulary": [
+      {"term": "sustainability", "definition": "using resources in a way that protects the future"},
+      {"term": "pollution", "definition": "damage caused to air, water, or land"},
+      {"term": "renewable energy", "definition": "energy from sources like sun, wind, or water"},
+      {"term": "recycling", "definition": "using waste materials again"},
+      {"term": "climate change", "definition": "long-term change in weather patterns"},
+      {"term": "awareness", "definition": "knowledge about an issue"}
+    ],
+    "collocations": ["protect the environment", "save water", "raise awareness", "renewable resources"],
+    "expressions": ["Small actions can protect the planet.", "Development should respect nature.", "Environmental awareness begins at school."],
+    "examples": [
+      "Students can organize campaigns to clean their neighborhood.",
+      "Solar energy is useful in sunny regions.",
+      "Saving water is important in many Moroccan cities."
+    ],
+    "writingTopics": [
+      "How can students protect the environment?",
+      "Write about the importance of renewable energy.",
+      "What can people do to reduce pollution?"
+    ],
+    "readingTips": [
+      "Cause and effect questions are common in environmental texts.",
+      "Watch for numbers or examples that support the main idea."
+    ]
+  },
+  {
+    "id": "theme-citizenship",
+    "type": "Vocabulary",
+    "title": "Citizenship",
+    "explanation": "Citizenship means belonging to a community and respecting rights and duties. Exam texts may discuss volunteering, voting, public property, tolerance, school clubs, and responsible behavior.",
+    "vocabulary": [
+      {"term": "citizen", "definition": "a member of a country or community"},
+      {"term": "right", "definition": "something a person is allowed to have or do"},
+      {"term": "duty", "definition": "something a person should do"},
+      {"term": "volunteering", "definition": "helping others without payment"},
+      {"term": "responsibility", "definition": "a duty to do something well"},
+      {"term": "public property", "definition": "places or things owned by the community"}
+    ],
+    "collocations": ["active citizen", "civic duty", "respect the law", "serve the community"],
+    "expressions": ["Good citizens respect both rights and duties.", "Volunteering teaches responsibility.", "Public property belongs to everyone."],
+    "examples": [
+      "Students show citizenship when they keep their school clean.",
+      "Volunteering develops solidarity among young people.",
+      "Respecting traffic rules is a civic duty."
+    ],
+    "writingTopics": [
+      "What makes a good citizen?",
+      "The importance of volunteering.",
+      "How can students serve their community?"
+    ],
+    "readingTips": [
+      "Differentiate between rights and duties.",
+      "Matching exercises may use synonyms like responsibility and duty."
+    ]
+  },
+  {
+    "id": "theme-international-organizations",
+    "type": "Vocabulary",
+    "title": "International Organizations",
+    "explanation": "International organizations work across countries to solve global problems. Exam texts may mention education, health, peace, children, refugees, poverty, and humanitarian aid.",
+    "vocabulary": [
+      {"term": "organization", "definition": "a group working for a purpose"},
+      {"term": "humanitarian", "definition": "related to helping people in need"},
+      {"term": "aid", "definition": "help, often food, money, or services"},
+      {"term": "peacekeeping", "definition": "actions to maintain peace"},
+      {"term": "refugee", "definition": "a person forced to leave home because of danger"},
+      {"term": "campaign", "definition": "organized actions to reach a goal"}
+    ],
+    "collocations": ["provide aid", "protect children", "fight poverty", "promote peace"],
+    "expressions": ["Global problems need global cooperation.", "Humanitarian work saves lives.", "Organizations can support vulnerable people."],
+    "examples": [
+      "Some organizations provide school supplies for poor children.",
+      "Humanitarian aid is important after natural disasters.",
+      "International cooperation can reduce poverty."
+    ],
+    "writingTopics": [
+      "Why are international organizations important?",
+      "Write about an organization that helps people.",
+      "How can young people support humanitarian campaigns?"
+    ],
+    "readingTips": [
+      "Pay attention to the organization's purpose and target group.",
+      "In main idea questions, avoid focusing only on one example of aid."
+    ]
+  },
+  {
+    "id": "theme-brain-drain",
+    "type": "Vocabulary",
+    "title": "Brain Drain",
+    "explanation": "Brain drain is the migration of educated or skilled people to other countries for better opportunities. Exam texts may discuss causes, effects, and possible solutions.",
+    "vocabulary": [
+      {"term": "skilled worker", "definition": "a person with special training or ability"},
+      {"term": "opportunity", "definition": "a good chance to do something"},
+      {"term": "emigrate", "definition": "to leave your country to live elsewhere"},
+      {"term": "shortage", "definition": "not enough of something"},
+      {"term": "investment", "definition": "money or effort used to create future benefit"},
+      {"term": "returnee", "definition": "a person who comes back after living elsewhere"}
+    ],
+    "collocations": ["better opportunities", "skilled professionals", "create jobs", "return home"],
+    "expressions": ["Brain drain can weaken local development.", "Countries should create opportunities for talent.", "Migrants can also send knowledge back home."],
+    "examples": [
+      "Some doctors emigrate because they want better working conditions.",
+      "Creating research centers can reduce brain drain.",
+      "Returnees may bring new skills and ideas."
+    ],
+    "writingTopics": [
+      "Causes and effects of brain drain.",
+      "How can countries encourage skilled people to stay?",
+      "Is migration always negative?"
+    ],
+    "readingTips": [
+      "Expect cause and effect vocabulary.",
+      "Separate causes, consequences, and solutions in your notes."
+    ]
+  },
+  {
+    "id": "theme-migration",
+    "type": "Vocabulary",
+    "title": "Migration",
+    "explanation": "Migration means moving from one place to another, inside a country or abroad. Exam texts may discuss reasons for migration, integration, identity, remittances, and challenges.",
+    "vocabulary": [
+      {"term": "migrant", "definition": "a person who moves to another place"},
+      {"term": "immigrant", "definition": "a person who comes to live in a new country"},
+      {"term": "integration", "definition": "becoming part of a community"},
+      {"term": "remittances", "definition": "money migrants send to their families"},
+      {"term": "homesickness", "definition": "sadness because one misses home"},
+      {"term": "adapt", "definition": "to change to fit a new situation"}
+    ],
+    "collocations": ["rural migration", "economic reasons", "adapt to a new culture", "send money home"],
+    "expressions": ["Migration can bring both opportunities and difficulties.", "Integration requires respect from both sides.", "Many migrants work hard to support their families."],
+    "examples": [
+      "Some young people move to cities to find work.",
+      "Migrants may face language problems in a new country.",
+      "Remittances can help families pay for education."
+    ],
+    "writingTopics": [
+      "Why do people migrate?",
+      "Advantages and disadvantages of migration.",
+      "How can migrants integrate into a new society?"
+    ],
+    "readingTips": [
+      "Identify whether the text discusses internal or international migration.",
+      "Look for emotional words such as hope, fear, or homesickness."
+    ]
+  },
+  {
+    "id": "theme-human-rights",
+    "type": "Vocabulary",
+    "title": "Human Rights",
+    "explanation": "Human rights are basic rights that all people should have, such as education, safety, dignity, equality, and freedom of expression. Exam texts may discuss children, women, people with disabilities, or social justice.",
+    "vocabulary": [
+      {"term": "dignity", "definition": "the value and respect every person deserves"},
+      {"term": "freedom", "definition": "the right to act, speak, or think without unfair control"},
+      {"term": "justice", "definition": "fair treatment"},
+      {"term": "equality", "definition": "equal rights and chances"},
+      {"term": "protection", "definition": "keeping someone safe"},
+      {"term": "violation", "definition": "an action that breaks a right or rule"}
+    ],
+    "collocations": ["basic rights", "protect dignity", "fight discrimination", "promote justice"],
+    "expressions": ["Human rights belong to everyone.", "Rights come with responsibilities.", "A fair society protects vulnerable people."],
+    "examples": [
+      "Education is an important right for every child.",
+      "Discrimination is a violation of human dignity.",
+      "Awareness campaigns can help people understand their rights."
+    ],
+    "writingTopics": [
+      "Why are human rights important?",
+      "How can schools teach respect for rights?",
+      "Write about equality in society."
+    ],
+    "readingTips": [
+      "Texts may include examples of problems and solutions.",
+      "For author's attitude, look for words showing criticism of injustice."
+    ]
+  },
+  {
+    "id": "theme-media-communication",
+    "type": "Vocabulary",
+    "title": "Media and Communication",
+    "explanation": "This theme covers television, newspapers, social media, advertising, communication skills, and the spread of information. Exam texts often discuss fake news, responsible use, and media influence.",
+    "vocabulary": [
+      {"term": "media", "definition": "ways of sharing information such as TV, radio, newspapers, and internet"},
+      {"term": "communication", "definition": "sharing ideas or information"},
+      {"term": "fake news", "definition": "false information presented as news"},
+      {"term": "source", "definition": "where information comes from"},
+      {"term": "advertising", "definition": "messages that promote products or ideas"},
+      {"term": "influence", "definition": "the power to affect opinions or behavior"}
+    ],
+    "collocations": ["social media", "check sources", "spread information", "influence opinions"],
+    "expressions": ["Responsible users check information before sharing it.", "Media can educate and mislead at the same time.", "Good communication prevents misunderstanding."],
+    "examples": [
+      "Students should check sources before believing online news.",
+      "Social media helps people stay connected.",
+      "Advertising can influence what teenagers buy."
+    ],
+    "writingTopics": [
+      "Advantages and disadvantages of social media.",
+      "How can students avoid fake news?",
+      "The role of media in education."
+    ],
+    "readingTips": [
+      "Identify if the text is warning, informing, or persuading.",
+      "Vocabulary questions may use words such as source, reliable, or misleading."
+    ]
+  },
+  {
+    "id": "theme-values",
+    "type": "Vocabulary",
+    "title": "Personal Values and Social Values",
+    "explanation": "Values are principles that guide behavior. Personal values include honesty, patience, and hard work. Social values include solidarity, respect, tolerance, and cooperation.",
+    "vocabulary": [
+      {"term": "honesty", "definition": "telling the truth and acting fairly"},
+      {"term": "solidarity", "definition": "supporting people who need help"},
+      {"term": "respect", "definition": "treating people politely and fairly"},
+      {"term": "cooperation", "definition": "working together"},
+      {"term": "responsibility", "definition": "being trusted to do what is right"},
+      {"term": "patience", "definition": "the ability to wait or continue calmly"}
+    ],
+    "collocations": ["show respect", "take responsibility", "work together", "help the needy"],
+    "expressions": ["Values guide our choices.", "Respect creates peaceful relationships.", "A strong society is built on cooperation."],
+    "examples": [
+      "Honesty is important in exams and daily life.",
+      "Solidarity appears when people help families in need.",
+      "Cooperation makes group projects successful."
+    ],
+    "writingTopics": [
+      "Which value is most important for students?",
+      "How can schools teach social values?",
+      "Write about a situation where honesty was important."
+    ],
+    "readingTips": [
+      "The text may give a story that teaches a value.",
+      "In inference questions, identify the lesson behind the action."
+    ]
+  }
+]

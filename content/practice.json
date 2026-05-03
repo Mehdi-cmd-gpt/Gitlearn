@@ -1,0 +1,686 @@
+{
+  "vocabularyExercises": [
+    {
+      "id": "vocab-1",
+      "type": "Practice",
+      "title": "Vocabulary 1: Match the Words",
+      "questions": [
+        "1. literacy",
+        "2. volunteering",
+        "3. innovation",
+        "4. tolerance",
+        "5. migration"
+      ],
+      "options": [
+        "A. accepting people who are different",
+        "B. moving from one place to another",
+        "C. ability to read and write",
+        "D. a new idea or method",
+        "E. helping others without payment"
+      ],
+      "answerKey": ["1-C", "2-E", "3-D", "4-A", "5-B"],
+      "explanation": "These are high-frequency Bac theme words."
+    },
+    {
+      "id": "vocab-2",
+      "type": "Practice",
+      "title": "Vocabulary 2: Complete the Sentences",
+      "questions": [
+        "Use: awareness, equality, privacy, scholarship, pollution.",
+        "1. Students organized a campaign to raise ___ about recycling.",
+        "2. Everyone should have ___ of opportunity.",
+        "3. A ___ helped her continue her studies.",
+        "4. Factories can cause air ___.",
+        "5. People should protect their online ___."
+      ],
+      "answerKey": ["awareness", "equality", "scholarship", "pollution", "privacy"],
+      "explanation": "Read the context to identify the correct noun."
+    },
+    {
+      "id": "vocab-3",
+      "type": "Practice",
+      "title": "Vocabulary 3: Collocations",
+      "questions": [
+        "Choose the correct verb: raise, face, protect, create, take.",
+        "1. ___ awareness",
+        "2. ___ challenges",
+        "3. ___ privacy",
+        "4. ___ jobs",
+        "5. ___ part in a campaign"
+      ],
+      "answerKey": ["raise awareness", "face challenges", "protect privacy", "create jobs", "take part in a campaign"],
+      "explanation": "Collocations are word partnerships that sound natural."
+    },
+    {
+      "id": "vocab-4",
+      "type": "Practice",
+      "title": "Vocabulary 4: Odd One Out",
+      "questions": [
+        "1. school - university - scholarship - factory",
+        "2. recycling - pollution - renewable energy - clean-up",
+        "3. joke - laughter - comedian - deadline",
+        "4. rights - duties - citizenship - battery",
+        "5. source - fake news - article - oxygen"
+      ],
+      "answerKey": ["factory", "pollution", "deadline", "battery", "oxygen"],
+      "explanation": "The odd word does not belong to the same theme."
+    },
+    {
+      "id": "vocab-5",
+      "type": "Practice",
+      "title": "Vocabulary 5: Synonyms",
+      "questions": [
+        "Find a synonym: opportunity, crucial, aid, preserve, influence.",
+        "1. very important",
+        "2. chance",
+        "3. help",
+        "4. protect",
+        "5. affect"
+      ],
+      "answerKey": ["crucial", "opportunity", "aid", "preserve", "influence"],
+      "explanation": "Synonyms help in reading comprehension and vocabulary from context."
+    },
+    {
+      "id": "vocab-6",
+      "type": "Practice",
+      "title": "Vocabulary 6: Antonyms",
+      "questions": [
+        "Give the opposite of: formal, fair, possible, careful, agree.",
+        "1. ___ education can happen at home or in daily life.",
+        "2. It is ___ to treat people differently because of gender.",
+        "3. Some students think success is ___ without hard work.",
+        "4. A ___ driver may cause accidents.",
+        "5. I ___ with the idea that exams are useless."
+      ],
+      "answerKey": ["informal", "unfair", "impossible", "careless", "disagree"],
+      "explanation": "Prefixes like in-, un-, im-, dis-, and suffixes like -less are common in Bac tasks."
+    },
+    {
+      "id": "vocab-7",
+      "type": "Practice",
+      "title": "Vocabulary 7: Theme Identification",
+      "questions": [
+        "Name the theme: 1. renewable energy, recycling, pollution",
+        "2. rights, duties, volunteering",
+        "3. migration of skilled workers",
+        "4. jokes, laughter, comedian",
+        "5. stereotypes, customs, identity"
+      ],
+      "answerKey": ["Sustainable Development", "Citizenship", "Brain Drain", "Humour", "Culture"],
+      "explanation": "Recognizing theme vocabulary helps you predict the text topic."
+    },
+    {
+      "id": "vocab-8",
+      "type": "Practice",
+      "title": "Vocabulary 8: Word Families",
+      "questions": [
+        "Complete with the correct form.",
+        "1. Good ___ is necessary in group work. (communicate)",
+        "2. The campaign was very ___. (success)",
+        "3. Students should act ___. (responsible)",
+        "4. ___ is important for development. (educate)",
+        "5. The city needs more ___ projects. (environment)"
+      ],
+      "answerKey": ["communication", "successful", "responsibly", "Education", "environmental"],
+      "explanation": "Check if the sentence needs a noun, adjective, or adverb."
+    },
+    {
+      "id": "vocab-9",
+      "type": "Practice",
+      "title": "Vocabulary 9: Phrasal Verbs",
+      "questions": [
+        "Use: give up, look up, take part in, find out, look after.",
+        "1. Students should ___ new words in a dictionary.",
+        "2. Do not ___ when an exercise is difficult.",
+        "3. Many volunteers ___ the clean-up campaign.",
+        "4. Read the text to ___ the answer.",
+        "5. She helps ___ her little sister."
+      ],
+      "answerKey": ["look up", "give up", "take part in", "find out", "look after"],
+      "explanation": "Learn phrasal verbs in sentences, not as isolated lists."
+    },
+    {
+      "id": "vocab-10",
+      "type": "Practice",
+      "title": "Vocabulary 10: Exam Sentences",
+      "questions": [
+        "Complete with a suitable word.",
+        "1. Brain drain happens when skilled people ___ to other countries.",
+        "2. Human rights protect people's ___.",
+        "3. Fake news can ___ public opinion.",
+        "4. Young people need guidance to develop their ___.",
+        "5. International organizations provide ___ after disasters."
+      ],
+      "answerKey": ["emigrate", "dignity", "influence", "potential", "aid"],
+      "explanation": "These sentences are similar to language-use tasks in Bac exams."
+    }
+  ],
+  "grammarExercises": [
+    {
+      "id": "grammar-practice-1",
+      "type": "Practice",
+      "title": "Grammar 1: Tenses",
+      "questions": ["Put the verbs in brackets in the correct tense.", "1. She usually ___ English podcasts. (listen)", "2. They ___ a project now. (prepare)", "3. I ___ my essay yesterday. (finish)", "4. He ___ already ___ the article. (read)", "5. By the time we arrived, the meeting ___. (start)"],
+      "answerKey": ["listens", "are preparing", "finished", "has already read", "had started"],
+      "explanation": "Use time markers such as usually, now, yesterday, already, and by the time."
+    },
+    {
+      "id": "grammar-practice-2",
+      "type": "Practice",
+      "title": "Grammar 2: Passive Voice",
+      "questions": ["Rewrite in the passive.", "1. Students planted trees.", "2. People speak English worldwide.", "3. They will open a new library.", "4. Someone has broken the window.", "5. The teacher corrects essays."],
+      "answerKey": ["Trees were planted by students.", "English is spoken worldwide.", "A new library will be opened.", "The window has been broken.", "Essays are corrected by the teacher."],
+      "explanation": "Passive voice uses be + past participle."
+    },
+    {
+      "id": "grammar-practice-3",
+      "type": "Practice",
+      "title": "Grammar 3: Reported Speech",
+      "questions": ["Report the sentences.", "1. I am tired.", "2. We will help you.", "3. I have finished.", "4. Where do you live?", "5. Revise the lesson."],
+      "answerKey": ["He said that he was tired.", "They said that they would help me.", "She said that she had finished.", "He asked where I lived.", "The teacher told me to revise the lesson."],
+      "explanation": "Change tense, pronouns, and word order in questions."
+    },
+    {
+      "id": "grammar-practice-4",
+      "type": "Practice",
+      "title": "Grammar 4: Conditionals",
+      "questions": ["Complete the sentences.", "1. If water reaches 100 degrees, it ___. (boil)", "2. If I study hard, I ___ the exam. (pass)", "3. If I had more time, I ___ more. (read)", "4. If she had revised, she ___ better marks. (get)", "5. Unless you hurry, you ___ late. (be)"],
+      "answerKey": ["boils", "will pass", "would read", "would have got", "will be"],
+      "explanation": "Identify type 0, 1, 2, or 3."
+    },
+    {
+      "id": "grammar-practice-5",
+      "type": "Practice",
+      "title": "Grammar 5: Modals",
+      "questions": ["Choose a suitable modal.", "1. Students ___ respect exam rules.", "2. You ___ cheat in the exam.", "3. He failed; he ___ have revised more.", "4. It ___ rain later; the sky is cloudy.", "5. ___ you help me with this exercise?"],
+      "answerKey": ["must", "must not", "should", "may/might", "Could/Can"],
+      "explanation": "Think about obligation, prohibition, regret, possibility, and request."
+    },
+    {
+      "id": "grammar-practice-6",
+      "type": "Practice",
+      "title": "Grammar 6: Relative Clauses",
+      "questions": ["Use who, which, where, when, or whose.", "1. This is the student ___ won the prize.", "2. The phone ___ I bought is useful.", "3. Marrakesh is a city ___ many tourists visit.", "4. Friday is the day ___ we meet.", "5. That is the girl ___ brother studies with me."],
+      "answerKey": ["who", "which", "where", "when", "whose"],
+      "explanation": "Choose the relative pronoun according to the noun."
+    },
+    {
+      "id": "grammar-practice-7",
+      "type": "Practice",
+      "title": "Grammar 7: Connectors",
+      "questions": ["Choose: because, however, therefore, although, moreover.", "1. ___ he was tired, he finished the report.", "2. She studied hard; ___, she got a good mark.", "3. Technology is useful. ___, it can distract students.", "4. I joined the club ___ I wanted to improve my English.", "5. Education gives knowledge. ___, it builds values."],
+      "answerKey": ["Although", "therefore", "However", "because", "Moreover"],
+      "explanation": "Each connector has a different logical relationship."
+    },
+    {
+      "id": "grammar-practice-8",
+      "type": "Practice",
+      "title": "Grammar 8: Gerund or Infinitive",
+      "questions": ["Complete the sentences.", "1. She enjoys ___ stories. (read)", "2. They decided ___ a club. (create)", "3. Avoid ___ during revision. (procrastinate)", "4. He wants ___ abroad. (study)", "5. I am interested in ___ English. (learn)"],
+      "answerKey": ["reading", "to create", "procrastinating", "to study", "learning"],
+      "explanation": "After prepositions, use the gerund."
+    },
+    {
+      "id": "grammar-practice-9",
+      "type": "Practice",
+      "title": "Grammar 9: Articles and Comparatives",
+      "questions": ["Complete correctly.", "1. She is ___ honest student.", "2. ___ education is important.", "3. This exercise is ___ than the first one. (easy)", "4. He is ___ active student in class. (most)", "5. Rabat is ___ capital of Morocco."],
+      "answerKey": ["an", "No article", "easier", "the most", "the"],
+      "explanation": "Check vowel sounds, general nouns, and comparison forms."
+    },
+    {
+      "id": "grammar-practice-10",
+      "type": "Practice",
+      "title": "Grammar 10: Word Formation",
+      "questions": ["Complete with the correct form.", "1. Her ___ inspired many girls. (achieve)", "2. We need ___ solutions. (practice)", "3. He speaks English ___. (fluent)", "4. The project promotes ___. (sustainable)", "5. It is ___ to ignore climate change. (responsible)"],
+      "answerKey": ["achievement", "practical", "fluently", "sustainability", "irresponsible"],
+      "explanation": "Look at the grammar position of the gap."
+    }
+  ],
+  "functionExercises": [
+    {
+      "id": "function-practice-1",
+      "type": "Practice",
+      "title": "Function 1: Opinion",
+      "questions": ["Respond: What do you think about school clubs?"],
+      "answerKey": ["In my opinion, school clubs are useful because they help students develop confidence and teamwork."],
+      "explanation": "Use an opinion phrase and a reason."
+    },
+    {
+      "id": "function-practice-2",
+      "type": "Practice",
+      "title": "Function 2: Advice",
+      "questions": ["Your friend is afraid of writing. Give advice."],
+      "answerKey": ["You should practice one short paragraph every day and ask your teacher to correct it."],
+      "explanation": "Should is common for advice."
+    },
+    {
+      "id": "function-practice-3",
+      "type": "Practice",
+      "title": "Function 3: Request",
+      "questions": ["Ask your teacher to explain reported speech again."],
+      "answerKey": ["Could you please explain reported speech again?"],
+      "explanation": "Could you please is polite and suitable."
+    },
+    {
+      "id": "function-practice-4",
+      "type": "Practice",
+      "title": "Function 4: Complaint",
+      "questions": ["Complain about noise near the school library."],
+      "answerKey": ["I would like to complain about the noise near the school library because it disturbs students."],
+      "explanation": "State the problem and reason politely."
+    },
+    {
+      "id": "function-practice-5",
+      "type": "Practice",
+      "title": "Function 5: Apology",
+      "questions": ["Apologize for coming late to a meeting."],
+      "answerKey": ["I am sorry for coming late to the meeting."],
+      "explanation": "I am sorry for + gerund."
+    },
+    {
+      "id": "function-practice-6",
+      "type": "Practice",
+      "title": "Function 6: Purpose",
+      "questions": ["Express purpose: Students revise past papers. They want to understand the exam format."],
+      "answerKey": ["Students revise past papers in order to understand the exam format."],
+      "explanation": "In order to + verb expresses purpose."
+    },
+    {
+      "id": "function-practice-7",
+      "type": "Practice",
+      "title": "Function 7: Cause and Effect",
+      "questions": ["Connect: He did not revise. He got a bad mark."],
+      "answerKey": ["He did not revise; therefore, he got a bad mark."],
+      "explanation": "Therefore shows result."
+    },
+    {
+      "id": "function-practice-8",
+      "type": "Practice",
+      "title": "Function 8: Clarification",
+      "questions": ["Ask for clarification when you do not understand the word sustainability."],
+      "answerKey": ["Could you clarify the meaning of sustainability, please?"],
+      "explanation": "Could you clarify is formal and polite."
+    },
+    {
+      "id": "function-practice-9",
+      "type": "Practice",
+      "title": "Function 9: Invitation",
+      "questions": ["Invite a classmate to an English club meeting."],
+      "answerKey": ["Would you like to attend our English club meeting on Friday?"],
+      "explanation": "Would you like to is a polite invitation."
+    },
+    {
+      "id": "function-practice-10",
+      "type": "Practice",
+      "title": "Function 10: Suggestion",
+      "questions": ["Suggest a way to reduce plastic waste at school."],
+      "answerKey": ["Why do not we put recycling bins in the schoolyard?"],
+      "explanation": "Why do not we is used for suggestions."
+    }
+  ],
+  "writingPrompts": [
+    {
+      "id": "prompt-1",
+      "type": "Practice",
+      "title": "Writing Prompt 1",
+      "prompt": "Write a paragraph about how young people can help their community.",
+      "support": ["Mention volunteering", "Give one example from school or neighborhood", "End with a clear conclusion"]
+    },
+    {
+      "id": "prompt-2",
+      "type": "Practice",
+      "title": "Writing Prompt 2",
+      "prompt": "Write an opinion essay: Is technology helpful for students?",
+      "support": ["Give your opinion", "Mention benefits", "Mention one risk", "Use connectors"]
+    },
+    {
+      "id": "prompt-3",
+      "type": "Practice",
+      "title": "Writing Prompt 3",
+      "prompt": "Write a formal letter to complain about pollution near your school.",
+      "support": ["Use formal greeting", "Explain the problem", "Suggest a solution", "Close politely"]
+    },
+    {
+      "id": "prompt-4",
+      "type": "Practice",
+      "title": "Writing Prompt 4",
+      "prompt": "Write an article for your school magazine about the importance of reading.",
+      "support": ["Add a title", "Explain benefits", "Give advice", "End with encouragement"]
+    },
+    {
+      "id": "prompt-5",
+      "type": "Practice",
+      "title": "Writing Prompt 5",
+      "prompt": "Write a report about students' use of social media in your class.",
+      "support": ["State the aim", "Present findings", "Mention problems", "Give recommendations"]
+    },
+    {
+      "id": "prompt-6",
+      "type": "Practice",
+      "title": "Writing Prompt 6",
+      "prompt": "Write an informal email to a friend inviting him or her to join your English study group.",
+      "support": ["Use a friendly greeting", "Explain when and where you meet", "Mention two benefits", "End warmly"]
+    },
+    {
+      "id": "prompt-7",
+      "type": "Practice",
+      "title": "Writing Prompt 7",
+      "prompt": "Write an argumentative essay: Should students work part-time while preparing for the Bac?",
+      "support": ["Present both sides", "Mention time management", "Give your final opinion", "Use contrast connectors"]
+    },
+    {
+      "id": "prompt-8",
+      "type": "Practice",
+      "title": "Writing Prompt 8",
+      "prompt": "Describe a person who taught you an important value.",
+      "support": ["Introduce the person", "Describe the value", "Give a real example", "Explain why you remember this person"]
+    },
+    {
+      "id": "prompt-9",
+      "type": "Practice",
+      "title": "Writing Prompt 9",
+      "prompt": "Write a film review about a film that gives a positive message to young people.",
+      "support": ["Mention the type of film", "Summarize briefly", "Give your opinion", "Recommend it or not"]
+    },
+    {
+      "id": "prompt-10",
+      "type": "Practice",
+      "title": "Writing Prompt 10",
+      "prompt": "Write a formal letter to the headmaster suggesting ways to improve the school library.",
+      "support": ["Use formal language", "Explain the problem", "Suggest practical solutions", "Close politely"]
+    }
+  ],
+  "mockExams": [
+    {
+      "id": "mock-1",
+      "type": "Practice",
+      "title": "Mock Exam 1: Youth and Volunteering",
+      "text": "Last year, a group of students in a high school near Meknes created a small volunteering club. At first, only six students attended the meetings. They wanted to clean the school garden and collect books for children in a nearby village. After a few weeks, other students joined because they saw real results. The garden became cleaner, and the book collection helped many children read at home. The club also changed the students themselves. They became more confident, learned how to organize tasks, and discovered that young people can solve problems when they work together. Their teacher said the project was successful because it connected learning with action.",
+      "readingQuestions": [
+        "1. Are these statements true or false? Justify. a. The club started with many students. b. The students collected books for children.",
+        "2. Why did other students join the club?",
+        "3. What does the word they in sentence 2 refer to?",
+        "4. Find in the text a word meaning sure of yourself.",
+        "5. What is the main idea of the text?"
+      ],
+      "languageQuestions": [
+        "1. Rewrite in passive: Students collected books.",
+        "2. Complete: If young people work together, they ___ problems. (solve)",
+        "3. Give the noun: confident.",
+        "4. Express purpose: They collected books. They wanted to help children.",
+        "5. Give advice to a student who wants to volunteer."
+      ],
+      "writingTask": "Write a paragraph about the benefits of volunteering for students.",
+      "answerKey": [
+        "1a False: only six students attended the meetings. 1b True: collect books for children in a nearby village.",
+        "2. Because they saw real results.",
+        "3. They refers to the students / group of students.",
+        "4. confident.",
+        "5. Young people can help their community through volunteering.",
+        "Language: Books were collected by students. / can solve or solve depending on structure: If young people work together, they can solve problems. / confidence / They collected books in order to help children. / You should join a club and start with small actions."
+      ]
+    },
+    {
+      "id": "mock-2",
+      "type": "Practice",
+      "title": "Mock Exam 2: Technology and Education",
+      "text": "In many Moroccan schools, students use digital tools to revise lessons and communicate with teachers. These tools can make learning more flexible, especially for students who live far from libraries or private support classes. A simple phone can give access to videos, dictionaries, and practice tests. However, technology is not always helpful. Some students lose time on games and social media instead of studying. Others copy answers without understanding them. For this reason, teachers often remind learners that technology should support effort, not replace it. When students use digital resources responsibly, they can become more independent and better prepared for exams.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. Digital tools can help students who live far from libraries. b. The writer says technology should replace effort.",
+        "2. Mention two digital resources from the text.",
+        "3. What does the word them refer to?",
+        "4. Find a word meaning in a responsible way.",
+        "5. Is the writer's attitude positive, negative, or balanced? Explain."
+      ],
+      "languageQuestions": [
+        "1. Join with however: Technology is useful. It can distract students.",
+        "2. Complete: Students should avoid ___ answers without understanding. (copy)",
+        "3. Report: The teacher said, Technology should support effort.",
+        "4. Give the adjective: responsibility.",
+        "5. Express opinion about online learning."
+      ],
+      "writingTask": "Write an opinion essay about the advantages and disadvantages of technology in education.",
+      "answerKey": [
+        "1a True: especially for students who live far from libraries. 1b False: should support effort, not replace it.",
+        "2. Videos, dictionaries, practice tests.",
+        "3. Them refers to answers.",
+        "4. Responsibly.",
+        "5. Balanced, because the writer mentions benefits and risks.",
+        "Language: Technology is useful; however, it can distract students. / copying / The teacher said that technology should support effort. / responsible / In my opinion, online learning is useful when students use it seriously."
+      ]
+    },
+    {
+      "id": "mock-3",
+      "type": "Practice",
+      "title": "Mock Exam 3: Environment and Citizenship",
+      "text": "A clean neighborhood is not only the responsibility of local authorities. Citizens also have an important role to play. In one town, students noticed that many people threw plastic bottles near a small park. Instead of waiting for others to solve the problem, they organized an awareness campaign. They put posters on walls, spoke to shop owners, and invited children to a clean-up day. The result was encouraging. Many families joined the activity, and the park became a pleasant place again. The students learned that citizenship is not just about rights; it is also about duties and daily actions.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. Only local authorities are responsible for clean neighborhoods. b. Families joined the activity.",
+        "2. What problem did students notice?",
+        "3. Find two actions students did during the campaign.",
+        "4. What does it in the last sentence refer to?",
+        "5. What lesson did the students learn?"
+      ],
+      "languageQuestions": [
+        "1. Passive: Students organized an awareness campaign.",
+        "2. Complete: If citizens protect public spaces, neighborhoods ___ cleaner. (be)",
+        "3. Use a connector of addition: Students put posters. They spoke to shop owners.",
+        "4. Give the noun: responsible.",
+        "5. Make a suggestion to reduce waste."
+      ],
+      "writingTask": "Write an article for your school magazine about how students can protect the environment.",
+      "answerKey": [
+        "1a False: citizens also have an important role. 1b True: many families joined the activity.",
+        "2. People threw plastic bottles near a small park.",
+        "3. They put posters, spoke to shop owners, and invited children to a clean-up day.",
+        "4. It refers to citizenship.",
+        "5. Citizenship includes rights, duties, and daily actions.",
+        "Language: An awareness campaign was organized by students. / will be or are depending on conditional meaning. / Students put posters. Moreover, they spoke to shop owners. / responsibility / Why do not we put recycling bins in public places?"
+      ]
+    },
+    {
+      "id": "mock-4",
+      "type": "Practice",
+      "title": "Mock Exam 4: Culture and Values",
+      "text": "Every summer, Hind visits her grandparents in a small town near Tiznit. At first, she thought traditional stories and local songs were old-fashioned. One evening, her grandmother told her a story about honesty and helping neighbors during difficult times. Hind realized that traditions are not only clothes, food, or celebrations; they also carry values. When she returned to school, she prepared a presentation about Moroccan hospitality and respect for elderly people. Her classmates enjoyed it because she connected culture with daily behavior. Hind learned that young people can protect their identity while remaining open to other cultures.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. Hind always liked traditional stories. b. Hind gave a presentation at school.",
+        "2. What values did the grandmother's story teach?",
+        "3. What does it in sentence 6 refer to?",
+        "4. Find a word in the text meaning old people.",
+        "5. What is the main idea of the text?"
+      ],
+      "languageQuestions": [
+        "1. Join with while: Young people can protect their identity. They can be open to other cultures.",
+        "2. Complete: Hind realized that traditions ___ values. (carry)",
+        "3. Give the noun: honest.",
+        "4. Report: Hind said, I prepared a presentation.",
+        "5. Express opinion about preserving traditions."
+      ],
+      "writingTask": "Write a paragraph about the importance of cultural values in young people's lives.",
+      "answerKey": [
+        "1a False: at first, she thought they were old-fashioned. 1b True: she prepared a presentation.",
+        "2. Honesty and helping neighbors.",
+        "3. It refers to the presentation.",
+        "4. elderly.",
+        "5. Traditions can teach values and help young people protect their identity.",
+        "Language: Young people can protect their identity while they remain open to other cultures. / carry / honesty / Hind said that she had prepared a presentation. / In my opinion, preserving traditions is important because they teach values and identity."
+      ]
+    },
+    {
+      "id": "mock-5",
+      "type": "Practice",
+      "title": "Mock Exam 5: Women and Power",
+      "text": "Nadia is a young engineer from Oujda who works on solar energy projects. When she was a student, some people told her that engineering was too difficult for girls. She did not listen to these negative comments. Instead, she worked hard, asked questions, and joined science clubs. Today, she visits high schools to encourage girls to study science and technology. Nadia believes that empowering girls begins with confidence and equal opportunities. Her story shows that society benefits when all young people, boys and girls, are allowed to develop their talents.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. Nadia works in solar energy. b. Nadia tells girls to avoid science.",
+        "2. Mention two things Nadia did when she was a student.",
+        "3. What does these negative comments refer to?",
+        "4. Find a word meaning giving power and confidence.",
+        "5. What does Nadia's story show?"
+      ],
+      "languageQuestions": [
+        "1. Passive: Some people told her that engineering was difficult.",
+        "2. Complete: If girls get equal opportunities, they ___ their talents. (develop)",
+        "3. Give the noun: confident.",
+        "4. Use however: Engineering is difficult. Many girls succeed in it.",
+        "5. Give advice to a girl who wants to study science."
+      ],
+      "writingTask": "Write an opinion essay about the importance of girls' education.",
+      "answerKey": [
+        "1a True: works on solar energy projects. 1b False: she encourages girls to study science and technology.",
+        "2. She worked hard, asked questions, and joined science clubs.",
+        "3. Comments that engineering was too difficult for girls.",
+        "4. empowering.",
+        "5. Society benefits when boys and girls develop their talents.",
+        "Language: She was told that engineering was difficult. / will develop or can develop / confidence / Engineering is difficult; however, many girls succeed in it. / You should believe in yourself and work hard."
+      ]
+    },
+    {
+      "id": "mock-6",
+      "type": "Practice",
+      "title": "Mock Exam 6: Brain Drain and Migration",
+      "text": "Many skilled workers leave their home countries because they are looking for better salaries, modern equipment, and more chances for research. This movement is often called brain drain. It can create serious problems when countries lose doctors, engineers, or teachers. However, migration is not always negative. Some migrants send money to their families, support local projects, or return home with new experience. Experts say that countries can reduce brain drain by creating jobs, supporting research, and respecting skilled professionals. The real solution is to give talented people a reason to build their future at home.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. Brain drain can create problems. b. Migration is always negative.",
+        "2. Why do skilled workers leave their countries?",
+        "3. What does it in sentence 2 refer to?",
+        "4. Find a word meaning decrease.",
+        "5. Mention two solutions to brain drain."
+      ],
+      "languageQuestions": [
+        "1. Complete: If countries create jobs, they ___ brain drain. (reduce)",
+        "2. Give the noun: migrate.",
+        "3. Join with because: Skilled workers leave. They want better opportunities.",
+        "4. Passive: Countries lose skilled professionals.",
+        "5. Express certainty about the importance of research."
+      ],
+      "writingTask": "Write an argumentative paragraph about whether migration is positive or negative.",
+      "answerKey": [
+        "1a True: it can create serious problems. 1b False: migration is not always negative.",
+        "2. Better salaries, modern equipment, and more chances for research.",
+        "3. It refers to the movement of skilled workers.",
+        "4. reduce.",
+        "5. Creating jobs, supporting research, and respecting skilled professionals.",
+        "Language: will reduce or can reduce / migration / Skilled workers leave because they want better opportunities. / Skilled professionals are lost by countries. / I am certain that research is important for development."
+      ]
+    },
+    {
+      "id": "mock-7",
+      "type": "Practice",
+      "title": "Mock Exam 7: Human Rights",
+      "text": "In a civic education club, students discussed the meaning of human rights. Their teacher explained that rights are not just words in documents; they should appear in daily life. For example, respecting a classmate's opinion protects freedom of expression. Helping a child stay at school supports the right to education. Treating people with disabilities with dignity shows equality. The students decided to make posters about respect, justice, and responsibility. They understood that human rights also require duties, such as respecting others and rejecting discrimination.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. Rights should appear in daily life. b. Human rights have no relation to duties.",
+        "2. Give two examples of rights mentioned in the text.",
+        "3. What does they in sentence 2 refer to?",
+        "4. Find a word meaning unfair treatment.",
+        "5. What did the students decide to do?"
+      ],
+      "languageQuestions": [
+        "1. Use such as: Human rights require duties. Examples are respecting others and rejecting discrimination.",
+        "2. Give the adjective: equality.",
+        "3. Complete: Students decided ___ posters. (make)",
+        "4. Passive: The teacher explained the meaning of rights.",
+        "5. Express obligation about respecting others."
+      ],
+      "writingTask": "Write a paragraph about how schools can teach respect for human rights.",
+      "answerKey": [
+        "1a True: they should appear in daily life. 1b False: human rights also require duties.",
+        "2. Freedom of expression, right to education, dignity, equality.",
+        "3. They refers to rights.",
+        "4. discrimination.",
+        "5. They decided to make posters about respect, justice, and responsibility.",
+        "Language: Human rights require duties such as respecting others and rejecting discrimination. / equal / to make / The meaning of rights was explained by the teacher. / We must respect others."
+      ]
+    },
+    {
+      "id": "mock-8",
+      "type": "Practice",
+      "title": "Mock Exam 8: Media and Communication",
+      "text": "Before sharing news online, Yassine used to check only the title. One day, he shared a story about a scholarship, but later discovered that it was fake. Some of his friends wasted time filling in a useless form. Since then, Yassine has become more careful. He checks the source, compares information on reliable websites, and reads beyond the headline. His English teacher used this incident to discuss media literacy. She told the class that communication is powerful, but it requires responsibility. A single click can inform people, but it can also mislead them.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. Yassine shared fake news about a scholarship. b. His teacher ignored the incident.",
+        "2. Mention two things Yassine does now before sharing information.",
+        "3. What does them in the last sentence refer to?",
+        "4. Find a word meaning dependable or trusted.",
+        "5. What lesson does the text teach?"
+      ],
+      "languageQuestions": [
+        "1. Complete: Yassine has become more ___. (care)",
+        "2. Report: The teacher said, Communication requires responsibility.",
+        "3. Use but: A click can inform people. It can mislead them.",
+        "4. Give advice about fake news.",
+        "5. Passive: Yassine shared a story."
+      ],
+      "writingTask": "Write an article about how students can avoid fake news.",
+      "answerKey": [
+        "1a True: he shared a story and later discovered it was fake. 1b False: she used the incident to discuss media literacy.",
+        "2. He checks the source, compares information, and reads beyond the headline.",
+        "3. Them refers to people.",
+        "4. reliable.",
+        "5. People should check information before sharing it.",
+        "Language: careful / The teacher said that communication required responsibility. / A click can inform people, but it can mislead them. / You should check reliable sources before sharing news. / A story was shared by Yassine."
+      ]
+    },
+    {
+      "id": "mock-9",
+      "type": "Practice",
+      "title": "Mock Exam 9: International Organizations",
+      "text": "After heavy floods damaged several villages, a humanitarian organization worked with local volunteers to help families. The organization provided blankets, food, medicine, and school supplies. Volunteers also helped children return to class by cleaning a small school and repairing desks. The project did not solve every problem, but it gave people hope and showed the value of cooperation. A volunteer said that international aid is more effective when it respects local needs and includes local citizens. The experience taught students that solidarity can connect people from different countries.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. The organization helped after floods. b. Volunteers repaired a hospital.",
+        "2. Mention three things the organization provided.",
+        "3. What does it in sentence 4 refer to?",
+        "4. Find a word meaning working together.",
+        "5. When is international aid more effective?"
+      ],
+      "languageQuestions": [
+        "1. Passive: The organization provided school supplies.",
+        "2. Complete: Aid is effective when it ___ local needs. (respect)",
+        "3. Give the adjective: hope.",
+        "4. Express addition: Volunteers cleaned a school. They repaired desks.",
+        "5. Make a request for donations."
+      ],
+      "writingTask": "Write a report about a charity campaign organized by students.",
+      "answerKey": [
+        "1a True: after heavy floods damaged villages. 1b False: they cleaned a school and repaired desks.",
+        "2. Blankets, food, medicine, and school supplies.",
+        "3. It refers to the project.",
+        "4. cooperation.",
+        "5. When it respects local needs and includes local citizens.",
+        "Language: School supplies were provided by the organization. / respects / hopeful / Volunteers cleaned a school. In addition, they repaired desks. / Could you please donate books or clothes for the campaign?"
+      ]
+    },
+    {
+      "id": "mock-10",
+      "type": "Practice",
+      "title": "Mock Exam 10: Humour and Well-being",
+      "text": "During exam season, many students feel nervous and tired. In one English class, the teacher started each lesson with a short clean joke or a funny situation from school life. The aim was not to waste time, but to help students relax before serious work. After a few weeks, students said that they felt more comfortable speaking English. Humour created a friendly atmosphere and reduced fear of mistakes. However, the teacher reminded them that jokes should be respectful. Humour is helpful when it makes people smile without hurting anyone.",
+      "readingQuestions": [
+        "1. True or false? Justify. a. The teacher used humour to help students relax. b. The teacher encouraged hurtful jokes.",
+        "2. How did students feel after a few weeks?",
+        "3. What does them refer to?",
+        "4. Find a word meaning calm and less worried.",
+        "5. What is the writer's opinion about humour?"
+      ],
+      "languageQuestions": [
+        "1. Express purpose: The teacher used jokes. He wanted to help students relax.",
+        "2. Complete: Jokes should ___ respectful. (be)",
+        "3. Use however: Humour is useful. It should not hurt people.",
+        "4. Give the noun: comfortable.",
+        "5. Express opinion about humour in class."
+      ],
+      "writingTask": "Write a paragraph about the role of humour in reducing stress.",
+      "answerKey": [
+        "1a True: to help students relax before serious work. 1b False: jokes should be respectful.",
+        "2. They felt more comfortable speaking English.",
+        "3. Them refers to the students.",
+        "4. relax.",
+        "5. Humour is helpful if it is respectful and does not hurt people.",
+        "Language: The teacher used jokes in order to help students relax. / be / Humour is useful; however, it should not hurt people. / comfort / In my opinion, humour in class can reduce stress and help students participate."
+      ]
+    }
+  ]
+}

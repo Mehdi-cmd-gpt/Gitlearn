@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "Morocco 2BAC English Exam Prep",
+    "subtitle": "Original exam-focused summaries for Moroccan 2nd Year Baccalaureate students.",
+    "disclaimer": "This guide is an original study aid based on common Moroccan 2BAC English themes and exam skills. It does not copy textbook pages. Official exam details must be checked with the latest Ministry or CNE documents."
+  },
+  "examStructure": [
+    {
+      "section": "Reading Comprehension",
+      "weight": "Often about one third of the paper",
+      "whatToExpect": [
+        "One text related to a familiar Bac theme such as youth, education, citizenship, technology, culture, or sustainable development.",
+        "True or false statements with justification from the text.",
+        "Wh-questions, main idea questions, vocabulary from context, reference words, sentence completion, matching, inference, and author attitude questions."
+      ],
+      "howToAnswer": [
+        "Read the title and first sentence before the questions.",
+        "Underline keywords in the questions, then find the matching part in the text.",
+        "For true or false, write the answer and copy only the short phrase that proves it.",
+        "For vocabulary, guess from the sentence before and after the word.",
+        "For reference words, identify the noun mentioned before the pronoun."
+      ]
+    },
+    {
+      "section": "Language Use",
+      "weight": "Often about one third of the paper",
+      "whatToExpect": [
+        "Grammar transformation, gap filling, word formation, functions, vocabulary, and sentence completion.",
+        "Common points include passive voice, reported speech, conditionals, modals, relative clauses, connectors, phrasal verbs, and prefixes or suffixes."
+      ],
+      "howToAnswer": [
+        "Read the whole sentence before choosing the answer.",
+        "Check the tense, subject, and meaning.",
+        "In word formation, identify if the gap needs a noun, verb, adjective, or adverb.",
+        "In functions, focus on the situation: formal or informal, request or advice, complaint or apology."
+      ]
+    },
+    {
+      "section": "Writing",
+      "weight": "Often about one quarter of the paper",
+      "whatToExpect": [
+        "A paragraph, email, letter, article, report, review, opinion essay, or argumentative text.",
+        "The topic is usually linked to a Bac theme and asks for around 120 to 180 words, depending on the paper."
+      ],
+      "howToAnswer": [
+        "Spend two minutes planning before writing.",
+        "Use clear paragraphs: introduction, body, and conclusion when needed.",
+        "Use connectors such as first, moreover, however, therefore, and in conclusion.",
+        "Give examples from Moroccan student life when suitable.",
+        "Leave three minutes to check spelling, punctuation, verb tense, and word order."
+      ]
+    }
+  ],
+  "readingStrategies": [
+    {
+      "id": "strategy-true-false",
+      "title": "True / False With Justification",
+      "steps": [
+        "Decide if the statement agrees with the text.",
+        "Find the exact sentence or short phrase that proves your answer.",
+        "Do not justify using your own opinion."
+      ],
+      "example": "Statement: The project helped rural students. Answer: True. Justification: It gave tablets to students in remote villages."
+    },
+    {
+      "id": "strategy-wh",
+      "title": "Wh-Questions",
+      "steps": [
+        "Identify the question word: who, what, where, when, why, or how.",
+        "Answer with a short complete sentence.",
+        "Do not copy a long paragraph."
+      ],
+      "example": "Why did the student join the club? Because he wanted to improve his communication skills."
+    },
+    {
+      "id": "strategy-main-idea",
+      "title": "Main Idea",
+      "steps": [
+        "Read the title, introduction, and conclusion.",
+        "Choose the idea that covers the whole text, not a small detail.",
+        "Avoid answers that are too general or unrelated."
+      ],
+      "example": "A good main idea: Technology can improve education when it is used responsibly."
+    },
+    {
+      "id": "strategy-vocab-context",
+      "title": "Vocabulary From Context",
+      "steps": [
+        "Look at the words before and after the unknown word.",
+        "Check if the word is positive, negative, or neutral.",
+        "Try replacing it with the option that keeps the same meaning."
+      ],
+      "example": "The word crucial in this context means very important."
+    },
+    {
+      "id": "strategy-reference",
+      "title": "Reference Words",
+      "steps": [
+        "Find the pronoun: it, they, them, this, that, which, who.",
+        "Look before the pronoun for the noun it replaces.",
+        "Make sure the noun agrees in singular or plural."
+      ],
+      "example": "In The students built an app. It helped them revise, it refers to the app."
+    },
+    {
+      "id": "strategy-completion",
+      "title": "Sentence Completion",
+      "steps": [
+        "Find the related sentence in the text.",
+        "Complete with a grammatically correct phrase.",
+        "Keep the meaning of the text exactly."
+      ],
+      "example": "The association opened a library in order to encourage reading."
+    },
+    {
+      "id": "strategy-matching",
+      "title": "Matching",
+      "steps": [
+        "Read all items before matching.",
+        "Cross out answers you have already used.",
+        "Use keywords and synonyms, not only repeated words."
+      ],
+      "example": "Volunteering may match helping people without expecting money."
+    },
+    {
+      "id": "strategy-inference",
+      "title": "Inference Questions",
+      "steps": [
+        "Use clues in the text to understand what is suggested.",
+        "Do not add information from outside the text.",
+        "Choose the answer that is most strongly supported."
+      ],
+      "example": "If the writer says the student kept trying after many failures, we can infer that she is determined."
+    },
+    {
+      "id": "strategy-attitude",
+      "title": "Author's Attitude",
+      "steps": [
+        "Look for opinion words such as useful, harmful, unfair, impressive, or worrying.",
+        "Decide if the tone is positive, negative, neutral, critical, or hopeful.",
+        "Support your answer with a clue from the text."
+      ],
+      "example": "The author is optimistic because he says young people can create positive change."
+    }
+  ],
+  "revision": {
+    "sevenDayPlan": [
+      "Day 1: Review exam structure, reading strategies, and two themes: Youth and Education.",
+      "Day 2: Review tenses, gerund and infinitive, modals, and theme vocabulary for Culture and Humour.",
+      "Day 3: Review passive voice, reported speech, and functions for opinion, advice, requests, and clarification.",
+      "Day 4: Review conditionals, relative clauses, connectors, and themes: Technology, Sustainable Development, and Citizenship.",
+      "Day 5: Review writing formats: paragraph, essay, email, letter, article, and report. Write one timed answer.",
+      "Day 6: Complete one mock practice set. Correct mistakes and rewrite weak sentences.",
+      "Day 7: Light revision only: high-frequency vocabulary, connectors, writing phrases, and checklist."
+    ],
+    "nightBeforeChecklist": [
+      "Prepare pens, ID card, invitation, watch, and water.",
+      "Read only short summaries and connectors.",
+      "Do not start a new lesson late at night.",
+      "Sleep early and avoid stressful group messages."
+    ],
+    "examDayStrategy": [
+      "Read the whole paper quickly first.",
+      "Start with the easiest questions to gain confidence.",
+      "For reading, justify with short evidence from the text.",
+      "For language, check tense, subject, and meaning.",
+      "For writing, plan, write, then check before submitting."
+    ],
+    "commonMistakes": [
+      "Writing long justifications in true or false questions.",
+      "Using because and so in the same clause.",
+      "Forgetting the past participle in passive voice.",
+      "Changing the tense incorrectly in reported speech.",
+      "Writing one long paragraph for an essay.",
+      "Using informal phrases in formal letters.",
+      "Translating directly from Arabic or French word order."
+    ],
+    "highFrequencyVocabulary": [
+      "challenge: a difficult situation",
+      "opportunity: a chance to do something useful",
+      "awareness: knowledge about a problem",
+      "empowerment: giving people power and confidence",
+      "volunteering: helping others without payment",
+      "citizenship: rights and duties in society",
+      "sustainability: using resources without harming the future",
+      "innovation: a new idea or method",
+      "migration: moving from one place to another",
+      "tolerance: accepting people who are different",
+      "equality: having the same rights and chances",
+      "literacy: ability to read and write",
+      "global: related to the whole world",
+      "impact: strong effect",
+      "solution: an answer to a problem"
+    ],
+    "highFrequencyConnectors": [
+      "Addition: moreover, furthermore, in addition, also",
+      "Contrast: however, although, whereas, on the other hand",
+      "Cause: because, since, as, due to",
+      "Effect: therefore, as a result, consequently, so",
+      "Example: for example, for instance, such as",
+      "Opinion: in my opinion, I believe that, from my point of view",
+      "Conclusion: in conclusion, to sum up, overall"
+    ],
+    "highFrequencyWritingPhrases": [
+      "The issue of ... has become important in our society.",
+      "There are several reasons for this problem.",
+      "One possible solution is to ...",
+      "For example, many Moroccan students ...",
+      "In my opinion, ...",
+      "It is true that ..., but ...",
+      "To conclude, everyone should ..."
+    ],
+    "finalChecklist": [
+      "I know the format of the English paper.",
+      "I can answer true or false with short justification.",
+      "I revised the main Bac themes.",
+      "I can use connectors correctly.",
+      "I can write a paragraph, email, letter, article, report, and essay.",
+      "I know my common grammar mistakes.",
+      "I practiced at least one timed writing task."
+    ]
+  }
+}
