@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Morocco 2BAC English Exam Prep</title>
+    <meta name="description" content="Exam-focused English study guide for Moroccan 2nd Year Baccalaureate students.">
+    <link rel="stylesheet" href="assets/styles.css?v=practice-10">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Go to homepage">
+        <span class="brand-mark">2B</span>
+        <span>
+          <strong>2BAC English Prep</strong>
+          <small>Morocco exam guide</small>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <nav id="main-nav" class="nav" aria-label="Main navigation">
+        <a href="#home" data-route="home">Home</a>
+        <a href="#units" data-route="units">Units</a>
+        <a href="#grammar" data-route="grammar">Grammar</a>
+        <a href="#vocabulary" data-route="vocabulary">Vocabulary</a>
+        <a href="#functions" data-route="functions">Functions</a>
+        <a href="#writing" data-route="writing">Writing</a>
+        <a href="#strategy" data-route="strategy">Strategy</a>
+        <a href="#practice" data-route="practice">Practice</a>
+        <a href="#checklist" data-route="checklist">Checklist</a>
+        <a href="#guide" data-route="guide">Guide</a>
+      </nav>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Toggle dark mode">Dark</button>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="English Bac exam preparation overview">
+        <div>
+          <p class="eyebrow">English only - Bac exam preparation</p>
+          <p id="page-subtitle" class="hero-copy">Clear, original summaries for themes, grammar, functions, writing, reading strategy, and practice.</p>
+        </div>
+        <aside class="progress-panel" aria-label="Revision progress">
+          <div class="progress-top">
+            <span>Revision progress</span>
+            <strong id="progress-percent">0%</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+          <p id="progress-count">0 lessons revised</p>
+        </aside>
+      </section>
+
+      <section class="toolbar" aria-label="Search and filter">
+        <label>
+          Search lessons
+          <input id="search-input" type="search" placeholder="Search grammar, theme, writing...">
+        </label>
+        <label>
+          Lesson type
+          <select id="type-filter">
+            <option value="all">All sections</option>
+            <option value="Units">Units</option>
+            <option value="Grammar">Grammar</option>
+            <option value="Vocabulary">Vocabulary</option>
+            <option value="Functions">Functions</option>
+            <option value="Writing">Writing</option>
+            <option value="Strategy">Strategy</option>
+            <option value="Practice">Practice</option>
+            <option value="Checklist">Checklist</option>
+            <option value="Guide">Guide</option>
+          </select>
+        </label>
+        <button id="clear-filters" class="secondary-button" type="button">Clear</button>
+      </section>
+
+      <section id="app" class="content-area" aria-live="polite">
+        <div class="loading">Loading study guide...</div>
+      </section>
+    </main>
+
+    <div id="print-area" aria-hidden="true"></div>
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">Top</button>
+
+    <script src="assets/app.js?v=practice-10"></script>
+  </body>
+</html>
