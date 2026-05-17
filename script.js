@@ -1063,9 +1063,31 @@ function renderLessons() {
 
 function renderTodayBlocks() {
   todayBlocks.innerHTML = lessons
-    .slice(0, 3)
-    .map((lesson, index) => lessonCardMarkup(lesson, true, index))
+    .map((lesson, index) => dashboardLessonMarkup(lesson, index))
     .join("");
+}
+
+function dashboardLessonMarkup(lesson, index = 0) {
+  const done = state.completedLessons.includes(lesson.id);
+  return `
+    <article class="study-row" style="--index: ${index}">
+      <div class="study-row-main">
+        <span class="block-badge">${escapeHtml(lesson.type)}</span>
+        <h3>${escapeHtml(lesson.title)}</h3>
+      </div>
+      <div class="study-row-actions">
+        <span class="block-time">${lesson.minutes} min</span>
+        <button class="ghost-action small" type="button" data-open-lesson="${lesson.id}">
+          <i data-lucide="book-open"></i>
+          Study
+        </button>
+        <button class="primary-action small complete-btn ${done ? "done" : ""}" type="button" data-complete="${lesson.id}">
+          <i data-lucide="${done ? "check" : "plus"}"></i>
+          ${done ? "Done" : "Mark"}
+        </button>
+      </div>
+    </article>
+  `;
 }
 
 function lessonCardMarkup(lesson, compact = false, index = 0) {
