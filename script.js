@@ -1055,8 +1055,9 @@ function renderLessons() {
   });
 
   lessonEmpty.hidden = filtered.length > 0;
+  lessonGrid.hidden = filtered.length === 0;
   lessonGrid.innerHTML = filtered
-    .map((lesson, index) => lessonCardMarkup(lesson, false, index))
+    .map((lesson, index) => unitButtonMarkup(lesson, index))
     .join("");
 }
 
@@ -1103,6 +1104,18 @@ function lessonCardMarkup(lesson, compact = false, index = 0) {
         </button>
       </div>
     </article>
+  `;
+}
+
+function unitButtonMarkup(lesson, index = 0) {
+  const active = state.activeLessonId === lesson.id;
+  const done = state.completedLessons.includes(lesson.id);
+  return `
+    <button class="unit-button ${active ? "active" : ""}" type="button" data-open-lesson="${lesson.id}" style="--index: ${index}">
+      <span>${escapeHtml(lesson.type)}</span>
+      <strong>${escapeHtml(lesson.title)}</strong>
+      ${done ? '<i data-lucide="check"></i>' : ""}
+    </button>
   `;
 }
 

@@ -133,6 +133,7 @@ button {
 
 .nav-tab,
 .filter-chip,
+.unit-button,
 .primary-action,
 .ghost-action,
 .text-action,
@@ -333,6 +334,7 @@ p {
 .ghost-action:active,
 .answer-option:active,
 .filter-chip:active,
+.unit-button:active,
 .lesson-tab:active,
 .flashcard:active {
   transform: translateY(1px) scale(0.99);
@@ -728,6 +730,99 @@ p {
   border-color: var(--accent);
   background: var(--accent);
   color: var(--surface);
+}
+
+.unit-strip-wrap {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.unit-strip-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.unit-strip-head p {
+  max-width: 40ch;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.unit-strip {
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 2px 2px 10px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.unit-button {
+  position: relative;
+  flex: 0 0 214px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 84px;
+  padding: 14px 16px;
+  border-color: rgba(21, 26, 23, 0.1);
+  background: rgba(255, 254, 250, 0.88);
+  color: var(--ink);
+  text-align: left;
+  scroll-snap-align: start;
+  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.74);
+  animation: cardIn 420ms var(--ease) both;
+  animation-delay: calc(var(--index) * 42ms);
+}
+
+.unit-button span,
+.unit-button strong {
+  display: block;
+  max-width: 100%;
+}
+
+.unit-button span {
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.unit-button strong {
+  margin-top: 7px;
+  font-size: 1rem;
+  line-height: 1.16;
+  overflow-wrap: break-word;
+}
+
+.unit-button svg {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 17px;
+  height: 17px;
+  color: var(--accent);
+}
+
+.unit-button:hover {
+  border-color: rgba(23, 107, 91, 0.34);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.unit-button.active {
+  border-color: var(--accent);
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.unit-button.active span,
+.unit-button.active svg {
+  color: rgba(255, 254, 250, 0.72);
 }
 
 .lesson-studio {
@@ -1587,9 +1682,31 @@ p {
 
   .program-source p,
   .studio-topline p,
+  .unit-strip-head p,
   .lesson-card > p,
   .lesson-details p {
     max-width: 280px;
+  }
+
+  .unit-strip-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .unit-strip-head p {
+    text-align: left;
+  }
+
+  .unit-strip {
+    margin-right: -12px;
+    padding-right: 12px;
+  }
+
+  .unit-button {
+    flex-basis: 178px;
+    min-height: 78px;
+    padding: 13px 14px;
   }
 
   .studio-main,

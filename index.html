@@ -164,12 +164,17 @@
             </div>
           </aside>
 
-          <div class="filter-row" aria-label="Lesson filters">
-            <button class="filter-chip active" type="button" data-filter="all">All</button>
-            <button class="filter-chip" type="button" data-filter="themes">Program</button>
-            <button class="filter-chip" type="button" data-filter="grammar">Grammar</button>
-            <button class="filter-chip" type="button" data-filter="writing">Writing</button>
-            <button class="filter-chip" type="button" data-filter="exam">Exam</button>
+          <div class="unit-strip-wrap">
+            <div class="unit-strip-head">
+              <span class="eyebrow">Choose a unit</span>
+              <p>Select one unit to show its lesson content below.</p>
+            </div>
+            <div class="unit-strip" id="lessonGrid" aria-label="2BAC unit selector"></div>
+          </div>
+
+          <div class="lesson-empty" id="lessonEmpty" hidden>
+            <span class="eyebrow">No lesson found</span>
+            <p>Try another keyword, for example conditionals, report, citizenship, or brain drain.</p>
           </div>
 
           <section class="lesson-studio" id="lessonStudio" aria-labelledby="studioTitle">
@@ -221,13 +226,6 @@
               <div class="lesson-stage" id="studioBody"></div>
             </div>
           </section>
-
-          <div class="lesson-empty" id="lessonEmpty" hidden>
-            <span class="eyebrow">No lesson found</span>
-            <p>Try another keyword, for example conditionals, report, citizenship, or brain drain.</p>
-          </div>
-
-          <div class="lesson-grid" id="lessonGrid"></div>
         </section>
 
         <section class="view" id="practice" aria-labelledby="practice-title">
