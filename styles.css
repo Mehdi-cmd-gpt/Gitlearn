@@ -377,6 +377,11 @@ p {
   min-height: 40px;
 }
 
+.primary-action.small {
+  min-height: 40px;
+  padding: 0 14px;
+}
+
 .text-action {
   min-height: 38px;
   padding: 0 4px;
@@ -508,6 +513,7 @@ p {
 .linking-panel,
 .exam-card,
 .lesson-card,
+.study-row,
 .study-block {
   border: 1px solid rgba(21, 26, 23, 0.1);
   border-radius: var(--radius);
@@ -573,8 +579,8 @@ p {
 
 .study-blocks {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 8px;
 }
 
 .study-block,
@@ -590,6 +596,40 @@ p {
   background:
     linear-gradient(135deg, rgba(23, 107, 91, 0.1), rgba(255, 254, 250, 0.92)),
     var(--surface);
+}
+
+.study-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  min-width: 0;
+  padding: 12px 14px;
+  animation: cardIn 420ms var(--ease) both;
+  animation-delay: calc(var(--index) * 38ms);
+}
+
+.study-row:hover {
+  border-color: rgba(23, 107, 91, 0.26);
+  background: rgba(255, 254, 250, 0.96);
+}
+
+.study-row-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.study-row h3 {
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+
+.study-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .block-top,
@@ -634,6 +674,10 @@ p {
 
 .complete-btn {
   width: 100%;
+}
+
+.study-row-actions .complete-btn {
+  width: auto;
 }
 
 .complete-btn.done {
@@ -1578,7 +1622,6 @@ p {
     min-height: 0;
   }
 
-  .study-blocks,
   .lesson-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1664,6 +1707,30 @@ p {
   .lesson-grid,
   .answer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .study-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .study-row-main {
+    align-items: flex-start;
+  }
+
+  .study-row-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .study-row-actions .block-time {
+    grid-column: 1 / -1;
+  }
+
+  .study-row-actions .ghost-action,
+  .study-row-actions .primary-action {
+    width: 100%;
   }
 
   .program-source,
