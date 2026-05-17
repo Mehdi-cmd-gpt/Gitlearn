@@ -226,7 +226,7 @@ function renderLessons() {
   });
 
   lessonGrid.innerHTML = filtered
-    .map((lesson) => lessonCardMarkup(lesson))
+    .map((lesson, index) => lessonCardMarkup(lesson, false, index))
     .join("");
 
   document.querySelectorAll("[data-complete]").forEach((button) => {
@@ -237,7 +237,7 @@ function renderLessons() {
 function renderTodayBlocks() {
   todayBlocks.innerHTML = lessons
     .slice(0, 3)
-    .map((lesson) => lessonCardMarkup(lesson, true))
+    .map((lesson, index) => lessonCardMarkup(lesson, true, index))
     .join("");
 
   document.querySelectorAll("[data-complete]").forEach((button) => {
@@ -245,7 +245,7 @@ function renderTodayBlocks() {
   });
 }
 
-function lessonCardMarkup(lesson, compact = false) {
+function lessonCardMarkup(lesson, compact = false, index = 0) {
   const done = state.completedLessons.includes(lesson.id);
   const tagClass = compact ? "study-block" : "lesson-card";
   const points = compact
@@ -253,7 +253,7 @@ function lessonCardMarkup(lesson, compact = false) {
     : `<ul>${lesson.points.map((point) => `<li>${point}</li>`).join("")}</ul>`;
 
   return `
-    <article class="${tagClass}" data-tone="${lesson.tone}">
+    <article class="${tagClass}" data-tone="${lesson.tone}" style="--index: ${index}">
       <div class="${compact ? "block-top" : "lesson-top"}">
         <span class="${compact ? "block-badge" : "lesson-type"}">${lesson.type}</span>
         <span class="${compact ? "block-time" : "lesson-time"}">${lesson.minutes} min</span>
