@@ -1,63 +1,163 @@
 const lessons = [
   {
-    id: "reading",
-    category: "reading",
-    type: "Reading",
-    title: "Comprehension strategy",
-    minutes: 35,
-    tone: "teal",
-    text: "Move from gist to proof: title, first sentence, key names, then evidence.",
-    points: ["Main idea", "True or false proof", "Pronoun reference"],
-  },
-  {
-    id: "conditionals",
-    category: "grammar",
-    type: "Grammar",
-    title: "Conditionals",
-    minutes: 25,
-    tone: "coral",
-    text: "Zero, first, second, and third conditional forms with exam-style meaning.",
-    points: ["If + present", "If + past", "If + had + past participle"],
-  },
-  {
-    id: "reported",
-    category: "grammar",
-    type: "Grammar",
-    title: "Reported speech",
-    minutes: 30,
-    tone: "coral",
-    text: "Backshift tense, adjust pronouns, and keep the reporting verb clean.",
-    points: ["Statements", "Questions", "Requests"],
-  },
-  {
-    id: "vocab",
+    id: "youth",
     category: "themes",
-    type: "Themes",
-    title: "Vocabulary clusters",
-    minutes: 20,
-    tone: "leaf",
-    text: "Core topic language for youth, citizenship, environment, technology, and culture.",
-    points: ["Collocations", "Word families", "Useful examples"],
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 1",
+    title: "The Gift of Youth",
+    minutes: 45,
+    tone: "teal",
+    text: "Study youth potential, challenges, dreams, role models, and responsible choices.",
+    vocabulary: ["adolescence", "role model", "ambition", "peer pressure", "self-confidence"],
+    functions: "Expressing opinion, agreeing, disagreeing, and agreeing partially.",
+    grammar: "Gerund or infinitive after common verbs and expressions.",
+    writing: "Describe a person or write an opinion paragraph about young people.",
+    examTask: "Write three arguments about how Moroccan youth can contribute to society.",
+    points: ["Opinion language", "Gerund / infinitive", "Person description"],
   },
   {
-    id: "writing",
-    category: "writing",
-    type: "Writing",
-    title: "Opinion paragraphs",
+    id: "humour",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 2",
+    title: "Humour",
     minutes: 40,
     tone: "teal",
-    text: "Build a direct position with reasons, examples, contrast, and a final sentence.",
-    points: ["Topic sentence", "Example bank", "Conclusion"],
+    text: "Learn how humour works in communication, culture, storytelling, and daily life.",
+    vocabulary: ["joke", "sense of humour", "sarcasm", "laughter", "cartoon"],
+    functions: "Expressing lack of understanding and asking for clarification.",
+    grammar: "Modals in present and past meanings: can, could, may, might, must, should.",
+    writing: "Write a funny story with a clear setting, problem, and ending.",
+    examTask: "Rewrite modal sentences to show advice, possibility, obligation, or deduction.",
+    points: ["Clarification", "Modals", "Funny story"],
   },
   {
-    id: "linkers",
-    category: "writing",
-    type: "Writing",
-    title: "Linking words",
-    minutes: 18,
-    tone: "leaf",
-    text: "Use connectors for addition, contrast, result, example, and conclusion.",
-    points: ["Moreover", "However", "Therefore"],
+    id: "education",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 3",
+    title: "Formal, Informal and Non-formal Education",
+    minutes: 45,
+    tone: "teal",
+    text: "Compare school learning, life experience, training, literacy, and lifelong learning.",
+    vocabulary: ["schooling", "dropout", "training", "skills", "lifelong learning"],
+    functions: "Expressing purpose: to, in order to, so as to, so that.",
+    grammar: "Past perfect for earlier past actions and cause-effect in narratives.",
+    writing: "Write a report about a school activity, campaign, or learning problem.",
+    examTask: "Complete a report plan: title, purpose, findings, and recommendation.",
+    points: ["Purpose", "Past perfect", "Report writing"],
+  },
+  {
+    id: "sustainable-development",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 4",
+    title: "Sustainable Development",
+    minutes: 45,
+    tone: "teal",
+    text: "Focus on environment, resources, development, energy, recycling, and civic action.",
+    vocabulary: ["renewable energy", "pollution", "recycle", "resources", "eco-friendly"],
+    functions: "Expressing cause and effect: because, due to, therefore, as a result.",
+    grammar: "Future perfect for actions completed before a future time.",
+    writing: "Write a formal letter about an environmental issue or local campaign.",
+    examTask: "Link five environmental problems to effects using correct connectors.",
+    points: ["Cause / effect", "Future perfect", "Formal letter"],
+  },
+  {
+    id: "women-power",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 5",
+    title: "Women and Power",
+    minutes: 45,
+    tone: "teal",
+    text: "Discuss women's rights, leadership, equality, achievement, and social participation.",
+    vocabulary: ["empowerment", "equality", "leadership", "achievement", "rights"],
+    functions: "Expressing addition and concession: moreover, besides, although, however.",
+    grammar: "Passive voice for processes, achievements, and formal statements.",
+    writing: "Write a book or film review, or a short profile of an influential woman.",
+    examTask: "Transform active sentences into passive sentences accurately.",
+    points: ["Addition / concession", "Passive voice", "Review writing"],
+  },
+  {
+    id: "culture",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 6",
+    title: "Cultural Issues and Values",
+    minutes: 45,
+    tone: "teal",
+    text: "Explore Moroccan identity, cultural diversity, stereotypes, values, and tolerance.",
+    vocabulary: ["identity", "tradition", "stereotype", "tolerance", "diversity"],
+    functions: "Defining, apologising, and complaining politely.",
+    grammar: "Phrasal verbs in everyday and social situations.",
+    writing: "Write an informal letter or email about a cultural experience.",
+    examTask: "Match phrasal verbs to meanings, then use three in meaningful sentences.",
+    points: ["Definitions", "Phrasal verbs", "Informal letter"],
+  },
+  {
+    id: "citizenship",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 7",
+    title: "Citizenship",
+    minutes: 45,
+    tone: "teal",
+    text: "Study rights, responsibilities, volunteering, civic duties, and community service.",
+    vocabulary: ["volunteer", "civic duty", "responsibility", "community", "solidarity"],
+    functions: "Asking for and giving advice: should, had better, if I were you.",
+    grammar: "Reported speech in statements, questions, requests, and advice.",
+    writing: "Write an advice email or a paragraph about active citizenship.",
+    examTask: "Report advice and requests while changing pronouns and tenses correctly.",
+    points: ["Advice", "Reported speech", "Email writing"],
+  },
+  {
+    id: "international-organisations",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 8",
+    title: "International Organizations",
+    minutes: 45,
+    tone: "teal",
+    text: "Understand global cooperation, humanitarian work, peace, health, and development.",
+    vocabulary: ["organization", "humanitarian", "aid", "cooperation", "peacekeeping"],
+    functions: "Responding to good and bad news appropriately.",
+    grammar: "Linking words for addition, contrast, cause, result, example, and conclusion.",
+    writing: "Write a short report or article about an organization and its mission.",
+    examTask: "Choose the best connector to make a paragraph logical and coherent.",
+    points: ["News response", "Linking words", "Report / article"],
+  },
+  {
+    id: "science-technology",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 9",
+    title: "Advances in Science and Technology",
+    minutes: 45,
+    tone: "teal",
+    text: "Discuss inventions, digital life, artificial intelligence, health, and communication.",
+    vocabulary: ["innovation", "device", "discovery", "digital", "artificial intelligence"],
+    functions: "Expressing certainty and uncertainty: certainly, probably, I doubt that.",
+    grammar: "Conditional sentences: zero, first, second, and third conditional.",
+    writing: "Write an opinion essay about technology in education or daily life.",
+    examTask: "Complete conditional sentences and explain the meaning of each type.",
+    points: ["Certainty", "Conditionals", "Opinion essay"],
+  },
+  {
+    id: "brain-drain",
+    category: "themes",
+    tags: ["themes", "grammar", "writing", "exam"],
+    type: "Unit 10",
+    title: "Brain Drain",
+    minutes: 45,
+    tone: "teal",
+    text: "Analyze migration of skilled people, opportunities, loss, development, and solutions.",
+    vocabulary: ["emigrate", "skilled workers", "opportunity", "shortage", "homeland"],
+    functions: "Expressing wish and regret: I wish, if only, should have, regret.",
+    grammar: "Relative clauses: restrictive and non-restrictive.",
+    writing: "Write an argumentative paragraph about brain drain and national development.",
+    examTask: "Join sentences using who, which, that, where, and whose.",
+    points: ["Wish / regret", "Relative clauses", "Argumentative paragraph"],
   },
 ];
 
@@ -75,6 +175,18 @@ const questions = [
     note: "First conditional: If + present simple, will + base verb.",
   },
   {
+    type: "Function",
+    question: "Which expression shows partial agreement?",
+    answers: [
+      "I totally disagree with you.",
+      "You are completely wrong.",
+      "I see your point, but I think there is another side.",
+      "What do you mean by that?",
+    ],
+    correct: 2,
+    note: "Partial agreement accepts part of an idea before adding a different view.",
+  },
+  {
     type: "Vocabulary",
     question: "Which word best completes: Sustainable development protects resources for ____ generations.",
     answers: ["previous", "future", "careless", "temporary"],
@@ -83,7 +195,7 @@ const questions = [
   },
   {
     type: "Reported speech",
-    question: "Direct: She said, “I am revising English.” Reported speech:",
+    question: "Direct: She said, \"I am revising English.\" Reported speech:",
     answers: [
       "She said that she revises English.",
       "She said that she was revising English.",
@@ -117,6 +229,37 @@ const questions = [
     correct: 0,
     note: "Present simple passive: is/are + past participle.",
   },
+  {
+    type: "Function",
+    question: "Choose the best response to bad news: \"I failed my driving test.\"",
+    answers: [
+      "Congratulations!",
+      "I am sorry to hear that. Better luck next time.",
+      "Could you clarify your point?",
+      "I strongly agree.",
+    ],
+    correct: 1,
+    note: "International Organizations includes responding appropriately to good and bad news.",
+  },
+  {
+    type: "Grammar",
+    question: "Complete: If I had prepared earlier, I ____ less stressed.",
+    answers: ["will feel", "would feel", "would have felt", "feel"],
+    correct: 2,
+    note: "Third conditional: If + past perfect, would have + past participle.",
+  },
+  {
+    type: "Grammar",
+    question: "Join correctly: My sister is a doctor. She works in Rabat.",
+    answers: [
+      "My sister which works in Rabat is a doctor.",
+      "My sister, who works in Rabat, is a doctor.",
+      "My sister where works in Rabat is a doctor.",
+      "My sister whose works in Rabat is a doctor.",
+    ],
+    correct: 1,
+    note: "Use who for people. Non-restrictive extra information takes commas.",
+  },
 ];
 
 const flashcards = [
@@ -126,6 +269,10 @@ const flashcards = [
   ["Renewable energy", "Energy from sources that can be naturally replaced."],
   ["In my view", "A clean phrase for introducing your opinion."],
   ["Although", "A connector that introduces contrast."],
+  ["Peer pressure", "Influence from people of the same age group."],
+  ["Lifelong learning", "Learning that continues outside school and throughout life."],
+  ["Empowerment", "Giving people power, confidence, and opportunity."],
+  ["Humanitarian aid", "Help given to people in crisis or need."],
 ];
 
 const prompts = [
@@ -145,10 +292,30 @@ const prompts = [
     text: "Write an email to a friend giving advice about preparing for the English exam.",
     tags: ["email", "advice", "exam"],
   },
+  {
+    text: "Write a formal letter to your local council suggesting actions to reduce plastic waste in your city.",
+    tags: ["formal letter", "sustainable development", "cause-effect"],
+  },
+  {
+    text: "Write a short report about a school campaign that encouraged students to volunteer in the community.",
+    tags: ["report", "citizenship", "school activity"],
+  },
+  {
+    text: "Write an argumentative paragraph about whether technology makes students more independent learners.",
+    tags: ["technology", "opinion", "conditionals"],
+  },
+  {
+    text: "Write a paragraph about one disadvantage of brain drain and one possible solution for Morocco.",
+    tags: ["brain drain", "argument", "solutions"],
+  },
 ];
 
+const validLessonIds = new Set(lessons.map((lesson) => lesson.id));
+const savedCompletedLessons = JSON.parse(localStorage.getItem("completedLessons") || "[]")
+  .filter((id) => validLessonIds.has(id));
+
 const state = {
-  completedLessons: JSON.parse(localStorage.getItem("completedLessons") || "[]"),
+  completedLessons: savedCompletedLessons,
   answered: Number(localStorage.getItem("answered") || "0"),
   quizIndex: Number(localStorage.getItem("quizIndex") || "0") % questions.length,
   activeFilter: "all",
@@ -220,8 +387,19 @@ function updateProgress() {
 function renderLessons() {
   const query = lessonSearch.value.trim().toLowerCase();
   const filtered = lessons.filter((lesson) => {
-    const matchesFilter = state.activeFilter === "all" || lesson.category === state.activeFilter;
-    const haystack = `${lesson.type} ${lesson.title} ${lesson.text} ${lesson.points.join(" ")}`.toLowerCase();
+    const lessonTags = lesson.tags || [lesson.category];
+    const matchesFilter = state.activeFilter === "all" || lessonTags.includes(state.activeFilter);
+    const haystack = [
+      lesson.type,
+      lesson.title,
+      lesson.text,
+      lesson.functions,
+      lesson.grammar,
+      lesson.writing,
+      lesson.examTask,
+      ...(lesson.vocabulary || []),
+      ...(lesson.points || []),
+    ].join(" ").toLowerCase();
     return matchesFilter && haystack.includes(query);
   });
 
@@ -250,7 +428,15 @@ function lessonCardMarkup(lesson, compact = false, index = 0) {
   const tagClass = compact ? "study-block" : "lesson-card";
   const points = compact
     ? ""
-    : `<ul>${lesson.points.map((point) => `<li>${point}</li>`).join("")}</ul>`;
+    : `
+      <div class="lesson-details">
+        <div><span>Vocabulary</span><p>${lesson.vocabulary.join(", ")}</p></div>
+        <div><span>Function</span><p>${lesson.functions}</p></div>
+        <div><span>Grammar</span><p>${lesson.grammar}</p></div>
+        <div><span>Writing</span><p>${lesson.writing}</p></div>
+        <div><span>Exam drill</span><p>${lesson.examTask}</p></div>
+      </div>
+    `;
 
   return `
     <article class="${tagClass}" data-tone="${lesson.tone}" style="--index: ${index}">

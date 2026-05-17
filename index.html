@@ -133,21 +133,39 @@
         <section class="view" id="lessons" aria-labelledby="lessons-title">
           <div class="tool-header">
             <div>
-              <span class="eyebrow">Course map</span>
-              <h1 id="lessons-title">Lessons that match the 2BAC paper</h1>
+              <span class="eyebrow">Official program map</span>
+              <h1 id="lessons-title">Morocco 2BAC English units</h1>
             </div>
             <label class="search-box">
               <i data-lucide="search"></i>
-              <input id="lessonSearch" type="search" placeholder="Search grammar, writing, themes..." />
+              <input id="lessonSearch" type="search" placeholder="Search youth, modals, report, brain drain..." />
             </label>
           </div>
 
+          <aside class="program-source">
+            <div>
+              <span class="eyebrow">Program basis</span>
+              <p>
+                Lessons follow the Moroccan 2BAC English program: thematic units, communication functions,
+                grammar, vocabulary, reading skills, and writing tasks used in national exam preparation.
+              </p>
+            </div>
+            <div class="source-links">
+              <a href="https://eflcollective.com/the-english-language-guidelines-for-middle-and-secondary-schools/" target="_blank" rel="noreferrer">
+                MEN guidelines
+              </a>
+              <a href="https://www.9rayti.com/conseil/cadre-referentiel-du-baccalaureat-au-maroc" target="_blank" rel="noreferrer">
+                Bac framework
+              </a>
+            </div>
+          </aside>
+
           <div class="filter-row" aria-label="Lesson filters">
             <button class="filter-chip active" type="button" data-filter="all">All</button>
-            <button class="filter-chip" type="button" data-filter="reading">Reading</button>
+            <button class="filter-chip" type="button" data-filter="themes">Program</button>
             <button class="filter-chip" type="button" data-filter="grammar">Grammar</button>
             <button class="filter-chip" type="button" data-filter="writing">Writing</button>
-            <button class="filter-chip" type="button" data-filter="themes">Themes</button>
+            <button class="filter-chip" type="button" data-filter="exam">Exam</button>
           </div>
 
           <div class="lesson-grid" id="lessonGrid"></div>

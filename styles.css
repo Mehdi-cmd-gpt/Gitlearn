@@ -293,6 +293,7 @@ h3 {
 p {
   color: var(--muted);
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .intro-copy p {
@@ -656,6 +657,48 @@ p {
   margin-bottom: 18px;
 }
 
+.program-source {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin: -4px 0 18px;
+  padding: 18px 20px;
+  border: 1px solid rgba(21, 26, 23, 0.1);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(23, 107, 91, 0.09), rgba(255, 254, 250, 0.9)),
+    var(--surface);
+  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.program-source p {
+  margin-bottom: 0;
+}
+
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.source-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  border: 1px solid rgba(23, 107, 91, 0.18);
+  border-radius: 999px;
+  padding: 0 12px;
+  background: rgba(255, 254, 250, 0.76);
+  color: var(--accent-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
 .filter-chip {
   min-height: 38px;
   padding: 0 14px;
@@ -694,6 +737,36 @@ p {
   padding-left: 18px;
   color: var(--muted);
   line-height: 1.65;
+}
+
+.lesson-details {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  min-width: 0;
+}
+
+.lesson-details div {
+  display: grid;
+  grid-template-columns: 106px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding-top: 10px;
+  border-top: 1px solid rgba(21, 26, 23, 0.08);
+}
+
+.lesson-details span {
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.lesson-details p {
+  margin-bottom: 0;
+  line-height: 1.5;
+  min-width: 0;
 }
 
 .practice-layout,
@@ -1096,6 +1169,33 @@ p {
   .lesson-grid,
   .answer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .program-source,
+  .lesson-details div {
+    grid-template-columns: 1fr;
+  }
+
+  .program-source,
+  .lesson-card {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+  }
+
+  .program-source p,
+  .lesson-card > p,
+  .lesson-details p {
+    max-width: 280px;
+  }
+
+  .filter-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .source-links {
+    justify-content: flex-start;
   }
 
   .hero-actions,
