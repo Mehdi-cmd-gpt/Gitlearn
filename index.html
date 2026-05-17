@@ -146,16 +146,20 @@
             <div>
               <span class="eyebrow">Program basis</span>
               <p>
-                Lessons follow the Moroccan 2BAC English program: thematic units, communication functions,
-                grammar, vocabulary, reading skills, and writing tasks used in national exam preparation.
+                Lessons follow the Moroccan 2BAC English program: thematic units, communication
+                functions, grammar, vocabulary, reading skills, and writing tasks used in national
+                exam preparation.
               </p>
             </div>
             <div class="source-links">
               <a href="https://eflcollective.com/the-english-language-guidelines-for-middle-and-secondary-schools/" target="_blank" rel="noreferrer">
-                MEN guidelines
+                English guidelines
               </a>
-              <a href="https://www.9rayti.com/conseil/cadre-referentiel-du-baccalaureat-au-maroc" target="_blank" rel="noreferrer">
-                Bac framework
+              <a href="https://www.men.gov.ma/fr/r%C3%A9f%C3%A9rentiels-strat%C3%A9giques" target="_blank" rel="noreferrer">
+                MEN references
+              </a>
+              <a href="https://lyceenumerique.ma/home/course/ANGLAIS-2BAC/15" target="_blank" rel="noreferrer">
+                Unit map
               </a>
             </div>
           </aside>
@@ -166,6 +170,61 @@
             <button class="filter-chip" type="button" data-filter="grammar">Grammar</button>
             <button class="filter-chip" type="button" data-filter="writing">Writing</button>
             <button class="filter-chip" type="button" data-filter="exam">Exam</button>
+          </div>
+
+          <section class="lesson-studio" id="lessonStudio" aria-labelledby="studioTitle">
+            <aside class="studio-rail">
+              <span class="eyebrow">Lesson studio</span>
+              <div class="studio-mark">
+                <span id="studioUnit">Unit 1</span>
+                <strong id="studioScore">0 / 3</strong>
+              </div>
+              <p id="studioPulse">Open a unit, read the explanation, then prove it with the quick checks.</p>
+              <div class="studio-progress" aria-label="Lesson check progress">
+                <span id="studioProgress"></span>
+              </div>
+            </aside>
+
+            <div class="studio-main">
+              <div class="studio-topline">
+                <div>
+                  <h2 id="studioTitle">The Gift of Youth</h2>
+                  <p id="studioSummary"></p>
+                </div>
+                <button class="primary-action studio-complete" type="button" id="studioComplete" data-complete="">
+                  <i data-lucide="check"></i>
+                  Mark done
+                </button>
+              </div>
+
+              <div class="studio-meta" id="studioMeta"></div>
+
+              <div class="lesson-tab-row" role="tablist" aria-label="Lesson content">
+                <button class="lesson-tab active" type="button" role="tab" data-lesson-tab="explain">
+                  <i data-lucide="book-open"></i>
+                  Explain
+                </button>
+                <button class="lesson-tab" type="button" role="tab" data-lesson-tab="vocabulary">
+                  <i data-lucide="list-checks"></i>
+                  Vocabulary
+                </button>
+                <button class="lesson-tab" type="button" role="tab" data-lesson-tab="practice">
+                  <i data-lucide="brain"></i>
+                  Practice
+                </button>
+                <button class="lesson-tab" type="button" role="tab" data-lesson-tab="writing">
+                  <i data-lucide="pen-line"></i>
+                  Writing
+                </button>
+              </div>
+
+              <div class="lesson-stage" id="studioBody"></div>
+            </div>
+          </section>
+
+          <div class="lesson-empty" id="lessonEmpty" hidden>
+            <span class="eyebrow">No lesson found</span>
+            <p>Try another keyword, for example conditionals, report, citizenship, or brain drain.</p>
           </div>
 
           <div class="lesson-grid" id="lessonGrid"></div>
