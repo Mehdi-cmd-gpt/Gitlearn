@@ -891,6 +891,10 @@ const state = {
 
 const views = document.querySelectorAll(".view");
 const navButtons = document.querySelectorAll("[data-view-link]");
+const unitSelect = document.querySelector("#unitSelect");
+const unitSelectToggle = document.querySelector("#unitSelectToggle");
+const unitSelectMeta = document.querySelector("#unitSelectMeta");
+const unitSelectLabel = document.querySelector("#unitSelectLabel");
 const lessonGrid = document.querySelector("#lessonGrid");
 const lessonEmpty = document.querySelector("#lessonEmpty");
 const lessonStudio = document.querySelector("#lessonStudio");
@@ -956,6 +960,7 @@ function setView(viewId) {
   navButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.viewLink === viewId);
   });
+  setUnitMenuOpen(false);
   window.location.hash = viewId;
   window.requestAnimationFrame(() => {
     document.getElementById(viewId)?.scrollIntoView({ block: "start" });
@@ -964,6 +969,12 @@ function setView(viewId) {
 
 function getLesson(lessonId = state.activeLessonId) {
   return lessons.find((lesson) => lesson.id === lessonId) || lessons[0];
+}
+
+function setUnitMenuOpen(open) {
+  unitSelect?.classList.toggle("open", open);
+  unitSelectToggle?.setAttribute("aria-expanded", String(open));
+  lessonGrid?.setAttribute("aria-hidden", String(!open));
 }
 
 function getPracticeState(lessonId) {
@@ -1056,6 +1067,9 @@ function renderLessons() {
 
   lessonEmpty.hidden = filtered.length > 0;
   lessonGrid.hidden = filtered.length === 0;
+  if (filtered.length === 0) {
+    setUnitMenuOpen(false);
+  }
   lessonGrid.innerHTML = filtered
     .map((lesson, index) => unitButtonMarkup(lesson, index))
     .join("");
@@ -1131,12 +1145,17 @@ function lessonCardMarkup(lesson, compact = false, index = 0) {
 
 function unitButtonMarkup(lesson, index = 0) {
   const active = state.activeLessonId === lesson.id;
-  const done = state.completedLessons.includes(lesson.id);
   return `
-    <button class="unit-button ${active ? "active" : ""}" type="button" data-open-lesson="${lesson.id}" style="--index: ${index}">
+    <button
+      class="unit-button ${active ? "active" : ""}"
+      type="button"
+      role="option"
+      aria-selected="${active}"
+      data-open-lesson="${lesson.id}"
+      style="--index: ${index}"
+    >
       <span>${escapeHtml(lesson.type)}</span>
       <strong>${escapeHtml(lesson.title)}</strong>
-      ${done ? '<i data-lucide="check"></i>' : ""}
     </button>
   `;
 }
@@ -1148,6 +1167,8 @@ function renderLessonStudio() {
   const percent = score.total ? Math.round((score.attempted / score.total) * 100) : 0;
 
   studioUnit.textContent = lesson.type;
+  unitSelectMeta.textContent = lesson.type;
+  unitSelectLabel.textContent = lesson.title;
   studioScore.textContent = `${score.correct} / ${score.total}`;
   studioPulse.textContent =
     score.attempted === score.total
@@ -1348,6 +1369,7 @@ function openLesson(lessonId) {
   state.activeLessonId = lessonId;
   state.activeLessonTab = "explain";
   saveState();
+  setUnitMenuOpen(false);
   setView("lessons");
   renderLessonStudio();
   renderLessons();
@@ -1526,6 +1548,13 @@ lessonSearch.addEventListener("input", () => {
 });
 
 document.addEventListener("click", (event) => {
+  const selectToggle = event.target.closest("#unitSelectToggle");
+  if (selectToggle) {
+    setUnitMenuOpen(!unitSelect?.classList.contains("open"));
+    refreshIcons();
+    return;
+  }
+
   const openButton = event.target.closest("[data-open-lesson]");
   if (openButton) {
     openLesson(openButton.dataset.openLesson);
@@ -1559,6 +1588,16 @@ document.addEventListener("click", (event) => {
   const completeButton = event.target.closest("[data-complete]");
   if (completeButton) {
     toggleLesson(completeButton.dataset.complete);
+  }
+
+  if (!event.target.closest("#unitSelect")) {
+    setUnitMenuOpen(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setUnitMenuOpen(false);
   }
 });
 

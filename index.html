@@ -142,12 +142,26 @@
             </label>
           </div>
 
-          <div class="unit-strip-wrap">
-            <div class="unit-strip-head">
+          <div class="unit-select-wrap">
+            <div class="unit-select-head">
               <span class="eyebrow">Choose a unit</span>
-              <p>Select one unit to show its lesson content below.</p>
+              <p>Click the selector, then choose the unit you want to study.</p>
             </div>
-            <div class="unit-strip" id="lessonGrid" aria-label="2BAC unit selector"></div>
+            <div class="unit-select" id="unitSelect">
+              <button
+                class="unit-select-toggle"
+                id="unitSelectToggle"
+                type="button"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="lessonGrid"
+              >
+                <span id="unitSelectMeta">Unit 1</span>
+                <strong id="unitSelectLabel">The Gift of Youth</strong>
+                <i data-lucide="chevron-down"></i>
+              </button>
+              <div class="unit-menu" id="lessonGrid" role="listbox" aria-label="2BAC unit list" aria-hidden="true"></div>
+            </div>
           </div>
 
           <div class="lesson-empty" id="lessonEmpty" hidden>
