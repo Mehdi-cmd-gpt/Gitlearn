@@ -13,6 +13,7 @@ const supabaseClient =
 
 const state = {
   busy: false,
+  mode: "login",
   user: null,
   profile: null,
   message: "",
@@ -23,12 +24,6 @@ const state = {
 const adminLoginPanel = document.querySelector("#adminLoginPanel");
 const adminWorkspace = document.querySelector("#adminWorkspace");
 const adminAuthCard = document.querySelector("#adminAuthCard");
-const adminAuthForm = document.querySelector("#adminAuthForm");
-const adminEmail = document.querySelector("#adminEmail");
-const adminPassword = document.querySelector("#adminPassword");
-const adminLoginButton = document.querySelector("#adminLoginButton");
-const adminResetPassword = document.querySelector("#adminResetPassword");
-const adminAuthMessage = document.querySelector("#adminAuthMessage");
 const adminShell = document.querySelector("#adminShell");
 const refreshAdmin = document.querySelector("#refreshAdmin");
 const adminSignOut = document.querySelector("#adminSignOut");
@@ -48,17 +43,64 @@ function refreshIcons() {
   }
 }
 
+function renderAdminAuthForm() {
+  return `
+    <div class="auth-mode-row" role="tablist" aria-label="Admin auth mode">
+      <button class="${state.mode === "login" ? "active" : ""}" type="button" data-admin-auth-mode="login">Login</button>
+      <button class="${state.mode === "setup" ? "active" : ""}" type="button" data-admin-auth-mode="setup">First admin</button>
+    </div>
+    <form class="auth-form" id="adminAuthForm">
+      <label class="auth-field" data-admin-name-wrap ${state.mode === "setup" ? "" : "hidden"}>
+        <span>Full name</span>
+        <input id="adminFullName" name="full_name" type="text" autocomplete="name" placeholder="Admin name" />
+      </label>
+      <label class="auth-field">
+        <span>Email</span>
+        <input id="adminEmail" name="email" type="email" autocomplete="email" placeholder="admin@example.com" required />
+      </label>
+      <label class="auth-field">
+        <span>Password</span>
+        <input id="adminPassword" name="password" type="password" autocomplete="current-password" placeholder="Admin password" required />
+      </label>
+      <div class="auth-actions">
+        <button class="primary-action" id="adminLoginButton" type="submit">
+          <i data-lucide="${state.mode === "setup" ? "user-plus" : "log-in"}"></i>
+          ${state.mode === "setup" ? "Create first admin" : "Login"}
+        </button>
+        <button class="text-action" id="adminResetPassword" type="button">
+          <i data-lucide="key-round"></i>
+          Reset password
+        </button>
+      </div>
+    </form>
+    <p class="auth-message" id="adminAuthMessage" aria-live="polite"></p>
+  `;
+}
+
+function getAuthElements() {
+  return {
+    modeButtons: adminAuthCard.querySelectorAll("[data-admin-auth-mode]"),
+    nameWrap: adminAuthCard.querySelector("[data-admin-name-wrap]"),
+    fullName: adminAuthCard.querySelector("#adminFullName"),
+    email: adminAuthCard.querySelector("#adminEmail"),
+    password: adminAuthCard.querySelector("#adminPassword"),
+    submit: adminAuthCard.querySelector("#adminLoginButton"),
+    reset: adminAuthCard.querySelector("#adminResetPassword"),
+    message: adminAuthCard.querySelector("#adminAuthMessage"),
+  };
+}
+
+function setAdminMode(mode) {
+  if (!["login", "setup"].includes(mode)) return;
+  state.mode = mode;
+  state.message = "";
+  renderAuth();
+}
+
 function renderAuth() {
   const isAdmin = state.profile?.role === "admin" && state.profile?.status === "active";
   adminLoginPanel.hidden = isAdmin;
   adminWorkspace.hidden = !isAdmin;
-  adminLoginButton.disabled = state.busy || !supabaseClient;
-  adminResetPassword.disabled = state.busy || !supabaseClient;
-  adminEmail.disabled = state.busy || !supabaseClient;
-  adminPassword.disabled = state.busy || !supabaseClient;
-  adminAuthMessage.textContent = !supabaseClient
-    ? "Add Supabase URL and anon key in supabase-config.js before using the portal."
-    : state.message;
 
   if (isAdmin) {
     adminAuthCard.innerHTML = `
@@ -71,6 +113,41 @@ function renderAuth() {
         </div>
       </div>
     `;
+    refreshIcons();
+    return;
+  }
+
+  if (!adminAuthCard.querySelector("#adminAuthForm")) {
+    adminAuthCard.innerHTML = renderAdminAuthForm();
+  }
+
+  const setupMode = state.mode === "setup";
+  const { modeButtons, nameWrap, fullName, email, password, submit, reset, message } = getAuthElements();
+  modeButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.adminAuthMode === state.mode);
+  });
+  if (nameWrap) nameWrap.hidden = !setupMode;
+  if (fullName) fullName.disabled = state.busy || !supabaseClient;
+  if (email) email.disabled = state.busy || !supabaseClient;
+  if (password) {
+    password.disabled = state.busy || !supabaseClient;
+    password.autocomplete = setupMode ? "new-password" : "current-password";
+  }
+  if (submit) {
+    submit.disabled = state.busy || !supabaseClient;
+    submit.innerHTML = `
+      <i data-lucide="${setupMode ? "user-plus" : "log-in"}"></i>
+      ${setupMode ? "Create first admin" : "Login"}
+    `;
+  }
+  if (reset) {
+    reset.hidden = setupMode;
+    reset.disabled = state.busy || !supabaseClient;
+  }
+  if (message) {
+    message.textContent = !supabaseClient
+      ? "Add Supabase URL and anon key in supabase-config.js before using the portal."
+      : state.message;
   }
   refreshIcons();
 }
@@ -85,6 +162,18 @@ async function fetchProfile(user) {
   return data;
 }
 
+async function bootstrapFirstAdmin() {
+  const { data, error } = await supabaseClient.rpc("bootstrap_first_admin");
+  if (error) {
+    const message = error.message || "";
+    if (message.includes("bootstrap_first_admin") || message.includes("Could not find")) {
+      throw new Error("Run the latest supabase-schema.sql in Supabase, then try again.");
+    }
+    throw error;
+  }
+  return data === true;
+}
+
 async function applySession(session) {
   state.user = session?.user || null;
   state.profile = null;
@@ -94,12 +183,24 @@ async function applySession(session) {
     return;
   }
 
-  const profile = await fetchProfile(state.user);
+  let profile = await fetchProfile(state.user);
+  let setupError = null;
+  if (!profile || profile.role !== "admin" || profile.status !== "active") {
+    try {
+      const promoted = await bootstrapFirstAdmin();
+      if (promoted) {
+        profile = await fetchProfile(state.user);
+      }
+    } catch (error) {
+      setupError = error;
+    }
+  }
+
   if (!profile || profile.role !== "admin" || profile.status !== "active") {
     await supabaseClient.auth.signOut();
     state.user = null;
     state.profile = null;
-    state.message = "This profile is not an active admin.";
+    state.message = setupError?.message || "This profile is not an active admin.";
     renderAuth();
     return;
   }
@@ -250,23 +351,41 @@ async function resetStudentProgress(studentId) {
   await loadAdminData();
 }
 
-async function handleLogin(event) {
+async function handleAdminAuth(event) {
   event.preventDefault();
   if (!supabaseClient) {
     state.message = "Supabase is not configured yet.";
     renderAuth();
     return;
   }
+  const form = event.target;
+  const email = form.querySelector("#adminEmail")?.value.trim();
+  const password = form.querySelector("#adminPassword")?.value;
+  const fullName = form.querySelector("#adminFullName")?.value.trim() || "Admin";
   state.busy = true;
-  state.message = "Checking admin profile...";
+  state.message = state.mode === "setup" ? "Creating first admin..." : "Checking admin profile...";
   renderAuth();
   try {
-    const { data, error } = await supabaseClient.auth.signInWithPassword({
-      email: adminEmail.value.trim(),
-      password: adminPassword.value,
-    });
-    if (error) throw error;
-    await applySession(data.session);
+    if (state.mode === "setup") {
+      const { data, error } = await supabaseClient.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { full_name: fullName },
+        },
+      });
+      if (error) throw error;
+      if (data.session) {
+        await applySession(data.session);
+      } else {
+        state.mode = "login";
+        state.message = "Account created. Confirm the email, then login here to finish admin setup.";
+      }
+    } else {
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      await applySession(data.session);
+    }
   } catch (error) {
     state.message = error.message || "Admin login failed.";
   } finally {
@@ -277,7 +396,7 @@ async function handleLogin(event) {
 
 async function handlePasswordReset() {
   if (!supabaseClient) return;
-  const email = adminEmail.value.trim();
+  const email = adminAuthCard.querySelector("#adminEmail")?.value.trim();
   if (!email) {
     state.message = "Enter the admin email first.";
     renderAuth();
@@ -298,6 +417,7 @@ async function signOut() {
   state.profile = null;
   state.students = [];
   state.progress = {};
+  state.mode = "login";
   state.message = "Signed out.";
   renderAuth();
   renderAdminShell();
@@ -322,12 +442,28 @@ async function initAdmin() {
   });
 }
 
-adminAuthForm.addEventListener("submit", handleLogin);
-adminResetPassword.addEventListener("click", handlePasswordReset);
 refreshAdmin.addEventListener("click", loadAdminData);
 adminSignOut.addEventListener("click", signOut);
 
+document.addEventListener("submit", (event) => {
+  if (event.target.matches("#adminAuthForm")) {
+    handleAdminAuth(event);
+  }
+});
+
 document.addEventListener("click", (event) => {
+  const modeButton = event.target.closest("[data-admin-auth-mode]");
+  if (modeButton) {
+    setAdminMode(modeButton.dataset.adminAuthMode);
+    return;
+  }
+
+  const resetPasswordButton = event.target.closest("#adminResetPassword");
+  if (resetPasswordButton && !resetPasswordButton.disabled) {
+    handlePasswordReset();
+    return;
+  }
+
   const statusButton = event.target.closest("[data-admin-status]");
   if (statusButton && !statusButton.disabled) {
     const row = statusButton.closest("[data-student-id]");
