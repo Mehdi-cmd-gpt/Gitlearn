@@ -605,6 +605,44 @@ p {
   gap: 14px;
 }
 
+.admin-create-card {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.admin-create-copy {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.admin-create-copy h2 {
+  margin: 0;
+}
+
+.admin-create-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-create-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-create-actions .auth-message {
+  margin: 0;
+}
+
 .admin-locked,
 .admin-empty {
   padding: 24px;
@@ -2464,6 +2502,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .admin-create-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .student-actions {
     justify-content: flex-start;
   }
@@ -2599,6 +2641,17 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .admin-create-grid,
+  .admin-create-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-create-copy,
+  .admin-create-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .auth-panel {
     padding: 16px;
   }
@@ -2613,7 +2666,8 @@ p {
   .auth-actions,
   .session-actions,
   .student-actions,
-  .admin-toolbar {
+  .admin-toolbar,
+  .admin-create-actions {
     width: 100%;
     flex-direction: column;
   }
@@ -2623,7 +2677,8 @@ p {
   .student-actions .text-action,
   .student-actions .ghost-action,
   .admin-toolbar .text-action,
-  .admin-toolbar .ghost-action {
+  .admin-toolbar .ghost-action,
+  .admin-create-actions .primary-action {
     width: 100%;
   }
 

@@ -10,15 +10,27 @@ const supabaseClient =
   supabaseConfigured && window.supabase?.createClient
     ? window.supabase.createClient(supabaseUrl, supabaseAnonKey)
     : null;
+const studentCreationClient =
+  supabaseConfigured && window.supabase?.createClient
+    ? window.supabase.createClient(supabaseUrl, supabaseAnonKey, {
+        auth: {
+          autoRefreshToken: false,
+          detectSessionInUrl: false,
+          persistSession: false,
+        },
+      })
+    : null;
 const schemaSetupMessage =
   "Supabase database is not installed yet. Run supabase-schema.sql in Supabase SQL Editor, then try again.";
 
 const state = {
   busy: false,
+  createBusy: false,
   mode: "login",
   user: null,
   profile: null,
   message: "",
+  createMessage: "",
   students: [],
   progress: {},
 };
@@ -29,6 +41,9 @@ const adminAuthCard = document.querySelector("#adminAuthCard");
 const adminShell = document.querySelector("#adminShell");
 const refreshAdmin = document.querySelector("#refreshAdmin");
 const adminSignOut = document.querySelector("#adminSignOut");
+const studentCreateForm = document.querySelector("#studentCreateForm");
+const studentCreateButton = document.querySelector("#studentCreateButton");
+const studentCreateMessage = document.querySelector("#studentCreateMessage");
 
 function escapeHtml(value) {
   return String(value)
@@ -119,6 +134,7 @@ function renderAuth() {
   const isAdmin = state.profile?.role === "admin" && state.profile?.status === "active";
   adminLoginPanel.hidden = isAdmin;
   adminWorkspace.hidden = !isAdmin;
+  renderStudentCreateForm();
 
   if (isAdmin) {
     adminAuthCard.innerHTML = `
@@ -168,6 +184,25 @@ function renderAuth() {
       : state.message;
   }
   refreshIcons();
+}
+
+function renderStudentCreateForm() {
+  if (!studentCreateForm) return;
+  const isAdmin = state.profile?.role === "admin" && state.profile?.status === "active";
+  studentCreateForm.hidden = !isAdmin;
+  studentCreateForm.querySelectorAll("input").forEach((input) => {
+    input.disabled = state.createBusy || !isAdmin;
+  });
+  if (studentCreateButton) {
+    studentCreateButton.disabled = state.createBusy || !isAdmin || !studentCreationClient;
+    studentCreateButton.innerHTML = `
+      <i data-lucide="${state.createBusy ? "loader-circle" : "user-plus"}"></i>
+      ${state.createBusy ? "Creating student" : "Create student"}
+    `;
+  }
+  if (studentCreateMessage) {
+    studentCreateMessage.textContent = state.createMessage;
+  }
 }
 
 async function fetchProfile(user) {
@@ -305,7 +340,7 @@ function renderAdminShell() {
         <article class="admin-empty">
           <span class="eyebrow">No accounts yet</span>
           <h2>Students will appear here after signup.</h2>
-          <p>Share the student site link after Supabase is configured.</p>
+          <p>Create a student account above, then share the email and temporary password privately.</p>
         </article>
       `}
     </div>
@@ -367,6 +402,94 @@ async function resetStudentProgress(studentId) {
   const { error } = await supabaseClient.from("student_progress").delete().eq("user_id", studentId);
   state.message = error ? readableSupabaseError(error) : "Student progress reset.";
   await loadAdminData();
+}
+
+async function waitForStudentProfile(userId) {
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    const { data, error } = await supabaseClient
+      .from("profiles")
+      .select("id,email,full_name,role,status,class_group,created_at,updated_at")
+      .eq("id", userId)
+      .maybeSingle();
+    if (error) throw new Error(readableSupabaseError(error));
+    if (data) return data;
+    await new Promise((resolve) => window.setTimeout(resolve, 250));
+  }
+  return null;
+}
+
+async function handleCreateStudent(event) {
+  event.preventDefault();
+  if (!studentCreationClient || state.profile?.role !== "admin") return;
+
+  const form = event.target;
+  const fullName = form.querySelector("#studentFullName")?.value.trim();
+  const classGroup = form.querySelector("#studentClassGroup")?.value.trim() || null;
+  const email = form.querySelector("#studentEmail")?.value.trim().toLowerCase();
+  const password = form.querySelector("#studentPassword")?.value;
+
+  if (!fullName || !email || !password) {
+    state.createMessage = "Add a name, email, and password.";
+    renderStudentCreateForm();
+    return;
+  }
+
+  if (password.length < 6) {
+    state.createMessage = "Temporary password must be at least 6 characters.";
+    renderStudentCreateForm();
+    return;
+  }
+
+  state.createBusy = true;
+  state.createMessage = "Creating student account...";
+  renderStudentCreateForm();
+  refreshIcons();
+
+  try {
+    const { data, error } = await studentCreationClient.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          full_name: fullName,
+          class_group: classGroup,
+        },
+      },
+    });
+    if (error) throw error;
+
+    const userId = data.user?.id || data.session?.user?.id;
+    if (!userId) {
+      throw new Error("Student auth account was not returned by Supabase.");
+    }
+
+    await studentCreationClient.auth.signOut();
+    const profile = await waitForStudentProfile(userId);
+    if (!profile) {
+      throw new Error("Student auth user was created, but the profile trigger did not finish. Refresh and check the list.");
+    }
+
+    const { error: updateError } = await supabaseClient
+      .from("profiles")
+      .update({
+        full_name: fullName,
+        class_group: classGroup,
+        role: "student",
+        status: "active",
+      })
+      .eq("id", userId);
+    if (updateError) throw updateError;
+
+    form.reset();
+    state.createMessage = `Student created: ${email}`;
+    await loadAdminData();
+  } catch (error) {
+    state.createMessage = readableSupabaseError(error, "Student account could not be created.");
+  } finally {
+    state.createBusy = false;
+    renderStudentCreateForm();
+    refreshIcons();
+  }
 }
 
 async function handleAdminAuth(event) {
@@ -468,6 +591,7 @@ async function initAdmin() {
 
 refreshAdmin.addEventListener("click", loadAdminData);
 adminSignOut.addEventListener("click", signOut);
+studentCreateForm?.addEventListener("submit", handleCreateStudent);
 
 document.addEventListener("submit", (event) => {
   if (event.target.matches("#adminAuthForm")) {
