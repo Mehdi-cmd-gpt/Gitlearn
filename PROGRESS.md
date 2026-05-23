@@ -160,6 +160,14 @@ Date updated: 2026-05-24
 - Submit/reset actions remain disabled until `supabase-config.js` has a valid Supabase URL and anon key.
 - The setup message now explains that typing is allowed but login needs Supabase configuration first.
 
+## Supabase Config Added
+
+Date updated: 2026-05-24
+
+- `supabase-config.js` now points to the Supabase project `avekrgwoprycsqrxoxug`.
+- The public anon key has been added so student login and admin first-login setup can call Supabase.
+- `supabase-schema.sql` still needs to be run in the Supabase SQL Editor before accounts and progress tables work.
+
 ## Published Commits
 
 Main branch:
