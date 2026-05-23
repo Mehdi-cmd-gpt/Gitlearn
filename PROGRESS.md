@@ -176,6 +176,7 @@ Date updated: 2026-05-24
 - Missing `public.profiles` or `public.student_progress` now tells the admin to run `supabase-schema.sql` in the Supabase SQL Editor.
 - Existing sessions also show the setup message instead of failing silently when the schema has not been installed.
 - `supabase-schema.sql` now ends with a PostgREST schema-cache reload notification.
+- Added `supabase-setup-clean.sql` as a comment-free SQL setup file for safer copy/paste into Supabase SQL Editor.
 
 ## Published Commits
 
