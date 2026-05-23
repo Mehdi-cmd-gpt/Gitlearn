@@ -1566,6 +1566,507 @@ p {
   margin-top: 18px;
 }
 
+.mock-exam-shell {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.exam-source-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(23, 107, 91, 0.18);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(23, 107, 91, 0.1), rgba(255, 254, 250, 0.92)),
+    var(--surface);
+}
+
+.exam-source-strip p {
+  max-width: 68ch;
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-weight: 650;
+}
+
+.source-links,
+.mock-exam-switcher,
+.timer-mode,
+.mock-section-tabs,
+.mock-exam-actions > div,
+.cue-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.source-links a,
+.mock-exam-switcher button,
+.timer-mode button,
+.mock-section-tabs button,
+.cue-bank span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid rgba(23, 107, 91, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 254, 250, 0.86);
+  color: var(--accent-dark);
+  font-weight: 800;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 160ms var(--ease),
+    border-color 180ms var(--ease),
+    background 180ms var(--ease);
+}
+
+.source-links a:hover,
+.mock-exam-switcher button:hover,
+.timer-mode button:hover,
+.mock-section-tabs button:hover {
+  border-color: rgba(23, 107, 91, 0.34);
+  background: var(--accent-soft);
+}
+
+.source-links a:active,
+.mock-exam-switcher button:active,
+.timer-mode button:active,
+.mock-section-tabs button:active,
+.mock-option:active {
+  transform: scale(0.98);
+}
+
+.mock-exam-toolbar,
+.mock-exam-overview,
+.mock-exam-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  min-width: 0;
+}
+
+.mock-exam-toolbar > *,
+.mock-exam-overview > *,
+.exam-source-strip > * {
+  min-width: 0;
+}
+
+.mock-exam-toolbar {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 254, 250, 0.76);
+}
+
+.mock-exam-switcher {
+  margin-top: 10px;
+}
+
+.mock-exam-switcher button.active,
+.timer-mode button.active,
+.mock-section-tabs button.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--surface);
+}
+
+.timer-mode {
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 270px;
+}
+
+.timer-mode > span {
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mock-exam-overview {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(21, 26, 23, 0.94), rgba(23, 107, 91, 0.88)),
+    var(--ink);
+  color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.mock-exam-overview h2,
+.mock-exam-overview p,
+.mock-exam-overview .eyebrow {
+  color: inherit;
+}
+
+.mock-exam-overview p {
+  max-width: 64ch;
+  margin-bottom: 0;
+  color: rgba(255, 254, 250, 0.74);
+}
+
+.exam-score-mini {
+  display: grid;
+  min-width: 170px;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid rgba(255, 254, 250, 0.18);
+  border-radius: var(--radius);
+  background: rgba(255, 254, 250, 0.08);
+  text-align: right;
+}
+
+.exam-score-mini span,
+.exam-score-mini small {
+  color: rgba(255, 254, 250, 0.72);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.exam-score-mini strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.mock-section-tabs {
+  align-items: stretch;
+}
+
+.mock-section-tabs button {
+  flex: 1 1 170px;
+  min-height: 58px;
+  justify-content: space-between;
+  border-radius: var(--radius);
+  text-transform: capitalize;
+}
+
+.mock-section-tabs button span {
+  font-size: 0.92rem;
+}
+
+.mock-section-tabs button strong {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+}
+
+.mock-exam-body {
+  min-width: 0;
+}
+
+.reading-workspace,
+.writing-workspace,
+.results-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
+  gap: 14px;
+}
+
+.language-workspace {
+  display: grid;
+  gap: 14px;
+}
+
+.reading-passage,
+.section-note,
+.writing-task-panel,
+.rubric-panel,
+.score-summary,
+.next-step-panel {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.reading-passage h3,
+.section-note h3,
+.writing-task-panel h3,
+.rubric-panel h3,
+.score-summary h3 {
+  margin-bottom: 12px;
+}
+
+.reading-passage p,
+.section-note p,
+.rubric-panel p,
+.score-summary p,
+.next-step-panel p {
+  color: var(--ink-soft);
+  line-height: 1.68;
+}
+
+.reading-passage p:last-child,
+.section-note p:last-child,
+.rubric-panel p:last-child,
+.score-summary p:last-child,
+.next-step-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.mock-question-list {
+  display: grid;
+  gap: 12px;
+}
+
+.mock-question {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 254, 250, 0.88);
+}
+
+.question-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.question-topline span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+}
+
+.mock-question h4 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.mock-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.mock-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 56px;
+  padding: 11px 12px;
+  border-color: var(--line);
+  background: rgba(255, 254, 250, 0.96);
+  color: var(--ink);
+  text-align: left;
+  white-space: normal;
+  transition:
+    transform 150ms var(--ease),
+    border-color 180ms var(--ease),
+    background 180ms var(--ease);
+}
+
+.mock-option span {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: rgba(23, 107, 91, 0.1);
+  color: var(--accent-dark);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.mock-option:hover:not(:disabled),
+.mock-option.selected {
+  border-color: rgba(23, 107, 91, 0.38);
+  background: var(--accent-soft);
+}
+
+.mock-option.correct {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.mock-option.wrong {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.question-feedback {
+  min-height: 24px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 750;
+}
+
+.cue-bank {
+  margin: 16px 0;
+}
+
+.writing-area-label {
+  display: grid;
+  gap: 10px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.writing-area-label textarea {
+  width: 100%;
+  min-height: 280px;
+  resize: vertical;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 254, 250, 0.96);
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.55;
+}
+
+.writing-area-label textarea:focus {
+  outline: 3px solid rgba(23, 107, 91, 0.18);
+  border-color: var(--accent);
+}
+
+.writing-meter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.rubric-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.rubric-list label {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 254, 250, 0.86);
+  color: var(--ink-soft);
+  font-weight: 750;
+}
+
+.rubric-list input {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--accent);
+}
+
+.score-summary {
+  background:
+    linear-gradient(135deg, rgba(23, 107, 91, 0.1), rgba(255, 254, 250, 0.95)),
+    var(--surface);
+}
+
+.score-summary h3 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.score-breakdown {
+  display: grid;
+  gap: 10px;
+}
+
+.score-row {
+  display: grid;
+  gap: 9px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.score-row > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.score-row span,
+.score-row p {
+  color: var(--muted);
+}
+
+.score-row span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.score-row strong {
+  color: var(--ink);
+}
+
+.score-row p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.score-track {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(23, 107, 91, 0.12);
+}
+
+.score-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.mock-exam-actions {
+  align-items: center;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.mock-exam-actions p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
 @keyframes viewIn {
   from {
     opacity: 0;
@@ -1637,9 +2138,28 @@ p {
   .practice-layout,
   .writing-grid,
   .exam-grid,
+  .reading-workspace,
+  .writing-workspace,
+  .results-workspace,
   .pattern-list,
   .vocab-grid {
     grid-template-columns: 1fr;
+  }
+
+  .exam-source-strip,
+  .mock-exam-toolbar,
+  .mock-exam-overview,
+  .mock-exam-actions {
+    flex-direction: column;
+  }
+
+  .timer-mode,
+  .source-links,
+  .mock-exam-switcher,
+  .mock-exam-actions > div {
+    justify-content: flex-start;
+    min-width: 0;
+    width: 100%;
   }
 
   .studio-rail {
@@ -1722,6 +2242,12 @@ p {
   .template-panel,
   .linking-panel,
   .exam-card,
+  .reading-passage,
+  .section-note,
+  .writing-task-panel,
+  .rubric-panel,
+  .score-summary,
+  .next-step-panel,
   .progress-panel {
     padding: 20px;
   }
@@ -1742,7 +2268,8 @@ p {
 
   .study-blocks,
   .lesson-grid,
-  .answer-grid {
+  .answer-grid,
+  .mock-options {
     grid-template-columns: 1fr;
   }
 
@@ -1830,15 +2357,45 @@ p {
 
   .hero-actions,
   .timer-actions,
-  .quiz-actions {
+  .quiz-actions,
+  .mock-exam-actions > div {
     width: 100%;
     flex-direction: column;
   }
 
   .primary-action,
-  .ghost-action {
+  .ghost-action,
+  .mock-exam-actions .text-action {
     width: 100%;
     flex: none;
+  }
+
+  .exam-source-strip,
+  .mock-exam-toolbar,
+  .mock-exam-overview,
+  .mock-question {
+    padding: 16px;
+  }
+
+  .exam-score-mini {
+    width: 100%;
+    text-align: left;
+  }
+
+  .mock-section-tabs button {
+    flex-basis: calc(50% - 4px);
+  }
+
+  .timer-mode button,
+  .mock-exam-switcher button,
+  .source-links a {
+    flex: 1 1 100%;
+  }
+
+  .writing-meter,
+  .score-row > div:first-child {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .hero-actions,
