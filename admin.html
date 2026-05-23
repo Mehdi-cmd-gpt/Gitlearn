@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2BAC English Prep Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-portal">
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="admin.html" aria-label="2BAC English Prep admin home">
+          <span class="brand-mark">2B</span>
+          <span>
+            <strong>Admin Portal</strong>
+            <small>Private account management</small>
+          </span>
+        </a>
+      </header>
+
+      <main>
+        <section class="admin-login-panel" id="adminLoginPanel" aria-labelledby="admin-login-title">
+          <div class="auth-copy">
+            <span class="eyebrow">Restricted area</span>
+            <h1 id="admin-login-title">Admin access only.</h1>
+            <p>Use an admin profile to manage student accounts, roles, status, and progress.</p>
+          </div>
+
+          <div class="auth-card" id="adminAuthCard">
+            <form class="auth-form" id="adminAuthForm">
+              <label class="auth-field">
+                <span>Email</span>
+                <input id="adminEmail" name="email" type="email" autocomplete="email" placeholder="admin@example.com" required />
+              </label>
+              <label class="auth-field">
+                <span>Password</span>
+                <input id="adminPassword" name="password" type="password" autocomplete="current-password" placeholder="Admin password" required />
+              </label>
+              <div class="auth-actions">
+                <button class="primary-action" id="adminLoginButton" type="submit">
+                  <i data-lucide="shield-check"></i>
+                  Login
+                </button>
+                <button class="text-action" id="adminResetPassword" type="button">
+                  <i data-lucide="mail-question"></i>
+                  Reset password
+                </button>
+              </div>
+            </form>
+            <p class="auth-message" id="adminAuthMessage" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <section class="admin-workspace" id="adminWorkspace" hidden>
+          <div class="tool-header">
+            <div>
+              <span class="eyebrow">Admin workspace</span>
+              <h1>Student accounts</h1>
+            </div>
+            <div class="admin-toolbar">
+              <button class="ghost-action" type="button" id="refreshAdmin">
+                <i data-lucide="refresh-cw"></i>
+                Refresh
+              </button>
+              <button class="text-action" type="button" id="adminSignOut">
+                <i data-lucide="log-out"></i>
+                Sign out
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-shell" id="adminShell"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="supabase-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+    <script
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"
+      async
+      onload="window.lucide && window.lucide.createIcons()"
+    ></script>
+  </body>
+</html>
