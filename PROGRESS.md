@@ -138,7 +138,7 @@ Main branch:
 - `d9de4e7` Convert unit selector to dropdown
 - `87aa007` Add Morocco 2BAC mock exam simulator
 - `f2f1eeb` Start Supabase student and admin auth
-- Pending: Split admin portal and lock student app
+- `b70cdbc` Split admin portal and lock student app
 
 GitHub Pages branch:
 
@@ -151,7 +151,7 @@ GitHub Pages branch:
 - `509789e` Publish dropdown unit selector
 - `f39ba29` Publish mock exam simulator
 - `f998aaa` Publish Supabase auth starter
-- Pending: Publish admin portal split
+- `e9539b0` Publish admin portal split
 
 ## Content Added
 
