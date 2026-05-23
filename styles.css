@@ -63,6 +63,15 @@ button {
   display: none !important;
 }
 
+body.auth-locked .nav-tabs,
+body.auth-locked .student-only {
+  display: none !important;
+}
+
+body.auth-locked main {
+  margin-top: 46px;
+}
+
 .app-shell {
   width: auto;
   max-width: 1320px;
@@ -400,6 +409,12 @@ p {
   color: var(--accent-dark);
 }
 
+.text-action:disabled,
+.student-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
 .auth-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
@@ -412,6 +427,31 @@ p {
     linear-gradient(125deg, rgba(255, 254, 250, 0.96), rgba(220, 235, 229, 0.72)),
     var(--surface);
   box-shadow: var(--shadow-soft);
+}
+
+.admin-login-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
+  gap: 16px;
+  min-height: 520px;
+  align-items: center;
+  padding: 28px;
+  border: 1px solid rgba(21, 26, 23, 0.1);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(125deg, rgba(255, 254, 250, 0.96), rgba(220, 235, 229, 0.68)),
+    var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.admin-portal .topbar {
+  justify-content: flex-start;
+}
+
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .auth-copy {
@@ -2404,6 +2444,7 @@ p {
 
   .dashboard-grid,
   .auth-panel,
+  .admin-login-panel,
   .intro-panel,
   .lesson-studio,
   .explain-grid,
@@ -2571,7 +2612,8 @@ p {
 
   .auth-actions,
   .session-actions,
-  .student-actions {
+  .student-actions,
+  .admin-toolbar {
     width: 100%;
     flex-direction: column;
   }
@@ -2579,8 +2621,15 @@ p {
   .auth-actions .text-action,
   .session-actions .text-action,
   .student-actions .text-action,
-  .student-actions .ghost-action {
+  .student-actions .ghost-action,
+  .admin-toolbar .text-action,
+  .admin-toolbar .ghost-action {
     width: 100%;
+  }
+
+  .admin-login-panel {
+    min-height: 0;
+    padding: 16px;
   }
 
   .study-row {

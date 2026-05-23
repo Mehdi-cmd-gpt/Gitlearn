@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="auth-locked">
     <div class="app-shell">
       <header class="topbar">
         <a class="brand" href="#dashboard" data-view-link="dashboard" aria-label="2BAC English Prep home">
@@ -44,10 +44,6 @@
             <i data-lucide="timer"></i>
             Exam
           </button>
-          <button class="nav-tab admin-nav" type="button" data-view-link="admin" hidden>
-            <i data-lucide="shield-check"></i>
-            Admin
-          </button>
         </nav>
       </header>
 
@@ -58,16 +54,11 @@
               <span class="eyebrow">Student accounts</span>
               <h2 id="authTitle">Login to save progress across devices.</h2>
               <p id="authSubtitle">
-                Students keep lesson work, writing, and mock exam attempts. Admins can review accounts and progress.
+                Students keep lesson work, writing, and mock exam attempts after login.
               </p>
             </div>
 
             <div class="auth-card" id="authCard">
-              <div class="auth-segment" role="tablist" aria-label="Account type">
-                <button class="active" type="button" data-auth-role="student">Student</button>
-                <button type="button" data-auth-role="admin">Admin</button>
-              </div>
-
               <div class="auth-mode-row" role="tablist" aria-label="Auth mode">
                 <button class="active" type="button" data-auth-mode="login">Login</button>
                 <button type="button" data-auth-mode="signup">Create account</button>
@@ -106,7 +97,7 @@
             </div>
           </section>
 
-          <div class="dashboard-grid">
+          <div class="dashboard-grid student-only">
             <div class="intro-panel">
               <div class="intro-copy">
                 <span class="eyebrow">Final-year English</span>
@@ -173,7 +164,7 @@
             </aside>
           </div>
 
-          <div class="section-heading">
+          <div class="section-heading student-only">
             <div>
               <span class="eyebrow">All units</span>
               <h2>Lesson shortlist</h2>
@@ -184,10 +175,10 @@
             </button>
           </div>
 
-          <div class="study-blocks" id="todayBlocks"></div>
+          <div class="study-blocks student-only" id="todayBlocks"></div>
         </section>
 
-        <section class="view" id="lessons" aria-labelledby="lessons-title">
+        <section class="view student-only" id="lessons" aria-labelledby="lessons-title">
           <div class="tool-header">
             <div>
               <span class="eyebrow">Official program map</span>
@@ -277,7 +268,7 @@
           </section>
         </section>
 
-        <section class="view" id="practice" aria-labelledby="practice-title">
+        <section class="view student-only" id="practice" aria-labelledby="practice-title">
           <div class="tool-header">
             <div>
               <span class="eyebrow">Active recall</span>
@@ -325,7 +316,7 @@
           </div>
         </section>
 
-        <section class="view" id="writing" aria-labelledby="writing-title">
+        <section class="view student-only" id="writing" aria-labelledby="writing-title">
           <div class="tool-header">
             <div>
               <span class="eyebrow">Production</span>
@@ -370,7 +361,7 @@
           </div>
         </section>
 
-        <section class="view" id="exam" aria-labelledby="exam-title">
+        <section class="view student-only" id="exam" aria-labelledby="exam-title">
           <div class="tool-header">
             <div>
               <span class="eyebrow">Mock mode</span>
@@ -397,31 +388,6 @@
               <i data-lucide="rotate-ccw"></i>
               Reset
             </button>
-          </div>
-        </section>
-
-        <section class="view" id="admin" aria-labelledby="admin-title">
-          <div class="tool-header">
-            <div>
-              <span class="eyebrow">Admin workspace</span>
-              <h1 id="admin-title">Student accounts</h1>
-            </div>
-            <button class="ghost-action" type="button" id="refreshAdmin">
-              <i data-lucide="refresh-cw"></i>
-              Refresh
-            </button>
-          </div>
-
-          <div class="admin-shell" id="adminShell">
-            <article class="admin-locked">
-              <span class="eyebrow">Admin login required</span>
-              <h2>Use an admin account to manage students.</h2>
-              <p>Login from the dashboard. Your Supabase profile must have the role `admin`.</p>
-              <button class="primary-action" type="button" data-view-link="dashboard">
-                <i data-lucide="log-in"></i>
-                Go to login
-              </button>
-            </article>
           </div>
         </section>
       </main>

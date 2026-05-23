@@ -102,6 +102,29 @@ update public.profiles set role = 'admin' where email = 'admin@example.com';
 - Replace `admin@example.com` with the real admin email.
 - The current admin disable action marks `profiles.status = 'disabled'` and RLS blocks progress access for disabled users. Hard-disabling Supabase Auth users would require a secure server function or Edge Function with a service-role key, not frontend JavaScript.
 
+## Access Gate Update
+
+Date updated: 2026-05-24
+
+The requested access model has been tightened:
+
+- Main website is now student-only.
+- Public visitors only see the student login/signup gate.
+- Lessons, dashboard content, practice, writing, and exams are hidden until an active student profile is signed in.
+- Direct hash navigation such as `#lessons`, `#practice`, `#writing`, or `#exam` redirects back to the login gate while signed out.
+- Admin controls were removed from `index.html` and the public student bundle.
+- Admin portal is now a separate page: `admin.html`.
+- Admin portal uses its own script: `admin.js`.
+- The main student page does not show a public admin link.
+- `admin.html` shows only the admin login gate until an active `admin` profile signs in.
+- Student accounts cannot use the admin portal, and admin accounts cannot enter the student app through the student login page.
+
+Security note:
+
+- Because GitHub Pages is static hosting, the `admin.html` file itself can still be requested by URL.
+- The admin data and actions are protected by Supabase Auth and Row Level Security.
+- A fully non-public admin URL would require server-side routing, a private deployment, or an Edge Function/app server in front of the admin page.
+
 ## Published Commits
 
 Main branch:
@@ -115,6 +138,7 @@ Main branch:
 - `d9de4e7` Convert unit selector to dropdown
 - `87aa007` Add Morocco 2BAC mock exam simulator
 - `f2f1eeb` Start Supabase student and admin auth
+- Pending: Split admin portal and lock student app
 
 GitHub Pages branch:
 
@@ -127,6 +151,7 @@ GitHub Pages branch:
 - `509789e` Publish dropdown unit selector
 - `f39ba29` Publish mock exam simulator
 - `f998aaa` Publish Supabase auth starter
+- Pending: Publish admin portal split
 
 ## Content Added
 
@@ -177,6 +202,8 @@ Local checks:
 - Headless browser timer check for 3-hour mode, start, pause, and reset.
 - Headless browser mobile overflow check.
 - Headless browser auth UI check for student/signup/admin modes, setup message, disabled submit without config, admin-route guard, and mobile overflow.
+- Headless browser access-gate check for locked student routes, hidden nav, hidden lesson view, and no mobile overflow.
+- Headless browser admin portal check for separate URL, hidden workspace before admin login, disabled login without config, and no mobile overflow.
 
 Live checks:
 
@@ -190,6 +217,8 @@ Live checks:
 - `styles.css`
 - `supabase-config.js`
 - `supabase-schema.sql`
+- `admin.html`
+- `admin.js`
 - `script.js`
 
 Useful screenshot artifacts in this workspace:
@@ -205,6 +234,9 @@ Useful screenshot artifacts in this workspace:
 - `auth-dashboard-desktop.png`
 - `auth-dashboard-mobile.png`
 - `admin-locked-desktop.png`
+- `student-login-gate-desktop.png`
+- `student-login-gate-mobile.png`
+- `admin-portal-login-desktop.png`
 
 ## Source References Used
 
