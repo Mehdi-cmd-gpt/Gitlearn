@@ -1192,6 +1192,23 @@ const validMockExamIds = new Set(mockExams.map((exam) => exam.id));
 
 const lessonTabs = ["explain", "vocabulary", "practice", "writing"];
 const validLessonIds = new Set(lessons.map((lesson) => lesson.id));
+const authRoles = ["student", "admin"];
+const authModes = ["login", "signup"];
+const supabaseConfig = window.GITLEARN_SUPABASE || {};
+const supabaseUrl = String(supabaseConfig.url || "").trim();
+const supabaseAnonKey = String(supabaseConfig.anonKey || "").trim();
+const supabaseConfigured =
+  /^https:\/\/.+\.supabase\.co$/i.test(supabaseUrl) &&
+  supabaseAnonKey.length > 40 &&
+  !supabaseAnonKey.includes("YOUR_") &&
+  !supabaseAnonKey.includes("PASTE_");
+const supabaseClient =
+  supabaseConfigured && window.supabase?.createClient
+    ? window.supabase.createClient(supabaseUrl, supabaseAnonKey)
+    : null;
+let remoteSaveTimer = null;
+let authInitialized = false;
+let applyingRemoteProgress = false;
 
 function readJson(key, fallback) {
   try {
@@ -1226,6 +1243,15 @@ const state = {
   examDurationSeconds: [2 * 60 * 60, 3 * 60 * 60].includes(savedExamDuration) ? savedExamDuration : 2 * 60 * 60,
   timerSeconds: Number(localStorage.getItem("timerSeconds") || String(savedExamDuration || 2 * 60 * 60)),
   timerHandle: null,
+  authRole: "student",
+  authMode: "login",
+  authSession: null,
+  authUser: null,
+  authProfile: null,
+  authMessage: "",
+  authBusy: false,
+  adminStudents: [],
+  adminProgress: {},
   flashFlipped: false,
 };
 
@@ -1276,6 +1302,25 @@ const pauseTimer = document.querySelector("#pauseTimer");
 const resetTimer = document.querySelector("#resetTimer");
 const resetProgress = document.querySelector("#resetProgress");
 const mockExamApp = document.querySelector("#mockExamApp");
+const adminNav = document.querySelector(".admin-nav");
+const authPanel = document.querySelector("#authPanel");
+const authTitle = document.querySelector("#authTitle");
+const authSubtitle = document.querySelector("#authSubtitle");
+const authCard = document.querySelector("#authCard");
+const authForm = document.querySelector("#authForm");
+const authName = document.querySelector("#authName");
+const authClassGroup = document.querySelector("#authClassGroup");
+const authEmail = document.querySelector("#authEmail");
+const authPassword = document.querySelector("#authPassword");
+const authSubmit = document.querySelector("#authSubmit");
+const resetPassword = document.querySelector("#resetPassword");
+const authMessage = document.querySelector("#authMessage");
+const adminShell = document.querySelector("#adminShell");
+const refreshAdmin = document.querySelector("#refreshAdmin");
+const authRoleButtons = document.querySelectorAll("[data-auth-role]");
+const authModeButtons = document.querySelectorAll("[data-auth-mode]");
+const authNameWrap = document.querySelector("[data-auth-name-wrap]");
+const authClassWrap = document.querySelector("[data-auth-class-wrap]");
 
 function escapeHtml(value) {
   return String(value)
@@ -1301,9 +1346,17 @@ function saveState() {
   localStorage.setItem("mockExamChecks", JSON.stringify(state.mockExamChecks));
   localStorage.setItem("mockExamSubmitted", JSON.stringify(state.mockExamSubmitted));
   localStorage.setItem("examDurationSeconds", String(state.examDurationSeconds));
+  if (!applyingRemoteProgress) {
+    scheduleRemoteProgressSave();
+  }
 }
 
 function setView(viewId) {
+  if (viewId === "admin" && state.authProfile?.role !== "admin") {
+    viewId = "dashboard";
+    state.authMessage = "Login with an admin profile to open the admin workspace.";
+    renderAuthPanel();
+  }
   views.forEach((view) => view.classList.toggle("active", view.id === viewId));
   navButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.viewLink === viewId);
@@ -1313,6 +1366,561 @@ function setView(viewId) {
   window.requestAnimationFrame(() => {
     document.getElementById(viewId)?.scrollIntoView({ block: "start" });
   });
+}
+
+function getProgressPayload() {
+  return {
+    completedLessons: state.completedLessons,
+    answered: state.answered,
+    quizIndex: state.quizIndex,
+    activeLessonId: state.activeLessonId,
+    activeLessonTab: state.activeLessonTab,
+    lessonPractice: state.lessonPractice,
+    activeMockExamId: state.activeMockExamId,
+    activeMockExamSection: state.activeMockExamSection,
+    mockExamAnswers: state.mockExamAnswers,
+    mockExamWriting: state.mockExamWriting,
+    mockExamChecks: state.mockExamChecks,
+    mockExamSubmitted: state.mockExamSubmitted,
+    examDurationSeconds: state.examDurationSeconds,
+    timerSeconds: state.timerSeconds,
+    savedAt: new Date().toISOString(),
+  };
+}
+
+function applyProgressPayload(payload = {}) {
+  applyingRemoteProgress = true;
+  state.completedLessons = Array.isArray(payload.completedLessons)
+    ? payload.completedLessons.filter((id) => validLessonIds.has(id))
+    : state.completedLessons;
+  state.answered = Number(payload.answered ?? state.answered);
+  state.quizIndex = Number(payload.quizIndex ?? state.quizIndex) % questions.length;
+  state.activeLessonId = validLessonIds.has(payload.activeLessonId) ? payload.activeLessonId : state.activeLessonId;
+  state.activeLessonTab = lessonTabs.includes(payload.activeLessonTab) ? payload.activeLessonTab : state.activeLessonTab;
+  state.lessonPractice = payload.lessonPractice && typeof payload.lessonPractice === "object" ? payload.lessonPractice : state.lessonPractice;
+  state.activeMockExamId = validMockExamIds.has(payload.activeMockExamId) ? payload.activeMockExamId : state.activeMockExamId;
+  state.activeMockExamSection = mockExamSections.includes(payload.activeMockExamSection)
+    ? payload.activeMockExamSection
+    : state.activeMockExamSection;
+  state.mockExamAnswers = payload.mockExamAnswers && typeof payload.mockExamAnswers === "object" ? payload.mockExamAnswers : state.mockExamAnswers;
+  state.mockExamWriting = payload.mockExamWriting && typeof payload.mockExamWriting === "object" ? payload.mockExamWriting : state.mockExamWriting;
+  state.mockExamChecks = payload.mockExamChecks && typeof payload.mockExamChecks === "object" ? payload.mockExamChecks : state.mockExamChecks;
+  state.mockExamSubmitted = payload.mockExamSubmitted && typeof payload.mockExamSubmitted === "object" ? payload.mockExamSubmitted : state.mockExamSubmitted;
+  state.examDurationSeconds = [2 * 60 * 60, 3 * 60 * 60].includes(Number(payload.examDurationSeconds))
+    ? Number(payload.examDurationSeconds)
+    : state.examDurationSeconds;
+  state.timerSeconds = Number(payload.timerSeconds ?? state.timerSeconds);
+  saveState();
+  applyingRemoteProgress = false;
+  renderLessonStudio();
+  renderLessons();
+  renderTodayBlocks();
+  renderQuestion();
+  renderMockExam();
+  renderTimer();
+  updateProgress();
+  refreshIcons();
+}
+
+function scheduleRemoteProgressSave() {
+  if (!supabaseClient || !state.authUser || state.authProfile?.status !== "active") return;
+  window.clearTimeout(remoteSaveTimer);
+  remoteSaveTimer = window.setTimeout(saveRemoteProgress, 800);
+}
+
+async function saveRemoteProgress() {
+  if (!supabaseClient || !state.authUser || state.authProfile?.status !== "active") return;
+  const { error } = await supabaseClient
+    .from("student_progress")
+    .upsert({
+      user_id: state.authUser.id,
+      payload: getProgressPayload(),
+      updated_at: new Date().toISOString(),
+    });
+  if (error) {
+    state.authMessage = `Sync paused: ${error.message}`;
+    renderAuthPanel();
+  }
+}
+
+async function loadRemoteProgress() {
+  if (!supabaseClient || !state.authUser) return;
+  const { data, error } = await supabaseClient
+    .from("student_progress")
+    .select("payload")
+    .eq("user_id", state.authUser.id)
+    .maybeSingle();
+  if (error) {
+    state.authMessage = `Could not load saved progress: ${error.message}`;
+    renderAuthPanel();
+    return;
+  }
+  if (data?.payload && Object.keys(data.payload).length > 0) {
+    applyProgressPayload(data.payload);
+  } else {
+    scheduleRemoteProgressSave();
+  }
+}
+
+function profileName(profile = state.authProfile) {
+  return profile?.full_name || state.authUser?.email || "Student";
+}
+
+function renderAuthPanel() {
+  if (!authPanel) return;
+  const signedIn = Boolean(state.authUser && state.authProfile);
+  const isAdmin = state.authProfile?.role === "admin";
+  const setupMissing = !supabaseClient;
+  const currentRoleButtons = authCard.querySelectorAll("[data-auth-role]");
+  const currentModeButtons = authCard.querySelectorAll("[data-auth-mode]");
+  const currentNameWrap = authCard.querySelector("[data-auth-name-wrap]");
+  const currentClassWrap = authCard.querySelector("[data-auth-class-wrap]");
+  const currentForm = authCard.querySelector("#authForm");
+  const currentSubmit = authCard.querySelector("#authSubmit");
+  const currentReset = authCard.querySelector("#resetPassword");
+  const currentEmail = authCard.querySelector("#authEmail");
+  const currentPassword = authCard.querySelector("#authPassword");
+  const currentName = authCard.querySelector("#authName");
+  const currentClassGroup = authCard.querySelector("#authClassGroup");
+  const currentMessage = authCard.querySelector("#authMessage");
+
+  adminNav.hidden = !isAdmin;
+  currentRoleButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.authRole === state.authRole);
+  });
+  currentModeButtons.forEach((button) => {
+    const visible = state.authRole === "student" || button.dataset.authMode === "login";
+    button.hidden = !visible;
+    button.classList.toggle("active", button.dataset.authMode === state.authMode);
+  });
+
+  if (currentNameWrap) currentNameWrap.hidden = signedIn || state.authMode !== "signup";
+  if (currentClassWrap) currentClassWrap.hidden = signedIn || state.authMode !== "signup";
+  if (currentForm) currentForm.hidden = signedIn;
+  if (currentSubmit) currentSubmit.disabled = state.authBusy || setupMissing;
+  if (currentReset) currentReset.disabled = state.authBusy || setupMissing;
+  if (currentEmail) currentEmail.disabled = state.authBusy || setupMissing;
+  if (currentPassword) currentPassword.disabled = state.authBusy || setupMissing;
+  if (currentName) currentName.disabled = state.authBusy || setupMissing;
+  if (currentClassGroup) currentClassGroup.disabled = state.authBusy || setupMissing;
+  if (currentPassword) currentPassword.autocomplete = state.authMode === "signup" ? "new-password" : "current-password";
+  authTitle.textContent = signedIn
+    ? `${profileName()} is signed in.`
+    : state.authRole === "admin"
+      ? "Admin login for account management."
+      : "Login to save progress across devices.";
+  authSubtitle.textContent = signedIn
+    ? isAdmin
+      ? "Admin tools are unlocked. Student progress still autosaves for this account."
+      : "Your lesson progress, writing, and mock exams are syncing with Supabase."
+    : state.authMode === "signup"
+      ? "Create a student account. An admin can place it into a class group later."
+      : "Use the account connected to Supabase. Admin access depends on your profile role.";
+  if (currentSubmit) {
+    currentSubmit.innerHTML = `
+      <i data-lucide="${state.authMode === "signup" ? "user-plus" : "log-in"}"></i>
+      ${state.authMode === "signup" ? "Create account" : "Login"}
+    `;
+  }
+  if (currentMessage) {
+    currentMessage.textContent = setupMissing
+      ? "Add your Supabase project URL and anon key in supabase-config.js, then run supabase-schema.sql in Supabase."
+      : state.authMessage;
+  }
+
+  if (signedIn) {
+    authCard.innerHTML = `
+      <div class="session-card">
+        <div class="session-mark">${escapeHtml(profileName().slice(0, 2).toUpperCase())}</div>
+        <div>
+          <span class="eyebrow">${escapeHtml(state.authProfile.role)}</span>
+          <h3>${escapeHtml(profileName())}</h3>
+          <p>${escapeHtml(state.authUser.email || "")}</p>
+        </div>
+      </div>
+      <div class="session-actions">
+        ${isAdmin ? `
+          <button class="primary-action" type="button" data-view-link="admin">
+            <i data-lucide="shield-check"></i>
+            Open admin
+          </button>
+        ` : ""}
+        <button class="ghost-action" type="button" data-sync-progress>
+          <i data-lucide="cloud-upload"></i>
+          Sync now
+        </button>
+        <button class="text-action" type="button" data-sign-out>
+          <i data-lucide="log-out"></i>
+          Sign out
+        </button>
+      </div>
+      <p class="auth-message" aria-live="polite">${escapeHtml(state.authMessage || "Progress autosave is ready.")}</p>
+    `;
+  } else if (!authCard.querySelector("#authForm")) {
+    authCard.innerHTML = `
+      <div class="auth-segment" role="tablist" aria-label="Account type">
+        <button class="${state.authRole === "student" ? "active" : ""}" type="button" data-auth-role="student">Student</button>
+        <button class="${state.authRole === "admin" ? "active" : ""}" type="button" data-auth-role="admin">Admin</button>
+      </div>
+      <div class="auth-mode-row" role="tablist" aria-label="Auth mode">
+        <button class="${state.authMode === "login" ? "active" : ""}" type="button" data-auth-mode="login">Login</button>
+        <button class="${state.authMode === "signup" ? "active" : ""}" type="button" data-auth-mode="signup" ${state.authRole === "admin" ? "hidden" : ""}>Create account</button>
+      </div>
+      <form class="auth-form" id="authForm">
+        <label class="auth-field" data-auth-name-wrap ${state.authMode === "signup" ? "" : "hidden"}>
+          <span>Full name</span>
+          <input id="authName" name="full_name" type="text" autocomplete="name" placeholder="Student name" />
+        </label>
+        <label class="auth-field" data-auth-class-wrap ${state.authMode === "signup" ? "" : "hidden"}>
+          <span>Class or group</span>
+          <input id="authClassGroup" name="class_group" type="text" autocomplete="organization" placeholder="2BAC PC 1" />
+        </label>
+        <label class="auth-field">
+          <span>Email</span>
+          <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="student@example.com" required />
+        </label>
+        <label class="auth-field">
+          <span>Password</span>
+          <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="At least 6 characters" required />
+        </label>
+        <div class="auth-actions">
+          <button class="primary-action" id="authSubmit" type="submit">
+            <i data-lucide="${state.authMode === "signup" ? "user-plus" : "log-in"}"></i>
+            ${state.authMode === "signup" ? "Create account" : "Login"}
+          </button>
+          <button class="text-action" id="resetPassword" type="button">
+            <i data-lucide="mail-question"></i>
+            Reset password
+          </button>
+        </div>
+      </form>
+      <p class="auth-message" id="authMessage" aria-live="polite">${escapeHtml(state.authMessage || "")}</p>
+    `;
+  }
+}
+
+function setAuthRole(role) {
+  if (!authRoles.includes(role)) return;
+  state.authRole = role;
+  if (role === "admin") {
+    state.authMode = "login";
+  }
+  state.authMessage = "";
+  renderAuthPanel();
+  refreshIcons();
+}
+
+function setAuthMode(mode) {
+  if (!authModes.includes(mode)) return;
+  state.authMode = mode;
+  if (state.authRole === "admin") {
+    state.authMode = "login";
+  }
+  state.authMessage = "";
+  renderAuthPanel();
+  refreshIcons();
+}
+
+async function fetchProfile(user) {
+  const { data, error } = await supabaseClient
+    .from("profiles")
+    .select("id,email,full_name,role,status,class_group,created_at,updated_at")
+    .eq("id", user.id)
+    .maybeSingle();
+  if (error) throw error;
+  if (data) return data;
+
+  const fallbackProfile = {
+    id: user.id,
+    email: user.email || "",
+    full_name: user.user_metadata?.full_name || "Student",
+    role: "student",
+    status: "active",
+    class_group: user.user_metadata?.class_group || null,
+  };
+  const { data: inserted, error: insertError } = await supabaseClient
+    .from("profiles")
+    .insert(fallbackProfile)
+    .select("id,email,full_name,role,status,class_group,created_at,updated_at")
+    .single();
+  if (insertError) throw insertError;
+  return inserted;
+}
+
+async function applySession(session, expectedRole = state.authRole) {
+  state.authSession = session;
+  state.authUser = session?.user || null;
+  state.authProfile = null;
+  if (!state.authUser) {
+    renderAuthPanel();
+    renderAdminShell();
+    return;
+  }
+
+  const profile = await fetchProfile(state.authUser);
+  if (profile.status !== "active") {
+    await supabaseClient.auth.signOut();
+    state.authMessage = "This account is disabled. Contact the admin.";
+    renderAuthPanel();
+    return;
+  }
+  if (expectedRole === "admin" && profile.role !== "admin") {
+    await supabaseClient.auth.signOut();
+    state.authMessage = "This account is not marked as admin in Supabase profiles.";
+    renderAuthPanel();
+    return;
+  }
+
+  state.authProfile = profile;
+  state.authMessage = profile.role === "admin" ? "Admin session ready." : "Student session ready. Progress sync is on.";
+  await loadRemoteProgress();
+  renderAuthPanel();
+  renderAdminShell();
+  if (profile.role === "admin") {
+    await loadAdminData();
+  }
+  refreshIcons();
+}
+
+async function initAuth() {
+  renderAuthPanel();
+  if (!supabaseClient || authInitialized) return;
+  authInitialized = true;
+  const { data, error } = await supabaseClient.auth.getSession();
+  if (!error && data?.session) {
+    await applySession(data.session, "student");
+  }
+  supabaseClient.auth.onAuthStateChange((_event, session) => {
+    if (!session) {
+      state.authSession = null;
+      state.authUser = null;
+      state.authProfile = null;
+      state.authMessage = "";
+      renderAuthPanel();
+      renderAdminShell();
+      refreshIcons();
+    }
+  });
+}
+
+async function handleAuthSubmit(event) {
+  event.preventDefault();
+  if (!supabaseClient) {
+    state.authMessage = "Supabase is not configured yet.";
+    renderAuthPanel();
+    return;
+  }
+
+  const form = event.target;
+  const email = form.querySelector("#authEmail")?.value.trim();
+  const password = form.querySelector("#authPassword")?.value;
+  const fullName = form.querySelector("#authName")?.value.trim() || "Student";
+  const classGroup = form.querySelector("#authClassGroup")?.value.trim() || null;
+
+  state.authBusy = true;
+  state.authMessage = state.authMode === "signup" ? "Creating account..." : "Checking account...";
+  renderAuthPanel();
+  refreshIcons();
+
+  try {
+    if (state.authMode === "signup") {
+      const { data, error } = await supabaseClient.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: fullName,
+            class_group: classGroup,
+          },
+          emailRedirectTo: `${window.location.origin}${window.location.pathname}`,
+        },
+      });
+      if (error) throw error;
+      state.authMessage = data.session
+        ? "Account created and signed in."
+        : "Account created. Check email if confirmation is enabled.";
+      if (data.session) {
+        await applySession(data.session, "student");
+      }
+    } else {
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      await applySession(data.session, state.authRole);
+    }
+  } catch (error) {
+    state.authMessage = error.message || "Auth request failed.";
+  } finally {
+    state.authBusy = false;
+    renderAuthPanel();
+    refreshIcons();
+  }
+}
+
+async function handlePasswordReset() {
+  if (!supabaseClient) return;
+  const email = authCard.querySelector("#authEmail")?.value.trim();
+  if (!email) {
+    state.authMessage = "Enter your email first, then request reset.";
+    renderAuthPanel();
+    return;
+  }
+  const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}${window.location.pathname}`,
+  });
+  state.authMessage = error ? error.message : "Password reset email sent.";
+  renderAuthPanel();
+}
+
+async function signOut() {
+  if (supabaseClient) {
+    await saveRemoteProgress();
+    await supabaseClient.auth.signOut();
+  }
+  state.authSession = null;
+  state.authUser = null;
+  state.authProfile = null;
+  state.authMessage = "Signed out. Local progress is still on this device.";
+  setView("dashboard");
+  renderAuthPanel();
+  renderAdminShell();
+  refreshIcons();
+}
+
+function progressSummary(payload = {}) {
+  const completed = Array.isArray(payload.completedLessons) ? payload.completedLessons.length : 0;
+  const practice = payload.lessonPractice && typeof payload.lessonPractice === "object"
+    ? Object.values(payload.lessonPractice).reduce((total, item) => total + Object.keys(item?.answered || {}).length, 0)
+    : 0;
+  const exams = payload.mockExamSubmitted && typeof payload.mockExamSubmitted === "object"
+    ? Object.values(payload.mockExamSubmitted).filter(Boolean).length
+    : 0;
+  return { completed, practice, exams };
+}
+
+async function loadAdminData() {
+  if (!supabaseClient || state.authProfile?.role !== "admin") return;
+  const [{ data: students, error: studentsError }, { data: progress, error: progressError }] = await Promise.all([
+    supabaseClient
+      .from("profiles")
+      .select("id,email,full_name,role,status,class_group,created_at,updated_at")
+      .order("created_at", { ascending: false }),
+    supabaseClient.from("student_progress").select("user_id,payload,updated_at"),
+  ]);
+  if (studentsError || progressError) {
+    state.authMessage = studentsError?.message || progressError?.message || "Admin data failed to load.";
+    renderAuthPanel();
+    renderAdminShell();
+    return;
+  }
+  state.adminStudents = students || [];
+  state.adminProgress = (progress || []).reduce((map, row) => {
+    map[row.user_id] = row;
+    return map;
+  }, {});
+  renderAdminShell();
+  renderAuthPanel();
+  refreshIcons();
+}
+
+function renderAdminShell() {
+  if (!adminShell) return;
+  if (state.authProfile?.role !== "admin") {
+    adminShell.innerHTML = `
+      <article class="admin-locked">
+        <span class="eyebrow">Admin login required</span>
+        <h2>Use an admin account to manage students.</h2>
+        <p>Login from the dashboard. Your Supabase profile must have the role admin.</p>
+        <button class="primary-action" type="button" data-view-link="dashboard">
+          <i data-lucide="log-in"></i>
+          Go to login
+        </button>
+      </article>
+    `;
+    return;
+  }
+
+  const students = state.adminStudents;
+  const activeCount = students.filter((student) => student.status === "active").length;
+  const adminCount = students.filter((student) => student.role === "admin").length;
+  adminShell.innerHTML = `
+    <div class="admin-summary">
+      <article>
+        <span>Total accounts</span>
+        <strong>${students.length}</strong>
+      </article>
+      <article>
+        <span>Active students</span>
+        <strong>${activeCount}</strong>
+      </article>
+      <article>
+        <span>Admins</span>
+        <strong>${adminCount}</strong>
+      </article>
+    </div>
+    <div class="admin-table" role="table" aria-label="Student accounts">
+      ${students.length ? students.map(renderStudentRow).join("") : `
+        <article class="admin-empty">
+          <span class="eyebrow">No accounts yet</span>
+          <h2>Students will appear here after signup.</h2>
+          <p>Keep the signup form open on the dashboard and share the site link with your class.</p>
+        </article>
+      `}
+    </div>
+  `;
+}
+
+function renderStudentRow(student) {
+  const row = state.adminProgress[student.id];
+  const summary = progressSummary(row?.payload);
+  return `
+    <article class="student-row" data-student-id="${student.id}">
+      <div class="student-main">
+        <div class="student-avatar">${escapeHtml((student.full_name || student.email || "ST").slice(0, 2).toUpperCase())}</div>
+        <div>
+          <h3>${escapeHtml(student.full_name || "Student")}</h3>
+          <p>${escapeHtml(student.email)}</p>
+          <div class="student-tags">
+            <span>${escapeHtml(student.role)}</span>
+            <span>${escapeHtml(student.status)}</span>
+            <span>${escapeHtml(student.class_group || "No class")}</span>
+          </div>
+        </div>
+      </div>
+      <div class="student-progress-mini">
+        <span>${summary.completed} lessons</span>
+        <span>${summary.practice} checks</span>
+        <span>${summary.exams} exams</span>
+      </div>
+      <div class="student-actions">
+        <button class="ghost-action small" type="button" data-admin-status="${student.status === "active" ? "disabled" : "active"}">
+          <i data-lucide="${student.status === "active" ? "ban" : "check-circle"}"></i>
+          ${student.status === "active" ? "Disable" : "Activate"}
+        </button>
+        <button class="ghost-action small" type="button" data-admin-role="${student.role === "admin" ? "student" : "admin"}">
+          <i data-lucide="shield"></i>
+          ${student.role === "admin" ? "Make student" : "Make admin"}
+        </button>
+        <button class="text-action" type="button" data-admin-reset-progress>
+          <i data-lucide="rotate-ccw"></i>
+          Reset progress
+        </button>
+      </div>
+    </article>
+  `;
+}
+
+async function updateStudentAccount(studentId, patch) {
+  if (!supabaseClient || state.authProfile?.role !== "admin") return;
+  const { error } = await supabaseClient.from("profiles").update(patch).eq("id", studentId);
+  state.authMessage = error ? error.message : "Student account updated.";
+  await loadAdminData();
+}
+
+async function resetStudentProgress(studentId) {
+  if (!supabaseClient || state.authProfile?.role !== "admin") return;
+  const { error } = await supabaseClient.from("student_progress").delete().eq("user_id", studentId);
+  state.authMessage = error ? error.message : "Student progress reset.";
+  await loadAdminData();
 }
 
 function getLesson(lessonId = state.activeLessonId) {
@@ -2376,6 +2984,61 @@ document.addEventListener("click", (event) => {
     return;
   }
 
+  const authRoleButton = event.target.closest("[data-auth-role]");
+  if (authRoleButton) {
+    setAuthRole(authRoleButton.dataset.authRole);
+    return;
+  }
+
+  const authModeButton = event.target.closest("[data-auth-mode]");
+  if (authModeButton) {
+    setAuthMode(authModeButton.dataset.authMode);
+    return;
+  }
+
+  const resetPasswordButton = event.target.closest("#resetPassword");
+  if (resetPasswordButton) {
+    handlePasswordReset();
+    return;
+  }
+
+  const signOutButton = event.target.closest("[data-sign-out]");
+  if (signOutButton) {
+    signOut();
+    return;
+  }
+
+  const syncButton = event.target.closest("[data-sync-progress]");
+  if (syncButton) {
+    saveRemoteProgress().then(() => {
+      state.authMessage = "Progress synced.";
+      renderAuthPanel();
+      refreshIcons();
+    });
+    return;
+  }
+
+  const adminStatusButton = event.target.closest("[data-admin-status]");
+  if (adminStatusButton) {
+    const row = adminStatusButton.closest("[data-student-id]");
+    updateStudentAccount(row.dataset.studentId, { status: adminStatusButton.dataset.adminStatus });
+    return;
+  }
+
+  const adminRoleButton = event.target.closest("[data-admin-role]");
+  if (adminRoleButton) {
+    const row = adminRoleButton.closest("[data-student-id]");
+    updateStudentAccount(row.dataset.studentId, { role: adminRoleButton.dataset.adminRole });
+    return;
+  }
+
+  const adminResetButton = event.target.closest("[data-admin-reset-progress]");
+  if (adminResetButton) {
+    const row = adminResetButton.closest("[data-student-id]");
+    resetStudentProgress(row.dataset.studentId);
+    return;
+  }
+
   const mockExamButton = event.target.closest("[data-mock-exam]");
   if (mockExamButton) {
     setMockExam(mockExamButton.dataset.mockExam);
@@ -2428,6 +3091,12 @@ document.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("submit", (event) => {
+  if (event.target.matches("#authForm")) {
+    handleAuthSubmit(event);
+  }
+});
+
 document.addEventListener("input", (event) => {
   if (event.target.matches("#mockWriting")) {
     updateMockWriting(event.target.value);
@@ -2459,6 +3128,7 @@ newPrompt.addEventListener("click", renderPrompt);
 startTimer.addEventListener("click", startExamTimer);
 pauseTimer.addEventListener("click", pauseExamTimer);
 resetTimer.addEventListener("click", resetExamTimer);
+refreshAdmin.addEventListener("click", loadAdminData);
 resetProgress.addEventListener("click", () => {
   state.completedLessons = [];
   state.answered = 0;
@@ -2488,6 +3158,8 @@ renderFlashcard(true);
 renderPrompt();
 renderTimer();
 renderMockExam();
+renderAdminShell();
+initAuth();
 updateProgress();
 
 const startingView = window.location.hash.replace("#", "");
