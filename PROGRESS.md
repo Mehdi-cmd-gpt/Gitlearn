@@ -178,6 +178,15 @@ Date updated: 2026-05-24
 - `supabase-schema.sql` now ends with a PostgREST schema-cache reload notification.
 - Added `supabase-setup-clean.sql` as a comment-free SQL setup file for safer copy/paste into Supabase SQL Editor.
 
+## Admin Account Created
+
+Date updated: 2026-05-24
+
+- Supabase schema was installed successfully.
+- First admin account was created and promoted through `bootstrap_first_admin()`.
+- Admin profile verified as `role = admin` and `status = active`.
+- Admin password is intentionally not stored in repository files.
+
 ## Published Commits
 
 Main branch:
