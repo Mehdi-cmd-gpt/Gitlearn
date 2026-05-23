@@ -152,6 +152,14 @@ window.GITLEARN_SUPABASE = {
 };
 ```
 
+## Login Field Usability Fix
+
+Date updated: 2026-05-24
+
+- Student and admin email/password fields now stay typeable even when Supabase is not configured yet.
+- Submit/reset actions remain disabled until `supabase-config.js` has a valid Supabase URL and anon key.
+- The setup message now explains that typing is allowed but login needs Supabase configuration first.
+
 ## Published Commits
 
 Main branch:
