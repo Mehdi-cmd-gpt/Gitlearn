@@ -80,20 +80,25 @@ Phase 1 has been added locally:
 
 - `supabase-config.js` added for the public Supabase project URL and anon key.
 - `supabase-schema.sql` added with profiles, student progress, triggers, helper functions, and Row Level Security policies.
-- Dashboard now includes a student/admin login panel.
+- Main dashboard now includes a student-only login/signup gate.
 - Student signup mode collects full name, class/group, email, and password.
-- Admin login mode checks that the Supabase profile role is `admin`.
-- Admin navigation appears only for signed-in admin profiles.
-- Admin workspace added for viewing student accounts, progress summaries, roles, status, and reset actions.
+- Admin login moved to the separate `admin.html` portal.
+- Admin portal checks that the Supabase profile role is `admin`.
+- Admin workspace appears only for signed-in admin profiles.
+- Admin workspace supports viewing student accounts, progress summaries, roles, status, and reset actions.
 - Progress sync hooks added so local lesson/practice/writing/mock-exam state can be saved to Supabase after login.
-- Signed-out users can still study with localStorage progress.
+- Signed-out users cannot open study features; the app stays on the login gate.
 - The app shows a setup message until the Supabase URL and anon key are added.
 
 Important Supabase setup notes:
 
 - Run `supabase-schema.sql` in the Supabase SQL Editor.
 - Add the project URL and anon key to `supabase-config.js`.
-- After the first admin signs up, run:
+- Open `admin.html`, choose the `First admin` tab, and create the first admin login.
+- The first-admin tab works only while the database has no admin profile.
+- After the first admin exists, use the admin portal to promote or disable other accounts.
+
+Fallback manual admin promotion if needed:
 
 ```sql
 update public.profiles set role = 'admin' where email = 'admin@example.com';
@@ -124,6 +129,28 @@ Security note:
 - Because GitHub Pages is static hosting, the `admin.html` file itself can still be requested by URL.
 - The admin data and actions are protected by Supabase Auth and Row Level Security.
 - A fully non-public admin URL would require server-side routing, a private deployment, or an Edge Function/app server in front of the admin page.
+
+## First Admin Login Bootstrap
+
+Date updated: 2026-05-24
+
+The admin portal now includes a usable first-login path:
+
+- `admin.html` has `Login` and `First admin` tabs.
+- `admin.js` can create the first admin account through Supabase Auth.
+- `supabase-schema.sql` includes `public.bootstrap_first_admin()`.
+- `bootstrap_first_admin()` promotes only the first authenticated account while no admin exists.
+- After one admin exists, non-admin accounts cannot use the admin portal.
+- The admin login form rebuilds correctly after sign-out.
+
+The site still needs real Supabase values in `supabase-config.js` before any live login can work:
+
+```js
+window.GITLEARN_SUPABASE = {
+  url: "https://YOUR-PROJECT.supabase.co",
+  anonKey: "YOUR_PUBLIC_ANON_KEY",
+};
+```
 
 ## Published Commits
 

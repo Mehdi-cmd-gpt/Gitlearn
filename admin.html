@@ -33,7 +33,15 @@
           </div>
 
           <div class="auth-card" id="adminAuthCard">
+            <div class="auth-mode-row" role="tablist" aria-label="Admin auth mode">
+              <button class="active" type="button" data-admin-auth-mode="login">Login</button>
+              <button type="button" data-admin-auth-mode="setup">First admin</button>
+            </div>
             <form class="auth-form" id="adminAuthForm">
+              <label class="auth-field" data-admin-name-wrap hidden>
+                <span>Full name</span>
+                <input id="adminFullName" name="full_name" type="text" autocomplete="name" placeholder="Admin name" />
+              </label>
               <label class="auth-field">
                 <span>Email</span>
                 <input id="adminEmail" name="email" type="email" autocomplete="email" placeholder="admin@example.com" required />

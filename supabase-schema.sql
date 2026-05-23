@@ -144,5 +144,48 @@ on public.student_progress for delete
 to authenticated
 using ((user_id = auth.uid() and public.is_active_user()) or public.is_admin());
 
--- After the first admin signs up, run this with their real email:
--- update public.profiles set role = 'admin' where email = 'admin@example.com';
+create or replace function public.bootstrap_first_admin()
+returns boolean
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  admin_count integer;
+begin
+  if auth.uid() is null then
+    return false;
+  end if;
+
+  select count(*) into admin_count
+  from public.profiles
+  where role = 'admin';
+
+  if admin_count > 0 then
+    return false;
+  end if;
+
+  insert into public.profiles (id, email, full_name, role, status)
+  values (
+    auth.uid(),
+    coalesce(auth.jwt() ->> 'email', 'admin'),
+    coalesce(auth.jwt() -> 'user_metadata' ->> 'full_name', 'Admin'),
+    'admin',
+    'active'
+  )
+  on conflict (id) do update
+    set role = 'admin',
+        status = 'active',
+        email = excluded.email,
+        full_name = coalesce(nullif(public.profiles.full_name, ''), excluded.full_name);
+
+  return true;
+end;
+$$;
+
+grant execute on function public.bootstrap_first_admin() to authenticated;
+
+-- First admin setup:
+-- 1. Run this file in Supabase SQL Editor.
+-- 2. Add your project URL and anon key to supabase-config.js.
+-- 3. Open /admin.html and use the First admin tab once.
