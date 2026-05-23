@@ -1205,6 +1205,8 @@ const supabaseClient =
   supabaseConfigured && window.supabase?.createClient
     ? window.supabase.createClient(supabaseUrl, supabaseAnonKey)
     : null;
+const schemaSetupMessage =
+  "Supabase database is not installed yet. Run supabase-schema.sql in Supabase SQL Editor, then try again.";
 let remoteSaveTimer = null;
 let authInitialized = false;
 let applyingRemoteProgress = false;
@@ -1356,6 +1358,22 @@ function renderAccessState() {
   document.body.classList.toggle("auth-locked", !isStudentUnlocked());
 }
 
+function isSchemaMissingError(error) {
+  const message = String(error?.message || error || "").toLowerCase();
+  return (
+    error?.code === "PGRST205" ||
+    message.includes("schema cache") ||
+    message.includes("could not find the table") ||
+    message.includes("public.profiles") ||
+    message.includes("public.student_progress")
+  );
+}
+
+function readableSupabaseError(error, fallback = "Supabase request failed.") {
+  if (isSchemaMissingError(error)) return schemaSetupMessage;
+  return error?.message || fallback;
+}
+
 function setView(viewId) {
   if (!isStudentUnlocked() && viewId !== "dashboard") {
     viewId = "dashboard";
@@ -1443,7 +1461,7 @@ async function saveRemoteProgress() {
       updated_at: new Date().toISOString(),
     });
   if (error) {
-    state.authMessage = `Sync paused: ${error.message}`;
+    state.authMessage = `Sync paused: ${readableSupabaseError(error)}`;
     renderAuthPanel();
   }
 }
@@ -1456,7 +1474,7 @@ async function loadRemoteProgress() {
     .eq("user_id", state.authUser.id)
     .maybeSingle();
   if (error) {
-    state.authMessage = `Could not load saved progress: ${error.message}`;
+    state.authMessage = `Could not load saved progress: ${readableSupabaseError(error)}`;
     renderAuthPanel();
     return;
   }
@@ -1597,7 +1615,7 @@ async function fetchProfile(user) {
     .select("id,email,full_name,role,status,class_group,created_at,updated_at")
     .eq("id", user.id)
     .maybeSingle();
-  if (error) throw error;
+  if (error) throw new Error(readableSupabaseError(error));
   if (data) return data;
 
   const fallbackProfile = {
@@ -1613,7 +1631,7 @@ async function fetchProfile(user) {
     .insert(fallbackProfile)
     .select("id,email,full_name,role,status,class_group,created_at,updated_at")
     .single();
-  if (insertError) throw insertError;
+  if (insertError) throw new Error(readableSupabaseError(insertError));
   return inserted;
 }
 
@@ -1653,7 +1671,12 @@ async function initAuth() {
   authInitialized = true;
   const { data, error } = await supabaseClient.auth.getSession();
   if (!error && data?.session) {
-    await applySession(data.session);
+    try {
+      await applySession(data.session);
+    } catch (sessionError) {
+      state.authMessage = readableSupabaseError(sessionError);
+      renderAuthPanel();
+    }
   }
   supabaseClient.auth.onAuthStateChange((_event, session) => {
     if (!session) {
@@ -1712,7 +1735,7 @@ async function handleAuthSubmit(event) {
       await applySession(data.session);
     }
   } catch (error) {
-    state.authMessage = error.message || "Auth request failed.";
+    state.authMessage = readableSupabaseError(error, "Auth request failed.");
   } finally {
     state.authBusy = false;
     renderAuthPanel();
@@ -1731,7 +1754,7 @@ async function handlePasswordReset() {
   const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
     redirectTo: `${window.location.origin}${window.location.pathname}`,
   });
-  state.authMessage = error ? error.message : "Password reset email sent.";
+  state.authMessage = error ? readableSupabaseError(error) : "Password reset email sent.";
   renderAuthPanel();
 }
 
