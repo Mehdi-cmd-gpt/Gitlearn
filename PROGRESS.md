@@ -168,6 +168,15 @@ Date updated: 2026-05-24
 - The public anon key has been added so student login and admin first-login setup can call Supabase.
 - `supabase-schema.sql` still needs to be run in the Supabase SQL Editor before accounts and progress tables work.
 
+## Missing Schema Message Fix
+
+Date updated: 2026-05-24
+
+- Student and admin login now translate Supabase schema-cache errors into a clear setup message.
+- Missing `public.profiles` or `public.student_progress` now tells the admin to run `supabase-schema.sql` in the Supabase SQL Editor.
+- Existing sessions also show the setup message instead of failing silently when the schema has not been installed.
+- `supabase-schema.sql` now ends with a PostgREST schema-cache reload notification.
+
 ## Published Commits
 
 Main branch:

@@ -10,6 +10,8 @@ const supabaseClient =
   supabaseConfigured && window.supabase?.createClient
     ? window.supabase.createClient(supabaseUrl, supabaseAnonKey)
     : null;
+const schemaSetupMessage =
+  "Supabase database is not installed yet. Run supabase-schema.sql in Supabase SQL Editor, then try again.";
 
 const state = {
   busy: false,
@@ -41,6 +43,22 @@ function refreshIcons() {
   if (window.lucide) {
     window.lucide.createIcons();
   }
+}
+
+function isSchemaMissingError(error) {
+  const message = String(error?.message || error || "").toLowerCase();
+  return (
+    error?.code === "PGRST205" ||
+    message.includes("schema cache") ||
+    message.includes("could not find the table") ||
+    message.includes("public.profiles") ||
+    message.includes("public.student_progress")
+  );
+}
+
+function readableSupabaseError(error, fallback = "Supabase request failed.") {
+  if (isSchemaMissingError(error)) return schemaSetupMessage;
+  return error?.message || fallback;
 }
 
 function renderAdminAuthForm() {
@@ -158,7 +176,7 @@ async function fetchProfile(user) {
     .select("id,email,full_name,role,status,class_group,created_at,updated_at")
     .eq("id", user.id)
     .maybeSingle();
-  if (error) throw error;
+  if (error) throw new Error(readableSupabaseError(error));
   return data;
 }
 
@@ -166,10 +184,10 @@ async function bootstrapFirstAdmin() {
   const { data, error } = await supabaseClient.rpc("bootstrap_first_admin");
   if (error) {
     const message = error.message || "";
-    if (message.includes("bootstrap_first_admin") || message.includes("Could not find")) {
-      throw new Error("Run the latest supabase-schema.sql in Supabase, then try again.");
+    if (isSchemaMissingError(error) || message.includes("bootstrap_first_admin") || message.includes("Could not find")) {
+      throw new Error(schemaSetupMessage);
     }
-    throw error;
+    throw new Error(readableSupabaseError(error));
   }
   return data === true;
 }
@@ -242,7 +260,7 @@ async function loadAdminData() {
   ]);
 
   if (studentsError || progressError) {
-    state.message = studentsError?.message || progressError?.message || "Admin data failed to load.";
+    state.message = readableSupabaseError(studentsError || progressError, "Admin data failed to load.");
     renderAuth();
     renderAdminShell();
     return;
@@ -340,14 +358,14 @@ function renderStudentRow(student) {
 async function updateStudentAccount(studentId, patch) {
   if (!supabaseClient || state.profile?.role !== "admin") return;
   const { error } = await supabaseClient.from("profiles").update(patch).eq("id", studentId);
-  state.message = error ? error.message : "Student account updated.";
+  state.message = error ? readableSupabaseError(error) : "Student account updated.";
   await loadAdminData();
 }
 
 async function resetStudentProgress(studentId) {
   if (!supabaseClient || state.profile?.role !== "admin") return;
   const { error } = await supabaseClient.from("student_progress").delete().eq("user_id", studentId);
-  state.message = error ? error.message : "Student progress reset.";
+  state.message = error ? readableSupabaseError(error) : "Student progress reset.";
   await loadAdminData();
 }
 
@@ -387,7 +405,7 @@ async function handleAdminAuth(event) {
       await applySession(data.session);
     }
   } catch (error) {
-    state.message = error.message || "Admin login failed.";
+    state.message = readableSupabaseError(error, "Admin login failed.");
   } finally {
     state.busy = false;
     renderAuth();
@@ -405,7 +423,7 @@ async function handlePasswordReset() {
   const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
     redirectTo: `${window.location.origin}${window.location.pathname}`,
   });
-  state.message = error ? error.message : "Password reset email sent.";
+  state.message = error ? readableSupabaseError(error) : "Password reset email sent.";
   renderAuth();
 }
 
@@ -428,7 +446,13 @@ async function initAdmin() {
   if (!supabaseClient) return;
   const { data, error } = await supabaseClient.auth.getSession();
   if (!error && data?.session) {
-    await applySession(data.session);
+    try {
+      await applySession(data.session);
+    } catch (sessionError) {
+      state.message = readableSupabaseError(sessionError);
+      renderAuth();
+      renderAdminShell();
+    }
   }
   supabaseClient.auth.onAuthStateChange((_event, session) => {
     if (!session) {

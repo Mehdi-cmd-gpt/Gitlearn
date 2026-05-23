@@ -189,3 +189,5 @@ grant execute on function public.bootstrap_first_admin() to authenticated;
 -- 1. Run this file in Supabase SQL Editor.
 -- 2. Add your project URL and anon key to supabase-config.js.
 -- 3. Open /admin.html and use the First admin tab once.
+
+notify pgrst, 'reload schema';
