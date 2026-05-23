@@ -1,6 +1,6 @@
 # 2BAC English Prep Website Progress
 
-Date saved: 2026-05-23
+Date saved: 2026-05-24
 
 Live site: https://mehdi-cmd-gpt.github.io/Gitlearn/
 
@@ -37,6 +37,71 @@ The Dashboard now has:
 - Quick Study and Mark actions for each lesson.
 - Progress score and reset action.
 
+## Next Feature Plan: Student Login And Admin Panel
+
+The next major feature requested is account login:
+
+- Main page should support student login.
+- Admin login should be separate from student access.
+- Admin should be able to manage student accounts.
+- Admin should be able to view student progress, lesson completion, quiz work, writing drafts, and mock exam attempts.
+- Students should only see their own account and progress.
+
+Important technical decision:
+
+- GitHub Pages is static hosting, so it cannot safely handle real passwords, private student data, protected routes, or admin permissions by itself.
+- The recommended backend for the first version is Supabase because it works with a static frontend and includes authentication, database tables, API access, and Row Level Security.
+- Supabase Free tier should be enough for an early version of this project, including a few hundred or even a few thousand students, as long as stored data stays light.
+
+Suggested account requirements:
+
+- Student signup/login with email and password.
+- Password reset and optional email verification.
+- User roles: `student` and `admin`.
+- Admin dashboard for listing students, disabling accounts, resetting access, assigning groups/classes, and checking progress.
+- Database tables for users/profiles, lesson progress, quiz answers, writing drafts, mock exam attempts, and admin activity logs.
+- Row Level Security rules so students can read/write only their own rows while admins can manage all student records.
+- Privacy notice because the app will store student information.
+
+Suggested Supabase tables:
+
+- `profiles`: user id, full name, email, role, status, class/group, created date.
+- `lesson_progress`: user id, lesson id, completed state, quick-check answers, updated date.
+- `practice_progress`: user id, quiz answers, score, updated date.
+- `writing_submissions`: user id, prompt id, draft text, word count, rubric checks, updated date.
+- `mock_exam_attempts`: user id, exam id, answers, writing, score, submitted state, created date.
+- `admin_logs`: admin id, action type, target user id, timestamp.
+
+## Supabase Login Implementation Started
+
+Date started: 2026-05-24
+
+Phase 1 has been added locally:
+
+- `supabase-config.js` added for the public Supabase project URL and anon key.
+- `supabase-schema.sql` added with profiles, student progress, triggers, helper functions, and Row Level Security policies.
+- Dashboard now includes a student/admin login panel.
+- Student signup mode collects full name, class/group, email, and password.
+- Admin login mode checks that the Supabase profile role is `admin`.
+- Admin navigation appears only for signed-in admin profiles.
+- Admin workspace added for viewing student accounts, progress summaries, roles, status, and reset actions.
+- Progress sync hooks added so local lesson/practice/writing/mock-exam state can be saved to Supabase after login.
+- Signed-out users can still study with localStorage progress.
+- The app shows a setup message until the Supabase URL and anon key are added.
+
+Important Supabase setup notes:
+
+- Run `supabase-schema.sql` in the Supabase SQL Editor.
+- Add the project URL and anon key to `supabase-config.js`.
+- After the first admin signs up, run:
+
+```sql
+update public.profiles set role = 'admin' where email = 'admin@example.com';
+```
+
+- Replace `admin@example.com` with the real admin email.
+- The current admin disable action marks `profiles.status = 'disabled'` and RLS blocks progress access for disabled users. Hard-disabling Supabase Auth users would require a secure server function or Edge Function with a service-role key, not frontend JavaScript.
+
 ## Published Commits
 
 Main branch:
@@ -49,6 +114,7 @@ Main branch:
 - `1486b57` Remove program basis bar
 - `d9de4e7` Convert unit selector to dropdown
 - `87aa007` Add Morocco 2BAC mock exam simulator
+- Pending: Start Supabase student and admin auth
 
 GitHub Pages branch:
 
@@ -60,6 +126,7 @@ GitHub Pages branch:
 - `aed1b51` Publish program bar removal
 - `509789e` Publish dropdown unit selector
 - `f39ba29` Publish mock exam simulator
+- Pending: Publish Supabase auth starter
 
 ## Content Added
 
@@ -109,6 +176,7 @@ Local checks:
 - Headless browser interaction check for mock exam answers, writing autosave, submit/results, and localStorage.
 - Headless browser timer check for 3-hour mode, start, pause, and reset.
 - Headless browser mobile overflow check.
+- Headless browser auth UI check for student/signup/admin modes, setup message, disabled submit without config, admin-route guard, and mobile overflow.
 
 Live checks:
 
@@ -120,6 +188,8 @@ Live checks:
 
 - `index.html`
 - `styles.css`
+- `supabase-config.js`
+- `supabase-schema.sql`
 - `script.js`
 
 Useful screenshot artifacts in this workspace:
@@ -132,6 +202,9 @@ Useful screenshot artifacts in this workspace:
 - `lessons-unit-dropdown-mobile.png`
 - `mock-exam-desktop-final.png`
 - `mock-exam-mobile-final.png`
+- `auth-dashboard-desktop.png`
+- `auth-dashboard-mobile.png`
+- `admin-locked-desktop.png`
 
 ## Source References Used
 
@@ -141,3 +214,4 @@ Useful screenshot artifacts in this workspace:
 - MEN references: https://www.men.gov.ma/fr/r%C3%A9f%C3%A9rentiels-strat%C3%A9giques
 - Lycee Numerique 2BAC English map: https://lyceenumerique.ma/home/course/ANGLAIS-2BAC/15
 - Telmid 2BAC English overview: https://telmid.com/english-2-bac/
+- Supabase pricing/free tier: https://supabase.com/pricing
