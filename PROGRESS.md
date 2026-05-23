@@ -48,7 +48,7 @@ Main branch:
 - `cbd2a51` List all lessons on dashboard
 - `1486b57` Remove program basis bar
 - `d9de4e7` Convert unit selector to dropdown
-- Pending: Add Morocco 2BAC mock exam simulator
+- `87aa007` Add Morocco 2BAC mock exam simulator
 
 GitHub Pages branch:
 
@@ -59,7 +59,7 @@ GitHub Pages branch:
 - `78697fa` Publish dashboard lesson shortlist
 - `aed1b51` Publish program bar removal
 - `509789e` Publish dropdown unit selector
-- Pending: Publish mock exam simulator
+- `f39ba29` Publish mock exam simulator
 
 ## Content Added
 
