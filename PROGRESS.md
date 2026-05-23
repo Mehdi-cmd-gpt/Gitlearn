@@ -114,7 +114,7 @@ Main branch:
 - `1486b57` Remove program basis bar
 - `d9de4e7` Convert unit selector to dropdown
 - `87aa007` Add Morocco 2BAC mock exam simulator
-- Pending: Start Supabase student and admin auth
+- `f2f1eeb` Start Supabase student and admin auth
 
 GitHub Pages branch:
 
@@ -126,7 +126,7 @@ GitHub Pages branch:
 - `aed1b51` Publish program bar removal
 - `509789e` Publish dropdown unit selector
 - `f39ba29` Publish mock exam simulator
-- Pending: Publish Supabase auth starter
+- `f998aaa` Publish Supabase auth starter
 
 ## Content Added
 
