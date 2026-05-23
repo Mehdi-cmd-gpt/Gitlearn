@@ -187,6 +187,17 @@ Date updated: 2026-05-24
 - Admin profile verified as `role = admin` and `status = active`.
 - Admin password is intentionally not stored in repository files.
 
+## Admin Student Creation
+
+Date updated: 2026-05-24
+
+- Admin portal now includes a signed-in-only `Create student` form.
+- Admins can create student Auth accounts with full name, class/group, email, and temporary password.
+- Student creation uses a separate Supabase client so the admin session stays active.
+- Created students are forced to `role = student` and `status = active`.
+- Student list refreshes after creation.
+- Supabase trigger now saves `class_group` from user metadata for new student accounts.
+
 ## Published Commits
 
 Main branch:

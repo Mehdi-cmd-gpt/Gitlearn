@@ -42,17 +42,19 @@ security definer
 set search_path = public
 as $$
 begin
-  insert into public.profiles (id, email, full_name, role, status)
+  insert into public.profiles (id, email, full_name, role, status, class_group)
   values (
     new.id,
     coalesce(new.email, ''),
     coalesce(new.raw_user_meta_data->>'full_name', 'Student'),
     'student',
-    'active'
+    'active',
+    new.raw_user_meta_data->>'class_group'
   )
   on conflict (id) do update
     set email = excluded.email,
-        full_name = coalesce(public.profiles.full_name, excluded.full_name);
+        full_name = coalesce(public.profiles.full_name, excluded.full_name),
+        class_group = coalesce(public.profiles.class_group, excluded.class_group);
 
   return new;
 end;
