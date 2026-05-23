@@ -860,6 +860,336 @@ const prompts = [
   },
 ];
 
+const mockExams = [
+  {
+    id: "green-school",
+    title: "Mock 1: Green School Campaign",
+    focus: "Sustainable Development + Citizenship",
+    level: "All streams",
+    basis: "Reading 15, Language 15, Writing 10",
+    reading: {
+      title: "The School That Turned Waste Into Learning",
+      passage: [
+        "When a public high school near Agadir noticed that the yard was full of plastic bottles after break time, the English club decided to treat the problem as a lesson, not just as a cleaning task. The students placed three simple bins near the gate and asked every class to collect plastic, paper, and organic waste separately. At first, some learners laughed at the idea because they thought recycling was a job for adults. A month later, the same students were competing to collect the cleanest materials.",
+        "The club did not stop at collecting waste. It invited a local association to explain how plastic damages beaches, soil, and animals. Then the science teacher helped learners calculate how many bottles the school used in one week. The numbers surprised everyone. The campaign became more serious when students used posters, short speeches, and social media messages to raise awareness among parents and neighbors.",
+        "By the end of the term, the school had reduced plastic waste and started a small garden with compost from the canteen. More importantly, students learned that citizenship begins with daily behavior. The head teacher said the project worked because it connected English, science, and real life. The club now plans to publish a short report so that other schools can repeat the experience.",
+      ],
+      questions: [
+        {
+          id: "green-r1",
+          skill: "Best title",
+          prompt: "Choose the best title for the passage.",
+          options: ["A School Turns Waste Into a Learning Project", "A New Sports Club in Agadir", "Why Students Should Avoid English", "The History of Moroccan Beaches"],
+          correct: 0,
+          explanation: "The whole text is about a school recycling campaign that became a learning project.",
+        },
+        {
+          id: "green-r2",
+          skill: "Specific information",
+          prompt: "Why did some students laugh at the campaign in the beginning?",
+          options: ["They preferred paper to plastic.", "They thought recycling was only for adults.", "They wanted to study grammar first.", "They did not understand social media."],
+          correct: 1,
+          explanation: "Paragraph 1 says some learners thought recycling was a job for adults.",
+        },
+        {
+          id: "green-r3",
+          skill: "Inference",
+          prompt: "What can we infer from the campaign?",
+          options: ["Students never change their habits.", "Environmental education works better when it is practical.", "The project failed after one week.", "Only science teachers can discuss the environment."],
+          correct: 1,
+          explanation: "The campaign changed behavior because students measured, collected, spoke, and acted.",
+        },
+        {
+          id: "green-r4",
+          skill: "Reference",
+          prompt: "In paragraph 3, what does 'it' in 'it connected English, science, and real life' refer to?",
+          options: ["The report", "The garden", "The project", "The canteen"],
+          correct: 2,
+          explanation: "The head teacher is explaining why the project worked.",
+        },
+        {
+          id: "green-r5",
+          skill: "Vocabulary",
+          prompt: "Which word from the passage means 'make people know more about an issue'?",
+          options: ["compete", "calculate", "raise awareness", "repeat"],
+          correct: 2,
+          explanation: "Raise awareness means help people understand and care about a problem.",
+        },
+      ],
+    },
+    language: {
+      questions: [
+        {
+          id: "green-l1",
+          skill: "Cause and effect",
+          prompt: "Complete: The campaign was practical. ____ many students changed their habits.",
+          options: ["However", "As a result", "Although", "Despite"],
+          correct: 1,
+          explanation: "As a result introduces the effect of a previous idea.",
+        },
+        {
+          id: "green-l2",
+          skill: "Future perfect",
+          prompt: "Choose the correct form: By next June, the club ____ a full report.",
+          options: ["will write", "wrote", "will have written", "has write"],
+          correct: 2,
+          explanation: "By next June signals future perfect: will have + past participle.",
+        },
+        {
+          id: "green-l3",
+          skill: "Passive voice",
+          prompt: "Rewrite meaning: Students collected plastic bottles. Choose the passive form.",
+          options: ["Plastic bottles are collect.", "Plastic bottles were collected by students.", "Students were collected plastic bottles.", "Plastic bottles collect students."],
+          correct: 1,
+          explanation: "Past passive uses were + past participle.",
+        },
+        {
+          id: "green-l4",
+          skill: "Collocation",
+          prompt: "Choose the best collocation: The club wanted to ____ awareness about plastic waste.",
+          options: ["raise", "make", "do", "take"],
+          correct: 0,
+          explanation: "The correct collocation is raise awareness.",
+        },
+        {
+          id: "green-l5",
+          skill: "Function",
+          prompt: "Which sentence gives advice politely?",
+          options: ["You are wrong about recycling.", "If I were you, I would start with small daily actions.", "I completely disagree forever.", "This is bad news."],
+          correct: 1,
+          explanation: "If I were you, I would... is a polite advice pattern.",
+        },
+      ],
+    },
+    writing: {
+      format: "Article",
+      target: "100 to 200 words",
+      prompt: "Write an article for your school magazine about how Moroccan students can protect the environment. Mention at least two actions and one expected result.",
+      cues: ["school clubs", "recycling", "water saving", "public spaces", "awareness campaigns"],
+      checklist: ["Clear title or topic sentence", "Two practical actions", "One Morocco-based example", "Cause-effect connector", "Final recommendation"],
+    },
+  },
+  {
+    id: "digital-learning",
+    title: "Mock 2: Digital Learning Choices",
+    focus: "Education + Advances in Science and Technology",
+    level: "All streams",
+    basis: "Reading 15, Language 15, Writing 10",
+    reading: {
+      title: "A Library After School",
+      passage: [
+        "In a small town near Beni Mellal, a group of 2BAC students started staying at school after the last lesson. They were not waiting for transport. They were using a classroom that had become a digital library. The room had a few computers, a projector, and a shelf of English readers. A teacher opened it three afternoons a week so that students without internet at home could revise, read, and practise writing.",
+        "At first, the project seemed simple. Students searched for vocabulary, watched short educational videos, and typed paragraphs. Soon, they began helping one another. One learner explained reported speech; another showed her friends how to organize an email. The teacher noticed that shy students asked more questions online than they did in a crowded classroom.",
+        "The project also had limits. Some students wasted time moving from one video to another without taking notes. Others copied model paragraphs instead of writing their own ideas. For this reason, the teacher created a rule: every digital activity had to end with a short handwritten summary. The students discovered that technology is useful only when it leads to real thinking.",
+      ],
+      questions: [
+        {
+          id: "digital-r1",
+          skill: "Main idea",
+          prompt: "What is the passage mainly about?",
+          options: ["A football competition", "A school digital library that supports revision", "A trip to Beni Mellal", "A new transport problem"],
+          correct: 1,
+          explanation: "All three paragraphs discuss the digital library and how students use it.",
+        },
+        {
+          id: "digital-r2",
+          skill: "Purpose",
+          prompt: "Why did the teacher open the room three afternoons a week?",
+          options: ["So that students without internet could study", "Because transport was late", "To stop students from reading", "To sell computers"],
+          correct: 0,
+          explanation: "Paragraph 1 directly states the purpose.",
+        },
+        {
+          id: "digital-r3",
+          skill: "Fact vs opinion",
+          prompt: "Which statement is a fact from the text?",
+          options: ["Technology is always perfect.", "The room had computers, a projector, and English readers.", "All students hate handwritten summaries.", "Online videos are better than teachers."],
+          correct: 1,
+          explanation: "The equipment in the room is stated as factual information.",
+        },
+        {
+          id: "digital-r4",
+          skill: "Author's message",
+          prompt: "What lesson does the writer want to teach?",
+          options: ["Students should never use technology.", "Copying model paragraphs is the best method.", "Digital tools must lead to active learning.", "School libraries should close early."],
+          correct: 2,
+          explanation: "The final sentence says technology is useful only when it leads to real thinking.",
+        },
+        {
+          id: "digital-r5",
+          skill: "Vocabulary",
+          prompt: "In the passage, 'limits' is closest in meaning to:",
+          options: ["advantages", "problems or restrictions", "certificates", "celebrations"],
+          correct: 1,
+          explanation: "The paragraph gives examples of problems, such as wasting time and copying.",
+        },
+      ],
+    },
+    language: {
+      questions: [
+        {
+          id: "digital-l1",
+          skill: "Purpose",
+          prompt: "Complete: The teacher opened the room ____ students could revise online.",
+          options: ["so that", "because", "although", "therefore"],
+          correct: 0,
+          explanation: "So that introduces purpose followed by subject + verb.",
+        },
+        {
+          id: "digital-l2",
+          skill: "Reported speech",
+          prompt: "Choose the correct report: The teacher said, 'Take notes.'",
+          options: ["The teacher said take notes.", "The teacher told students to take notes.", "The teacher told students taking notes.", "The teacher said students took notes."],
+          correct: 1,
+          explanation: "A command is reported with told + object + to + verb.",
+        },
+        {
+          id: "digital-l3",
+          skill: "Conditional",
+          prompt: "Complete: If students use technology wisely, they ____ better.",
+          options: ["learn", "will learn", "would have learned", "had learned"],
+          correct: 1,
+          explanation: "First conditional: if + present simple, will + verb.",
+        },
+        {
+          id: "digital-l4",
+          skill: "Gerund or infinitive",
+          prompt: "Choose the correct form: Some students avoid ____ their own paragraphs.",
+          options: ["write", "to write", "writing", "wrote"],
+          correct: 2,
+          explanation: "Avoid is followed by a gerund.",
+        },
+        {
+          id: "digital-l5",
+          skill: "Function",
+          prompt: "Which sentence asks for clarification?",
+          options: ["Could you explain what you mean by digital literacy?", "I strongly agree.", "You should revise today.", "That is great news."],
+          correct: 0,
+          explanation: "Could you explain...? is used to ask for clarification.",
+        },
+      ],
+    },
+    writing: {
+      format: "Opinion paragraph",
+      target: "100 to 200 words",
+      prompt: "Some students learn better with digital tools, while others prefer traditional notebooks. Give your opinion and support it with examples.",
+      cues: ["online practice", "distraction", "teacher guidance", "handwritten summaries", "self-discipline"],
+      checklist: ["Direct opinion", "One advantage", "One limit or risk", "Example from school life", "Balanced conclusion"],
+    },
+  },
+  {
+    id: "talent-home",
+    title: "Mock 3: Talent at Home",
+    focus: "Brain Drain + Women and Power",
+    level: "All streams",
+    basis: "Reading 15, Language 15, Writing 10",
+    reading: {
+      title: "The Engineer Who Came Back",
+      passage: [
+        "After finishing her engineering studies in France, Nadia received two job offers. One was from a large company abroad, and the other was from a small renewable-energy project in Morocco. Her friends expected her to stay in Europe because the salary was higher. Nadia hesitated for weeks, but she finally returned to Morocco because she wanted to work on solar energy in rural areas.",
+        "The beginning was not easy. Some people thought a young woman could not lead a technical team. Others told her that returning home was a mistake. Nadia did not answer with anger. She answered with results. Her team trained local technicians, installed panels in three villages, and helped a cooperative reduce electricity costs. The project did not make her rich quickly, but it gave her meaningful experience.",
+        "Nadia believes that brain drain is not only about leaving the country. It is also about whether talented people find respect, research opportunities, and fair working conditions at home. She says young graduates need incentives, but they also need trust. Her story shows that empowerment and development can meet when skills are valued.",
+      ],
+      questions: [
+        {
+          id: "talent-r1",
+          skill: "Best title",
+          prompt: "Choose the best title for the passage.",
+          options: ["A Solar Engineer Returns Home", "A Holiday in France", "How to Buy a Computer", "A Funny Classroom Story"],
+          correct: 0,
+          explanation: "The passage focuses on Nadia's return to Morocco to work on solar energy.",
+        },
+        {
+          id: "talent-r2",
+          skill: "Specific information",
+          prompt: "Why did Nadia return to Morocco?",
+          options: ["She disliked engineering.", "She wanted to work on solar energy in rural areas.", "She lost her passport.", "She wanted a higher salary."],
+          correct: 1,
+          explanation: "Paragraph 1 gives this reason clearly.",
+        },
+        {
+          id: "talent-r3",
+          skill: "Inference",
+          prompt: "What does Nadia's reaction to criticism show?",
+          options: ["She avoided responsibility.", "She proved herself through work.", "She stopped the project.", "She ignored renewable energy."],
+          correct: 1,
+          explanation: "She answered with results: training technicians, installing panels, and reducing costs.",
+        },
+        {
+          id: "talent-r4",
+          skill: "Reference",
+          prompt: "In paragraph 3, what does 'they' in 'they also need trust' refer to?",
+          options: ["technicians", "solar panels", "young graduates", "villages"],
+          correct: 2,
+          explanation: "The previous phrase is young graduates.",
+        },
+        {
+          id: "talent-r5",
+          skill: "Author's purpose",
+          prompt: "What is the writer's purpose?",
+          options: ["To show that talent can serve national development when it is supported", "To prove that nobody should study abroad", "To explain how to repair a solar panel", "To criticize all companies abroad"],
+          correct: 0,
+          explanation: "The passage links talent, respect, incentives, empowerment, and development.",
+        },
+      ],
+    },
+    language: {
+      questions: [
+        {
+          id: "talent-l1",
+          skill: "Relative clauses",
+          prompt: "Choose the correct sentence.",
+          options: ["Nadia is an engineer who works on solar energy.", "Nadia is an engineer which works on solar energy.", "Nadia is an engineer where works on solar energy.", "Nadia is an engineer whose works on solar energy."],
+          correct: 0,
+          explanation: "Use who for people.",
+        },
+        {
+          id: "talent-l2",
+          skill: "Wish and regret",
+          prompt: "Complete: Some graduates say, 'I wish I ____ more opportunities at home.'",
+          options: ["have", "had", "will have", "has"],
+          correct: 1,
+          explanation: "I wish + past simple expresses a present wish.",
+        },
+        {
+          id: "talent-l3",
+          skill: "Passive with modals",
+          prompt: "Choose the correct form: Young researchers ____ with grants.",
+          options: ["should support", "should be supported", "should supporting", "should supported"],
+          correct: 1,
+          explanation: "Passive with modal: should be + past participle.",
+        },
+        {
+          id: "talent-l4",
+          skill: "Concession",
+          prompt: "Complete: ____ the salary was higher abroad, Nadia returned home.",
+          options: ["Because", "Although", "Therefore", "As a result"],
+          correct: 1,
+          explanation: "Although introduces contrast or concession.",
+        },
+        {
+          id: "talent-l5",
+          skill: "Function",
+          prompt: "Which sentence expresses certainty?",
+          options: ["I doubt that skills matter.", "I am certain that fair opportunities can reduce brain drain.", "Could you clarify this?", "I am sorry to hear that."],
+          correct: 1,
+          explanation: "I am certain that... expresses certainty.",
+        },
+      ],
+    },
+    writing: {
+      format: "Argumentative paragraph",
+      target: "100 to 200 words",
+      prompt: "Many skilled people leave Morocco to work abroad. In your opinion, what can encourage them to stay or return? Support your answer with examples.",
+      cues: ["fair opportunities", "research grants", "training", "respect", "women's leadership"],
+      checklist: ["Clear position", "Two practical solutions", "One example", "Appropriate connector", "Proofread grammar and punctuation"],
+    },
+  },
+];
+
+const mockExamSections = ["reading", "language", "writing", "results"];
+const validMockExamIds = new Set(mockExams.map((exam) => exam.id));
+
 const lessonTabs = ["explain", "vocabulary", "practice", "writing"];
 const validLessonIds = new Set(lessons.map((lesson) => lesson.id));
 
@@ -875,6 +1205,9 @@ const savedCompletedLessons = readJson("completedLessons", []).filter((id) => va
 const savedLessonPractice = readJson("lessonPractice", {});
 const savedActiveLessonId = localStorage.getItem("activeLessonId");
 const savedActiveLessonTab = localStorage.getItem("activeLessonTab");
+const savedActiveMockExamId = localStorage.getItem("activeMockExamId");
+const savedActiveMockExamSection = localStorage.getItem("activeMockExamSection");
+const savedExamDuration = Number(localStorage.getItem("examDurationSeconds") || `${2 * 60 * 60}`);
 
 const state = {
   completedLessons: savedCompletedLessons,
@@ -884,7 +1217,14 @@ const state = {
   activeLessonId: validLessonIds.has(savedActiveLessonId) ? savedActiveLessonId : lessons[0].id,
   activeLessonTab: lessonTabs.includes(savedActiveLessonTab) ? savedActiveLessonTab : "explain",
   lessonPractice: savedLessonPractice,
-  timerSeconds: Number(localStorage.getItem("timerSeconds") || `${2 * 60 * 60}`),
+  activeMockExamId: validMockExamIds.has(savedActiveMockExamId) ? savedActiveMockExamId : mockExams[0].id,
+  activeMockExamSection: mockExamSections.includes(savedActiveMockExamSection) ? savedActiveMockExamSection : "reading",
+  mockExamAnswers: readJson("mockExamAnswers", {}),
+  mockExamWriting: readJson("mockExamWriting", {}),
+  mockExamChecks: readJson("mockExamChecks", {}),
+  mockExamSubmitted: readJson("mockExamSubmitted", {}),
+  examDurationSeconds: [2 * 60 * 60, 3 * 60 * 60].includes(savedExamDuration) ? savedExamDuration : 2 * 60 * 60,
+  timerSeconds: Number(localStorage.getItem("timerSeconds") || String(savedExamDuration || 2 * 60 * 60)),
   timerHandle: null,
   flashFlipped: false,
 };
@@ -935,6 +1275,7 @@ const startTimer = document.querySelector("#startTimer");
 const pauseTimer = document.querySelector("#pauseTimer");
 const resetTimer = document.querySelector("#resetTimer");
 const resetProgress = document.querySelector("#resetProgress");
+const mockExamApp = document.querySelector("#mockExamApp");
 
 function escapeHtml(value) {
   return String(value)
@@ -953,6 +1294,13 @@ function saveState() {
   localStorage.setItem("lessonPractice", JSON.stringify(state.lessonPractice));
   localStorage.setItem("activeLessonId", state.activeLessonId);
   localStorage.setItem("activeLessonTab", state.activeLessonTab);
+  localStorage.setItem("activeMockExamId", state.activeMockExamId);
+  localStorage.setItem("activeMockExamSection", state.activeMockExamSection);
+  localStorage.setItem("mockExamAnswers", JSON.stringify(state.mockExamAnswers));
+  localStorage.setItem("mockExamWriting", JSON.stringify(state.mockExamWriting));
+  localStorage.setItem("mockExamChecks", JSON.stringify(state.mockExamChecks));
+  localStorage.setItem("mockExamSubmitted", JSON.stringify(state.mockExamSubmitted));
+  localStorage.setItem("examDurationSeconds", String(state.examDurationSeconds));
 }
 
 function setView(viewId) {
@@ -1488,6 +1836,455 @@ function renderPrompt() {
   promptTags.innerHTML = prompt.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
 }
 
+function getMockExam(examId = state.activeMockExamId) {
+  return mockExams.find((exam) => exam.id === examId) || mockExams[0];
+}
+
+function getMockAnswers(examId = state.activeMockExamId) {
+  if (!state.mockExamAnswers[examId]) {
+    state.mockExamAnswers[examId] = {};
+  }
+  return state.mockExamAnswers[examId];
+}
+
+function getMockChecks(examId = state.activeMockExamId) {
+  if (!state.mockExamChecks[examId]) {
+    state.mockExamChecks[examId] = {};
+  }
+  return state.mockExamChecks[examId];
+}
+
+function getMockWriting(examId = state.activeMockExamId) {
+  return state.mockExamWriting[examId] || "";
+}
+
+function getMockQuestionGroups(exam = getMockExam()) {
+  return [
+    { section: "reading", label: "Reading", questions: exam.reading.questions, max: 15 },
+    { section: "language", label: "Language", questions: exam.language.questions, max: 15 },
+  ];
+}
+
+function getMockSectionScore(exam, section) {
+  const group = getMockQuestionGroups(exam).find((item) => item.section === section);
+  const answers = getMockAnswers(exam.id);
+  if (!group) return { correct: 0, total: 0, scaled: 0, max: 0 };
+  const correct = group.questions.filter((question) => Number(answers[question.id]) === question.correct).length;
+  const scaled = group.questions.length ? (correct / group.questions.length) * group.max : 0;
+  return {
+    correct,
+    total: group.questions.length,
+    scaled,
+    max: group.max,
+  };
+}
+
+function getMockWritingScore(exam) {
+  const checks = getMockChecks(exam.id);
+  const checked = exam.writing.checklist.filter((_, index) => checks[String(index)]).length;
+  const total = exam.writing.checklist.length;
+  return {
+    checked,
+    total,
+    scaled: total ? (checked / total) * 10 : 0,
+    max: 10,
+  };
+}
+
+function getMockExamScore(exam = getMockExam()) {
+  const reading = getMockSectionScore(exam, "reading");
+  const language = getMockSectionScore(exam, "language");
+  const writing = getMockWritingScore(exam);
+  const total = reading.scaled + language.scaled + writing.scaled;
+  const autoTotal = reading.scaled + language.scaled;
+  const answerCount = getMockQuestionGroups(exam).reduce((count, group) => {
+    const answers = getMockAnswers(exam.id);
+    return count + group.questions.filter((question) => answers[question.id] !== undefined).length;
+  }, 0);
+  const questionCount = getMockQuestionGroups(exam).reduce((count, group) => count + group.questions.length, 0);
+
+  return {
+    reading,
+    language,
+    writing,
+    total,
+    autoTotal,
+    answerCount,
+    questionCount,
+  };
+}
+
+function formatScore(value) {
+  return Number.isInteger(value) ? String(value) : value.toFixed(1);
+}
+
+function getWordCount(text) {
+  return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function renderMockExam() {
+  if (!mockExamApp) return;
+  const exam = getMockExam();
+  const score = getMockExamScore(exam);
+  const submitted = Boolean(state.mockExamSubmitted[exam.id]);
+
+  mockExamApp.innerHTML = `
+    <section class="mock-exam-shell" aria-label="2BAC mock exam simulator">
+      <div class="exam-source-strip">
+        <div>
+          <span class="eyebrow">Reference basis</span>
+          <p>Built around the Morocco 2BAC English paper: comprehension, language, and writing.</p>
+        </div>
+        <div class="source-links" aria-label="Reference links">
+          <a href="https://eflcollective.com/wp-content/uploads/2022/08/Bac-Exam-Specs-2014.pdf" target="_blank" rel="noreferrer">Exam specs</a>
+          <a href="https://eflcollective.com/the-english-language-guidelines-for-middle-and-secondary-schools/" target="_blank" rel="noreferrer">Guidelines</a>
+          <a href="https://lyceenumerique.ma/home/course/ANGLAIS-2BAC/15" target="_blank" rel="noreferrer">2BAC map</a>
+        </div>
+      </div>
+
+      <div class="mock-exam-toolbar">
+        <div>
+          <span class="eyebrow">Choose paper</span>
+          <div class="mock-exam-switcher" role="tablist" aria-label="Mock exam choices">
+            ${mockExams.map((item) => `
+              <button
+                class="${item.id === exam.id ? "active" : ""}"
+                type="button"
+                data-mock-exam="${item.id}"
+                aria-selected="${item.id === exam.id}"
+              >
+                ${escapeHtml(item.title.replace("Mock ", ""))}
+              </button>
+            `).join("")}
+          </div>
+        </div>
+        <div class="timer-mode" role="group" aria-label="Timer duration">
+          <span>Timer</span>
+          <button class="${state.examDurationSeconds === 2 * 60 * 60 ? "active" : ""}" type="button" data-timer-duration="${2 * 60 * 60}">Science 2h</button>
+          <button class="${state.examDurationSeconds === 3 * 60 * 60 ? "active" : ""}" type="button" data-timer-duration="${3 * 60 * 60}">Arts 3h</button>
+        </div>
+      </div>
+
+      <div class="mock-exam-overview">
+        <div>
+          <span class="eyebrow">${escapeHtml(exam.level)}</span>
+          <h2>${escapeHtml(exam.title)}</h2>
+          <p>${escapeHtml(exam.focus)}</p>
+        </div>
+        <div class="exam-score-mini" aria-label="Current score">
+          <span>${score.answerCount} / ${score.questionCount} auto items</span>
+          <strong>${formatScore(score.total)} / 40</strong>
+          <small>${submitted ? "Submitted" : "Autosaved draft"}</small>
+        </div>
+      </div>
+
+      <div class="mock-section-tabs" role="tablist" aria-label="Exam sections">
+        ${renderMockExamTabs(exam)}
+      </div>
+
+      <div class="mock-exam-body">
+        ${renderActiveMockSection(exam)}
+      </div>
+
+      <div class="mock-exam-actions">
+        <p>${submitted ? "Review mode is on. Reset this paper to try it again." : "Unanswered questions score 0. Writing is self-checked with the official-style rubric."}</p>
+        <div>
+          <button class="ghost-action" type="button" data-mock-section="results">
+            <i data-lucide="bar-chart-3"></i>
+            Results
+          </button>
+          <button class="primary-action" type="button" data-mock-submit ${submitted ? "disabled" : ""}>
+            <i data-lucide="clipboard-check"></i>
+            ${submitted ? "Submitted" : "Submit paper"}
+          </button>
+          <button class="text-action" type="button" data-mock-reset>
+            <i data-lucide="rotate-ccw"></i>
+            Reset paper
+          </button>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderMockExamTabs(exam) {
+  const score = getMockExamScore(exam);
+  const tabMeta = {
+    reading: `${score.reading.correct}/${score.reading.total}`,
+    language: `${score.language.correct}/${score.language.total}`,
+    writing: `${score.writing.checked}/${score.writing.total}`,
+    results: `${formatScore(score.total)}/40`,
+  };
+
+  return mockExamSections
+    .map((section) => `
+      <button
+        class="${state.activeMockExamSection === section ? "active" : ""}"
+        type="button"
+        data-mock-section="${section}"
+        aria-selected="${state.activeMockExamSection === section}"
+      >
+        <span>${escapeHtml(section)}</span>
+        <strong>${escapeHtml(tabMeta[section])}</strong>
+      </button>
+    `)
+    .join("");
+}
+
+function renderActiveMockSection(exam) {
+  if (state.activeMockExamSection === "language") return renderLanguageExamSection(exam);
+  if (state.activeMockExamSection === "writing") return renderWritingExamSection(exam);
+  if (state.activeMockExamSection === "results") return renderResultsExamSection(exam);
+  return renderReadingExamSection(exam);
+}
+
+function renderReadingExamSection(exam) {
+  return `
+    <section class="reading-workspace">
+      <article class="reading-passage">
+        <span class="eyebrow">Comprehension passage</span>
+        <h3>${escapeHtml(exam.reading.title)}</h3>
+        ${exam.reading.passage.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+      </article>
+      <div class="mock-question-list">
+        ${exam.reading.questions.map((question, index) => renderMockQuestion(question, index, "reading")).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderLanguageExamSection(exam) {
+  return `
+    <section class="language-workspace">
+      <div class="section-note">
+        <span class="eyebrow">Language</span>
+        <h3>Vocabulary, grammar, and functions</h3>
+        <p>These items sample the official techniques: multiple choice, contextual grammar, collocation, and communication functions.</p>
+      </div>
+      <div class="mock-question-list">
+        ${exam.language.questions.map((question, index) => renderMockQuestion(question, index, "language")).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderMockQuestion(question, index, section) {
+  const exam = getMockExam();
+  const answers = getMockAnswers(exam.id);
+  const selectedRaw = answers[question.id];
+  const selected = selectedRaw === undefined ? null : Number(selectedRaw);
+  const submitted = Boolean(state.mockExamSubmitted[exam.id]);
+
+  return `
+    <article class="mock-question">
+      <div class="question-topline">
+        <span>${section === "reading" ? "R" : "L"}${index + 1}</span>
+        <strong>${escapeHtml(question.skill)}</strong>
+      </div>
+      <h4>${escapeHtml(question.prompt)}</h4>
+      <div class="mock-options">
+        ${question.options.map((option, optionIndex) => {
+          const isCorrect = optionIndex === question.correct;
+          const isSelected = selected === optionIndex;
+          const resultClass = submitted
+            ? isCorrect
+              ? "correct"
+              : isSelected
+                ? "wrong"
+                : ""
+            : isSelected
+              ? "selected"
+              : "";
+          return `
+            <button
+              class="mock-option ${resultClass}"
+              type="button"
+              data-mock-answer
+              data-mock-question="${question.id}"
+              data-mock-value="${optionIndex}"
+              ${submitted ? "disabled" : ""}
+            >
+              <span>${String.fromCharCode(65 + optionIndex)}</span>
+              ${escapeHtml(option)}
+            </button>
+          `;
+        }).join("")}
+      </div>
+      <p class="question-feedback">
+        ${submitted
+          ? selected === question.correct
+            ? `Correct. ${escapeHtml(question.explanation)}`
+            : `Review: ${escapeHtml(question.explanation)}`
+          : selected === null
+            ? "Choose one answer. You can change it before submitting."
+            : "Answer saved."}
+      </p>
+    </article>
+  `;
+}
+
+function renderWritingExamSection(exam) {
+  const writing = getMockWriting(exam.id);
+  const checks = getMockChecks(exam.id);
+  const words = getWordCount(writing);
+
+  return `
+    <section class="writing-workspace">
+      <article class="writing-task-panel">
+        <span class="eyebrow">${escapeHtml(exam.writing.format)}</span>
+        <h3>${escapeHtml(exam.writing.prompt)}</h3>
+        <div class="cue-bank">
+          ${exam.writing.cues.map((cue) => `<span>${escapeHtml(cue)}</span>`).join("")}
+        </div>
+        <label class="writing-area-label" for="mockWriting">
+          Your answer
+          <textarea id="mockWriting" rows="11" placeholder="Plan quickly, then write your answer here.">${escapeHtml(writing)}</textarea>
+        </label>
+        <div class="writing-meter">
+          <span>${words} words</span>
+          <strong>Target: ${escapeHtml(exam.writing.target)}</strong>
+        </div>
+      </article>
+      <aside class="rubric-panel">
+        <span class="eyebrow">Writing self-check</span>
+        <h3>10-point rubric helper</h3>
+        <p>Tick the proof you can see in your answer. This estimates writing readiness, not an official grade.</p>
+        <div class="rubric-list">
+          ${exam.writing.checklist.map((item, index) => `
+            <label>
+              <input type="checkbox" data-writing-check="${index}" ${checks[String(index)] ? "checked" : ""} />
+              <span>${escapeHtml(item)}</span>
+            </label>
+          `).join("")}
+        </div>
+      </aside>
+    </section>
+  `;
+}
+
+function renderResultsExamSection(exam) {
+  const score = getMockExamScore(exam);
+  const submitted = Boolean(state.mockExamSubmitted[exam.id]);
+  const rows = [
+    ["Reading", score.reading.scaled, 15, `${score.reading.correct} / ${score.reading.total} correct`],
+    ["Language", score.language.scaled, 15, `${score.language.correct} / ${score.language.total} correct`],
+    ["Writing", score.writing.scaled, 10, `${score.writing.checked} / ${score.writing.total} checks`],
+  ];
+
+  return `
+    <section class="results-workspace">
+      <article class="score-summary">
+        <span class="eyebrow">${submitted ? "Submitted result" : "Draft result"}</span>
+        <h3>${formatScore(score.total)} / 40</h3>
+        <p>Auto-scored reading and language: ${formatScore(score.autoTotal)} / 30. Writing is estimated from your self-check list.</p>
+      </article>
+      <div class="score-breakdown">
+        ${rows.map(([label, value, max, detail]) => `
+          <div class="score-row">
+            <div>
+              <span>${escapeHtml(label)}</span>
+              <strong>${formatScore(value)} / ${max}</strong>
+            </div>
+            <div class="score-track"><span style="width: ${Math.round((value / max) * 100)}%"></span></div>
+            <p>${escapeHtml(detail)}</p>
+          </div>
+        `).join("")}
+      </div>
+      <div class="next-step-panel">
+        <span class="eyebrow">Next revision move</span>
+        <p>${getResultsAdvice(score)}</p>
+      </div>
+    </section>
+  `;
+}
+
+function getResultsAdvice(score) {
+  if (score.reading.correct < score.reading.total) {
+    return "Review the reading passage again and locate the exact proof for each missed answer.";
+  }
+  if (score.language.correct < score.language.total) {
+    return "Open Lessons and revise the grammar point behind each missed language item.";
+  }
+  if (score.writing.checked < score.writing.total) {
+    return "Improve the writing answer until every rubric item has visible proof.";
+  }
+  return "Strong run. Try another mock paper under the timer to build exam rhythm.";
+}
+
+function setMockExam(examId) {
+  if (!validMockExamIds.has(examId)) return;
+  state.activeMockExamId = examId;
+  state.activeMockExamSection = "reading";
+  saveState();
+  renderMockExam();
+  refreshIcons();
+}
+
+function setMockSection(section) {
+  if (!mockExamSections.includes(section)) return;
+  state.activeMockExamSection = section;
+  saveState();
+  renderMockExam();
+  refreshIcons();
+}
+
+function selectMockAnswer(questionId, answerIndex) {
+  const exam = getMockExam();
+  if (state.mockExamSubmitted[exam.id]) return;
+  const answers = getMockAnswers(exam.id);
+  answers[questionId] = answerIndex;
+  saveState();
+  renderMockExam();
+  refreshIcons();
+}
+
+function updateMockWriting(value) {
+  const exam = getMockExam();
+  state.mockExamWriting[exam.id] = value;
+  saveState();
+}
+
+function updateMockWritingCheck(index, checked) {
+  const exam = getMockExam();
+  const checks = getMockChecks(exam.id);
+  checks[String(index)] = checked;
+  saveState();
+  renderMockExam();
+  refreshIcons();
+}
+
+function submitMockExam() {
+  const exam = getMockExam();
+  state.mockExamSubmitted[exam.id] = true;
+  state.activeMockExamSection = "results";
+  saveState();
+  renderMockExam();
+  refreshIcons();
+}
+
+function resetMockExamWork() {
+  const exam = getMockExam();
+  delete state.mockExamAnswers[exam.id];
+  delete state.mockExamWriting[exam.id];
+  delete state.mockExamChecks[exam.id];
+  delete state.mockExamSubmitted[exam.id];
+  state.activeMockExamSection = "reading";
+  saveState();
+  renderMockExam();
+  refreshIcons();
+}
+
+function setTimerDuration(seconds) {
+  if (![2 * 60 * 60, 3 * 60 * 60].includes(seconds)) return;
+  pauseExamTimer();
+  state.examDurationSeconds = seconds;
+  state.timerSeconds = seconds;
+  saveState();
+  renderTimer();
+  renderMockExam();
+  refreshIcons();
+}
+
 function formatTime(totalSeconds) {
   const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
   const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
@@ -1518,7 +2315,7 @@ function pauseExamTimer() {
 
 function resetExamTimer() {
   pauseExamTimer();
-  state.timerSeconds = 2 * 60 * 60;
+  state.timerSeconds = state.examDurationSeconds;
   saveState();
   renderTimer();
 }
@@ -1579,6 +2376,42 @@ document.addEventListener("click", (event) => {
     return;
   }
 
+  const mockExamButton = event.target.closest("[data-mock-exam]");
+  if (mockExamButton) {
+    setMockExam(mockExamButton.dataset.mockExam);
+    return;
+  }
+
+  const mockSectionButton = event.target.closest("[data-mock-section]");
+  if (mockSectionButton) {
+    setMockSection(mockSectionButton.dataset.mockSection);
+    return;
+  }
+
+  const mockAnswerButton = event.target.closest("[data-mock-answer]");
+  if (mockAnswerButton) {
+    selectMockAnswer(mockAnswerButton.dataset.mockQuestion, Number(mockAnswerButton.dataset.mockValue));
+    return;
+  }
+
+  const timerDurationButton = event.target.closest("[data-timer-duration]");
+  if (timerDurationButton) {
+    setTimerDuration(Number(timerDurationButton.dataset.timerDuration));
+    return;
+  }
+
+  const mockSubmitButton = event.target.closest("[data-mock-submit]");
+  if (mockSubmitButton && !mockSubmitButton.disabled) {
+    submitMockExam();
+    return;
+  }
+
+  const mockResetButton = event.target.closest("[data-mock-reset]");
+  if (mockResetButton) {
+    resetMockExamWork();
+    return;
+  }
+
   const viewButton = event.target.closest("[data-view-link]");
   if (viewButton) {
     setView(viewButton.dataset.viewLink);
@@ -1592,6 +2425,23 @@ document.addEventListener("click", (event) => {
 
   if (!event.target.closest("#unitSelect")) {
     setUnitMenuOpen(false);
+  }
+});
+
+document.addEventListener("input", (event) => {
+  if (event.target.matches("#mockWriting")) {
+    updateMockWriting(event.target.value);
+    const wordCount = event.target.closest(".writing-task-panel")?.querySelector(".writing-meter span");
+    if (wordCount) {
+      wordCount.textContent = `${getWordCount(event.target.value)} words`;
+    }
+  }
+});
+
+document.addEventListener("change", (event) => {
+  const writingCheck = event.target.closest("[data-writing-check]");
+  if (writingCheck) {
+    updateMockWritingCheck(writingCheck.dataset.writingCheck, writingCheck.checked);
   }
 });
 
@@ -1637,6 +2487,7 @@ renderQuestion();
 renderFlashcard(true);
 renderPrompt();
 renderTimer();
+renderMockExam();
 updateProgress();
 
 const startingView = window.location.hash.replace("#", "");
