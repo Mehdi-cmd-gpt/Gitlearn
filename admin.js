@@ -127,10 +127,10 @@ function renderAuth() {
     button.classList.toggle("active", button.dataset.adminAuthMode === state.mode);
   });
   if (nameWrap) nameWrap.hidden = !setupMode;
-  if (fullName) fullName.disabled = state.busy || !supabaseClient;
-  if (email) email.disabled = state.busy || !supabaseClient;
+  if (fullName) fullName.disabled = state.busy;
+  if (email) email.disabled = state.busy;
   if (password) {
-    password.disabled = state.busy || !supabaseClient;
+    password.disabled = state.busy;
     password.autocomplete = setupMode ? "new-password" : "current-password";
   }
   if (submit) {
@@ -146,7 +146,7 @@ function renderAuth() {
   }
   if (message) {
     message.textContent = !supabaseClient
-      ? "Add Supabase URL and anon key in supabase-config.js before using the portal."
+      ? "You can type here, but admin login needs the Supabase URL and anon key in supabase-config.js."
       : state.message;
   }
   refreshIcons();

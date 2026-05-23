@@ -1496,10 +1496,10 @@ function renderAuthPanel() {
   if (currentForm) currentForm.hidden = signedIn;
   if (currentSubmit) currentSubmit.disabled = state.authBusy || setupMissing;
   if (currentReset) currentReset.disabled = state.authBusy || setupMissing;
-  if (currentEmail) currentEmail.disabled = state.authBusy || setupMissing;
-  if (currentPassword) currentPassword.disabled = state.authBusy || setupMissing;
-  if (currentName) currentName.disabled = state.authBusy || setupMissing;
-  if (currentClassGroup) currentClassGroup.disabled = state.authBusy || setupMissing;
+  if (currentEmail) currentEmail.disabled = state.authBusy;
+  if (currentPassword) currentPassword.disabled = state.authBusy;
+  if (currentName) currentName.disabled = state.authBusy;
+  if (currentClassGroup) currentClassGroup.disabled = state.authBusy;
   if (currentPassword) currentPassword.autocomplete = state.authMode === "signup" ? "new-password" : "current-password";
   authTitle.textContent = signedIn
     ? `${profileName()} is signed in.`
@@ -1517,7 +1517,7 @@ function renderAuthPanel() {
   }
   if (currentMessage) {
     currentMessage.textContent = setupMissing
-      ? "Add your Supabase project URL and anon key in supabase-config.js, then run supabase-schema.sql in Supabase."
+      ? "You can type here, but login needs the Supabase URL and anon key in supabase-config.js."
       : state.authMessage;
   }
 
