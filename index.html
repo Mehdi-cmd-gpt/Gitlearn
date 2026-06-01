@@ -3,403 +3,149 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2BAC English Prep</title>
+    <meta name="description" content="Mobile-first Morocco Baccalaureate English revision dashboard for 2BAC exam preparation." />
+    <title>Morocco Bac English Revision</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
   </head>
-  <body class="auth-locked">
-    <div class="app-shell">
-      <header class="topbar">
-        <a class="brand" href="#dashboard" data-view-link="dashboard" aria-label="2BAC English Prep home">
-          <span class="brand-mark">2B</span>
-          <span>
-            <strong>2BAC English Prep</strong>
-            <small>Morocco exam practice</small>
-          </span>
-        </a>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#dashboard" data-view="dashboard" aria-label="Open dashboard">
+        <span class="brand-mark">2B</span>
+        <span>
+          <strong>Morocco Bac English Revision</strong>
+          <small>Exam-first 2BAC study dashboard</small>
+        </span>
+      </a>
 
-        <nav class="nav-tabs" aria-label="Study sections">
-          <button class="nav-tab active" type="button" data-view-link="dashboard">
-            <i data-lucide="layout-dashboard"></i>
-            Dashboard
-          </button>
-          <button class="nav-tab" type="button" data-view-link="lessons">
-            <i data-lucide="book-open"></i>
-            Lessons
-          </button>
-          <button class="nav-tab" type="button" data-view-link="practice">
-            <i data-lucide="brain"></i>
-            Practice
-          </button>
-          <button class="nav-tab" type="button" data-view-link="writing">
-            <i data-lucide="pen-line"></i>
-            Writing
-          </button>
-          <button class="nav-tab" type="button" data-view-link="exam">
-            <i data-lucide="timer"></i>
-            Exam
-          </button>
-        </nav>
-      </header>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <button class="nav-link active" type="button" data-view="dashboard">Home</button>
+        <button class="nav-link" type="button" data-view="lessons">Lessons</button>
+        <button class="nav-link" type="button" data-view="practice">Practice</button>
+        <button class="nav-link" type="button" data-view="checklist">Checklist</button>
+        <button class="nav-link" type="button" data-view="progress">Progress</button>
+      </nav>
 
-      <main>
-        <section class="view active" id="dashboard" aria-labelledby="dashboard-title">
-          <section class="auth-panel" id="authPanel" aria-labelledby="authTitle">
-            <div class="auth-copy">
-              <span class="eyebrow">Student accounts</span>
-              <h2 id="authTitle">Login to save progress across devices.</h2>
-              <p id="authSubtitle">
-                Students keep lesson work, writing, and mock exam attempts after login.
-              </p>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
+    </header>
+
+    <main class="app-shell">
+      <section class="view active" id="dashboard" aria-labelledby="dashboardTitle">
+        <div class="hero-card">
+          <div class="hero-copy">
+            <span class="eyebrow">Moroccan 2BAC English exam prep</span>
+            <h1 id="dashboardTitle">Grammar, Vocabulary, Functions, Writing, Reading and Mock Exams.</h1>
+            <p>
+              A practical revision workspace built for the exam only. Study short lessons, practise quick questions,
+              mark completed topics, and follow a final 7-day revision plan.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-action" type="button" data-view="lessons">Start Revision</button>
+              <button class="secondary-action" type="button" data-view="practice">Take Practice Quiz</button>
+              <button class="ghost-action" type="button" data-view="checklist">Print Checklist</button>
             </div>
-
-            <div class="auth-card" id="authCard">
-              <div class="auth-mode-row" role="tablist" aria-label="Auth mode">
-                <button class="active" type="button" data-auth-mode="login">Login</button>
-                <button type="button" data-auth-mode="signup">Create account</button>
-              </div>
-
-              <form class="auth-form" id="authForm">
-                <label class="auth-field" data-auth-name-wrap hidden>
-                  <span>Full name</span>
-                  <input id="authName" name="full_name" type="text" autocomplete="name" placeholder="Student name" />
-                </label>
-                <label class="auth-field" data-auth-class-wrap hidden>
-                  <span>Class or group</span>
-                  <input id="authClassGroup" name="class_group" type="text" autocomplete="organization" placeholder="2BAC PC 1" />
-                </label>
-                <label class="auth-field">
-                  <span>Email</span>
-                  <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="student@example.com" required />
-                </label>
-                <label class="auth-field">
-                  <span>Password</span>
-                  <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="At least 6 characters" required />
-                </label>
-                <div class="auth-actions">
-                  <button class="primary-action" id="authSubmit" type="submit">
-                    <i data-lucide="log-in"></i>
-                    Login
-                  </button>
-                  <button class="text-action" id="resetPassword" type="button">
-                    <i data-lucide="mail-question"></i>
-                    Reset password
-                  </button>
-                </div>
-              </form>
-
-              <p class="auth-message" id="authMessage" aria-live="polite"></p>
-            </div>
-          </section>
-
-          <div class="dashboard-grid student-only">
-            <div class="intro-panel">
-              <div class="intro-copy">
-                <span class="eyebrow">Final-year English</span>
-                <h1 id="dashboard-title">Study with structure, then test like it is June.</h1>
-                <p>
-                  A compact prep workspace for grammar, vocabulary, writing, reading comprehension,
-                  and full exam rhythm.
-                </p>
-                <div class="hero-actions">
-                  <button class="primary-action" type="button" data-view-link="practice">
-                    <i data-lucide="play"></i>
-                    Start practice
-                  </button>
-                  <button class="ghost-action" type="button" data-view-link="exam">
-                    <i data-lucide="clipboard-check"></i>
-                    Mock exam
-                  </button>
-                </div>
-              </div>
-              <figure class="study-photo" aria-label="2BAC study planner preview">
-                <div class="scene-stack" aria-hidden="true">
-                  <div class="scene-card scene-card-main">
-                    <span>Mock timeline</span>
-                    <strong>120 min</strong>
-                    <div class="scene-bar"><span></span></div>
-                  </div>
-                  <div class="scene-card scene-card-side">
-                    <span>Priority</span>
-                    <strong>Writing</strong>
-                    <small>Argument + proofread</small>
-                  </div>
-                  <div class="scene-card scene-card-note">
-                    <span>Language</span>
-                    <strong>Conditionals</strong>
-                    <small>If + present, will + verb</small>
-                  </div>
-                  <div class="word-strip">
-                    <span>Reading</span>
-                    <span>Grammar</span>
-                    <span>Vocabulary</span>
-                    <span>Writing</span>
-                  </div>
-                </div>
-              </figure>
-            </div>
-
-            <aside class="progress-panel" aria-labelledby="progress-title">
-              <div>
-                <span class="eyebrow">Your week</span>
-                <h2 id="progress-title">Prep score</h2>
-              </div>
-              <div class="score-ring" aria-label="Study progress">
-                <svg viewBox="0 0 120 120" role="img" aria-hidden="true">
-                  <circle cx="60" cy="60" r="50"></circle>
-                  <circle class="score-fill" cx="60" cy="60" r="50"></circle>
-                </svg>
-                <strong id="progressScore">0%</strong>
-              </div>
-              <p id="progressNote">Complete lessons and quiz questions to build momentum.</p>
-              <button class="text-action" id="resetProgress" type="button">
-                <i data-lucide="rotate-ccw"></i>
-                Reset progress
-              </button>
-            </aside>
           </div>
+          <aside class="exam-card" aria-label="Exam structure">
+            <span class="eyebrow">Exam focus</span>
+            <ol>
+              <li><strong>Reading:</strong> proof, references, vocabulary from context.</li>
+              <li><strong>Language:</strong> grammar, vocabulary, and functions.</li>
+              <li><strong>Writing:</strong> paragraph, essay, email, letter, report or review.</li>
+            </ol>
+          </aside>
+        </div>
 
-          <div class="section-heading student-only">
-            <div>
-              <span class="eyebrow">All units</span>
-              <h2>Lesson shortlist</h2>
+        <section class="stats-grid" id="statsCards" aria-label="Study progress overview"></section>
+
+        <section class="dashboard-grid">
+          <article class="panel">
+            <div class="section-title">
+              <span class="eyebrow">Lesson categories</span>
+              <h2>Choose what to revise</h2>
             </div>
-            <button class="ghost-action small" type="button" data-view-link="lessons">
-              <i data-lucide="arrow-right"></i>
-              Open lessons
-            </button>
-          </div>
+            <div class="category-grid" id="categoryGrid"></div>
+          </article>
 
-          <div class="study-blocks student-only" id="todayBlocks"></div>
+          <article class="panel next-panel">
+            <div class="section-title">
+              <span class="eyebrow">Next step</span>
+              <h2>Recommended lesson</h2>
+            </div>
+            <div id="nextLesson"></div>
+          </article>
         </section>
+      </section>
 
-        <section class="view student-only" id="lessons" aria-labelledby="lessons-title">
-          <div class="tool-header">
-            <div>
-              <span class="eyebrow">Official program map</span>
-              <h1 id="lessons-title">Morocco 2BAC English units</h1>
-            </div>
-            <label class="search-box">
-              <i data-lucide="search"></i>
-              <input id="lessonSearch" type="search" placeholder="Search youth, modals, report, brain drain..." />
-            </label>
+      <section class="view" id="lessons" aria-labelledby="lessonsTitle">
+        <div class="tool-header">
+          <div>
+            <span class="eyebrow">Lesson library</span>
+            <h1 id="lessonsTitle">Exam-ready English summaries</h1>
+            <p>Filter by lesson type and search by topic, grammar point, function, or writing format.</p>
           </div>
+          <label class="search-box">
+            <span>Search</span>
+            <input id="lessonSearch" type="search" placeholder="conditionals, brain drain, formal letter..." />
+          </label>
+        </div>
 
-          <div class="unit-select-wrap">
-            <div class="unit-select-head">
-              <span class="eyebrow">Choose a unit</span>
-              <p>Click the selector, then choose the unit you want to study.</p>
-            </div>
-            <div class="unit-select" id="unitSelect">
-              <button
-                class="unit-select-toggle"
-                id="unitSelectToggle"
-                type="button"
-                aria-haspopup="listbox"
-                aria-expanded="false"
-                aria-controls="lessonGrid"
-              >
-                <span id="unitSelectMeta">Unit 1</span>
-                <strong id="unitSelectLabel">The Gift of Youth</strong>
-                <i data-lucide="chevron-down"></i>
-              </button>
-              <div class="unit-menu" id="lessonGrid" role="listbox" aria-label="2BAC unit list" aria-hidden="true"></div>
-            </div>
+        <div class="filter-row" id="filterRow" aria-label="Lesson filters"></div>
+        <div class="lesson-grid" id="lessonGrid"></div>
+      </section>
+
+      <section class="view" id="practice" aria-labelledby="practiceTitle">
+        <div class="tool-header">
+          <div>
+            <span class="eyebrow">Active recall</span>
+            <h1 id="practiceTitle">Practice quizzes and mock exams</h1>
+            <p>Short exam-style questions with answer keys and explanations.</p>
           </div>
+        </div>
 
-          <div class="lesson-empty" id="lessonEmpty" hidden>
-            <span class="eyebrow">No lesson found</span>
-            <p>Try another keyword, for example conditionals, report, citizenship, or brain drain.</p>
+        <div class="practice-tabs" id="practiceTabs">
+          <button class="active" type="button" data-practice="quiz">Quizzes</button>
+          <button type="button" data-practice="writing">Writing prompts</button>
+          <button type="button" data-practice="mock">Mock exams</button>
+        </div>
+        <div id="practiceContent"></div>
+      </section>
+
+      <section class="view" id="checklist" aria-labelledby="checklistTitle">
+        <div class="tool-header">
+          <div>
+            <span class="eyebrow">Final revision</span>
+            <h1 id="checklistTitle">7-day plan, exam-day checklist and high-frequency language</h1>
+            <p>Use this page during the final week. Print it and keep it next to your notebook.</p>
           </div>
+          <button class="primary-action" type="button" id="printChecklist">Print Checklist</button>
+        </div>
+        <div id="checklistContent"></div>
+      </section>
 
-          <section class="lesson-studio" id="lessonStudio" aria-labelledby="studioTitle">
-            <aside class="studio-rail">
-              <span class="eyebrow">Lesson studio</span>
-              <div class="studio-mark">
-                <span id="studioUnit">Unit 1</span>
-                <strong id="studioScore">0 / 3</strong>
-              </div>
-              <p id="studioPulse">Open a unit, read the explanation, then prove it with the quick checks.</p>
-              <div class="studio-progress" aria-label="Lesson check progress">
-                <span id="studioProgress"></span>
-              </div>
-            </aside>
-
-            <div class="studio-main">
-              <div class="studio-topline">
-                <div>
-                  <h2 id="studioTitle">The Gift of Youth</h2>
-                  <p id="studioSummary"></p>
-                </div>
-                <button class="primary-action studio-complete" type="button" id="studioComplete" data-complete="">
-                  <i data-lucide="check"></i>
-                  Mark done
-                </button>
-              </div>
-
-              <div class="studio-meta" id="studioMeta"></div>
-
-              <div class="lesson-tab-row" role="tablist" aria-label="Lesson content">
-                <button class="lesson-tab active" type="button" role="tab" data-lesson-tab="explain">
-                  <i data-lucide="book-open"></i>
-                  Explain
-                </button>
-                <button class="lesson-tab" type="button" role="tab" data-lesson-tab="vocabulary">
-                  <i data-lucide="list-checks"></i>
-                  Vocabulary
-                </button>
-                <button class="lesson-tab" type="button" role="tab" data-lesson-tab="practice">
-                  <i data-lucide="brain"></i>
-                  Practice
-                </button>
-                <button class="lesson-tab" type="button" role="tab" data-lesson-tab="writing">
-                  <i data-lucide="pen-line"></i>
-                  Writing
-                </button>
-              </div>
-
-              <div class="lesson-stage" id="studioBody"></div>
-            </div>
-          </section>
-        </section>
-
-        <section class="view student-only" id="practice" aria-labelledby="practice-title">
-          <div class="tool-header">
-            <div>
-              <span class="eyebrow">Active recall</span>
-              <h1 id="practice-title">Grammar and vocabulary drills</h1>
-            </div>
-            <div class="mini-stat">
-              <i data-lucide="target"></i>
-              <span id="quizCount">0 / 0</span>
-            </div>
+      <section class="view" id="progress" aria-labelledby="progressTitle">
+        <div class="tool-header">
+          <div>
+            <span class="eyebrow">Local progress</span>
+            <h1 id="progressTitle">Revision tracker</h1>
+            <p>Your completed lessons are saved in this browser using localStorage. No login or backend is required.</p>
           </div>
+          <button class="danger-action" type="button" id="resetProgress">Reset Progress</button>
+        </div>
+        <div id="progressContent"></div>
+      </section>
+    </main>
 
-          <div class="practice-layout">
-            <article class="quiz-panel">
-              <div class="quiz-topline">
-                <span id="questionType">Question</span>
-                <div class="quiz-meter"><span id="quizMeter"></span></div>
-              </div>
-              <h2 id="questionText"></h2>
-              <div class="answer-grid" id="answerGrid"></div>
-              <p class="feedback" id="feedback" aria-live="polite"></p>
-              <div class="quiz-actions">
-                <button class="ghost-action" type="button" id="skipQuestion">
-                  <i data-lucide="skip-forward"></i>
-                  Skip
-                </button>
-                <button class="primary-action" type="button" id="nextQuestion" disabled>
-                  <i data-lucide="arrow-right"></i>
-                  Next
-                </button>
-              </div>
-            </article>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button class="active" type="button" data-view="dashboard">🏠<span>Home</span></button>
+      <button type="button" data-view="lessons">📚<span>Lessons</span></button>
+      <button type="button" data-view="practice">🧠<span>Practice</span></button>
+      <button type="button" data-view="checklist">✅<span>Checklist</span></button>
+      <button type="button" data-view="progress">📈<span>Progress</span></button>
+    </nav>
 
-            <aside class="flashcard-panel">
-              <span class="eyebrow">Flashcard</span>
-              <button class="flashcard" type="button" id="flashcard">
-                <span id="flashLabel">Phrase</span>
-                <strong id="flashFront"></strong>
-                <small id="flashBack"></small>
-              </button>
-              <button class="text-action" type="button" id="newFlashcard">
-                <i data-lucide="shuffle"></i>
-                New card
-              </button>
-            </aside>
-          </div>
-        </section>
-
-        <section class="view student-only" id="writing" aria-labelledby="writing-title">
-          <div class="tool-header">
-            <div>
-              <span class="eyebrow">Production</span>
-              <h1 id="writing-title">Writing templates and prompts</h1>
-            </div>
-            <button class="primary-action" type="button" id="newPrompt">
-              <i data-lucide="sparkles"></i>
-              New prompt
-            </button>
-          </div>
-
-          <div class="writing-grid">
-            <article class="prompt-panel">
-              <span class="eyebrow">Prompt</span>
-              <h2 id="writingPrompt"></h2>
-              <div class="prompt-tags" id="promptTags"></div>
-            </article>
-
-            <article class="template-panel">
-              <span class="eyebrow">Structure</span>
-              <h2>Argumentative paragraph</h2>
-              <ol class="writing-steps">
-                <li><strong>Topic sentence:</strong> answer the question directly.</li>
-                <li><strong>Reason one:</strong> explain the strongest idea first.</li>
-                <li><strong>Example:</strong> connect it to youth, school, society, or technology.</li>
-                <li><strong>Contrast:</strong> add a balanced opposing point.</li>
-                <li><strong>Closing:</strong> return to your position with a clear final sentence.</li>
-              </ol>
-            </article>
-
-            <article class="linking-panel">
-              <span class="eyebrow">Useful links</span>
-              <div class="linking-bank">
-                <button type="button">Moreover</button>
-                <button type="button">However</button>
-                <button type="button">As a result</button>
-                <button type="button">For instance</button>
-                <button type="button">In my view</button>
-                <button type="button">To sum up</button>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="view student-only" id="exam" aria-labelledby="exam-title">
-          <div class="tool-header">
-            <div>
-              <span class="eyebrow">Mock mode</span>
-              <h1 id="exam-title">Mock Exam Simulator</h1>
-            </div>
-            <div class="timer-box" aria-label="Exam timer">
-              <i data-lucide="clock-3"></i>
-              <strong id="timer">02:00:00</strong>
-            </div>
-          </div>
-
-          <div id="mockExamApp"></div>
-
-          <div class="timer-actions">
-            <button class="primary-action" type="button" id="startTimer">
-              <i data-lucide="play"></i>
-              Start timer
-            </button>
-            <button class="ghost-action" type="button" id="pauseTimer">
-              <i data-lucide="pause"></i>
-              Pause
-            </button>
-            <button class="text-action" type="button" id="resetTimer">
-              <i data-lucide="rotate-ccw"></i>
-              Reset
-            </button>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <script src="supabase-config.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js"></script>
-    <script
-      src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"
-      async
-      onload="window.lucide && window.lucide.createIcons()"
-    ></script>
+    <section id="printMount" aria-hidden="true"></section>
   </body>
 </html>
