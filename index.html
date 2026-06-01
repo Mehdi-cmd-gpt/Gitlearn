@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
   </head>
-  <body>
+  <body class="auth-locked">
     <header class="site-header">
       <a class="brand" href="#dashboard" data-view="dashboard" aria-label="Open dashboard">
         <span class="brand-mark">2B</span>
@@ -29,8 +29,46 @@
         <button class="nav-link" type="button" data-view="progress">Progress</button>
       </nav>
 
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
+      <div class="header-actions">
+        <button class="ghost-action small logout-btn" id="logoutButton" type="button" hidden>Logout</button>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
+      </div>
     </header>
+
+    <section class="login-screen" id="loginScreen" aria-labelledby="loginTitle">
+      <div class="login-hero">
+        <span class="eyebrow">2 Bac · Morocco · English</span>
+        <h1 id="loginTitle">Login and continue your Bac English revision.</h1>
+        <p>
+          Keep the same clean style, with local progress saved in this browser. This is a simple client-side login for the static website.
+        </p>
+        <div class="login-points">
+          <span>🛡️ No backend required</span>
+          <span>✨ Saves progress locally</span>
+          <span>📚 Exam-focused dashboard</span>
+        </div>
+      </div>
+
+      <form class="login-card" id="loginForm">
+        <span class="eyebrow">Student access</span>
+        <h2>Sign in</h2>
+        <label class="login-field">
+          <span>Username</span>
+          <input id="loginUsername" name="username" type="text" autocomplete="username" placeholder="student" required />
+        </label>
+        <label class="login-field">
+          <span>Password</span>
+          <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="bac2026" required />
+        </label>
+        <button class="primary-action login-submit" type="submit">Login →</button>
+        <p class="login-message" id="loginMessage" aria-live="polite"></p>
+        <div class="demo-credentials">
+          <strong>Demo login</strong>
+          <span>User: <code>student</code></span>
+          <span>Password: <code>bac2026</code></span>
+        </div>
+      </form>
+    </section>
 
     <main class="app-shell">
       <section class="view active" id="dashboard" aria-labelledby="dashboardTitle">
@@ -130,7 +168,7 @@
           <div>
             <span class="eyebrow">Local progress</span>
             <h1 id="progressTitle">Revision tracker</h1>
-            <p>Your completed lessons are saved in this browser using localStorage. No login or backend is required.</p>
+            <p>Your completed lessons are saved in this browser using localStorage. Login is client-side only for this static version.</p>
           </div>
           <button class="danger-action" type="button" id="resetProgress">Reset Progress</button>
         </div>
