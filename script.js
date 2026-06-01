@@ -1,3 +1,6 @@
+const DEMO_USER = "student";
+const DEMO_PASSWORD = "bac2026";
+
 const CATEGORIES = [
   { id: "all", label: "All", icon: "✨" },
   { id: "theme", label: "Themes", icon: "🌍" },
@@ -197,6 +200,46 @@ let completed = new Set(JSON.parse(localStorage.getItem("bacCompletedLessons") |
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
+function isLoggedIn() {
+  return localStorage.getItem("bacLoggedIn") === "true";
+}
+
+function applyAuthState() {
+  const loggedIn = isLoggedIn();
+  document.body.classList.toggle("auth-locked", !loggedIn);
+  document.body.classList.toggle("auth-ready", loggedIn);
+  $("#logoutButton").hidden = !loggedIn;
+  if (loggedIn) {
+    $("#loginMessage").textContent = "";
+  }
+}
+
+function handleLogin(event) {
+  event.preventDefault();
+  const username = $("#loginUsername").value.trim();
+  const password = $("#loginPassword").value;
+  const message = $("#loginMessage");
+
+  if (username === DEMO_USER && password === DEMO_PASSWORD) {
+    localStorage.setItem("bacLoggedIn", "true");
+    message.textContent = "Login successful. Opening dashboard...";
+    message.classList.remove("error");
+    applyAuthState();
+    setView("dashboard");
+    return;
+  }
+
+  message.textContent = "Wrong username or password. Use student / bac2026.";
+  message.classList.add("error");
+}
+
+function logout() {
+  localStorage.removeItem("bacLoggedIn");
+  applyAuthState();
+  location.hash = "";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function saveProgress() {
   localStorage.setItem("bacCompletedLessons", JSON.stringify([...completed]));
   localStorage.setItem("bacQuizAnswered", JSON.stringify([...quizAnswered]));
@@ -207,6 +250,7 @@ function percent(value, total) {
 }
 
 function setView(viewId) {
+  if (!isLoggedIn()) return;
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === viewId));
   $$('[data-view]').forEach((btn) => btn.classList.toggle("active", btn.dataset.view === viewId));
   location.hash = viewId;
@@ -216,7 +260,6 @@ function setView(viewId) {
 function renderStats() {
   const lessonDone = completed.size;
   const lessonPct = percent(lessonDone, lessons.length);
-  const quizPct = percent(quizAnswered.size, quizQuestions.length);
   const stats = [
     ["Lessons Completed", `${lessonDone}/${lessons.length}`, `${lessonPct}% revised`],
     ["Revision Progress", `${lessonPct}%`, "Saved in this browser"],
@@ -459,7 +502,7 @@ function renderAll() {
 }
 
 function initTheme() {
-  const saved = localStorage.getItem("bacTheme") || "light";
+  const saved = localStorage.getItem("bacTheme") || "dark";
   document.body.dataset.theme = saved;
   $("#themeToggle").textContent = saved === "dark" ? "☀️" : "🌙";
 }
@@ -467,7 +510,10 @@ function initTheme() {
 function init() {
   initTheme();
   renderAll();
+  applyAuthState();
   document.addEventListener("click", handleClicks);
+  $("#loginForm").addEventListener("submit", handleLogin);
+  $("#logoutButton").addEventListener("click", logout);
   $("#lessonSearch").addEventListener("input", renderLessons);
   $("#printChecklist").addEventListener("click", () => window.print());
   $("#resetProgress").addEventListener("click", () => {
@@ -483,7 +529,7 @@ function init() {
     localStorage.setItem("bacTheme", next);
     $("#themeToggle").textContent = next === "dark" ? "☀️" : "🌙";
   });
-  if (location.hash) setView(location.hash.replace("#", ""));
+  if (isLoggedIn() && location.hash) setView(location.hash.replace("#", ""));
 }
 
 init();
