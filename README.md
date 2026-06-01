@@ -1,42 +1,39 @@
-# Morocco 2BAC English Exam Prep
+# Morocco Bac English Revision
 
-A complete static study website for Moroccan 2nd Year Baccalaureate English exam preparation.
+A static, mobile-first revision dashboard for Moroccan 2nd Year Baccalaureate English exam preparation.
 
-The content is original, student-friendly, and exam-focused. It summarizes only English lessons commonly needed for Moroccan Bac preparation: themes, grammar, vocabulary, functions, writing, reading strategy, practice exercises, mock exam-style sets, and final revision.
+The site is focused only on English exam preparation: reading comprehension, grammar, vocabulary, communication functions, writing, practice quizzes, mock exams and final revision.
 
 ## What Is Included
 
-- Homepage with progress tracking
-- Units and lessons page
-- Grammar summary page
-- Vocabulary summary page
-- Functions and communication page
-- Writing guide page
-- Exam strategy page
-- Practice exercises page
-- Practice section now includes 10 vocabulary, 10 grammar, 10 functions, 10 writing prompts, and 10 mock exam-style sets
-- Final revision checklist page
-- Printable/downloadable Markdown study guide
-- Dark mode
-- Homepage-only search and section filter across Units, Grammar, Vocabulary, Functions, Writing, Strategy, Practice, Checklist, and Guide
-- Section progress cards for each lesson page
-- Jump-to-lesson mini index on long pages
-- Exam priority badges for high-frequency lessons
-- Back-to-top button on long pages
-- Mark as revised using local storage
-- Print this lesson buttons
+- Modern homepage dashboard
+- Mobile sticky bottom navigation
+- Lesson library with search and category filters
+- Categories for Themes, Grammar, Vocabulary, Functions, Writing, Reading Strategy and Final Revision
+- Local progress tracking using `localStorage`
+- Mark-as-revised buttons for every lesson
+- Progress percentage and section progress bars
+- Dark mode toggle
+- Printable lesson cards
+- Printable final checklist
+- Practice quizzes with answer explanations
+- Writing prompts
+- Mock exam-style practice sets
+- 7-day final revision plan
+- High-frequency vocabulary and connectors
+- Common mistakes checklist
 
 ## Important Academic Note
 
-This project does not copy textbook pages or copyrighted content. It uses original summaries based on common Moroccan 2BAC English themes and exam skills.
+This project does not copy textbook pages or copyrighted content. The lessons are original, short, exam-focused summaries based on common 2BAC English themes and exam skills.
 
-If you need official exam specifications, coefficients, timing, or current exam rules, verify them with the latest official Ministry of National Education or CNE documents. This project intentionally avoids inventing official rules.
+If you need official coefficients, timing, exam specifications or new curriculum changes, verify them with the latest official Ministry/CNE documents before publishing.
 
 ## How To Run
 
-Because the app loads JSON files from the `content` folder, open it through a local web server.
+Because this is a static client-side app, you can open `index.html` directly in a browser.
 
-From this folder:
+Recommended local server:
 
 ```powershell
 python -m http.server 4173
@@ -48,51 +45,86 @@ Then open:
 http://localhost:4173
 ```
 
-If Python is not available, any simple static server works.
-
 ## Project Structure
 
 ```text
 .
 ├── index.html
-├── README.md
-├── study-guide.md
-├── assets
-│   ├── app.js
-│   └── styles.css
-└── content
-    ├── functions.json
-    ├── grammar.json
-    ├── practice.json
-    ├── site.json
-    ├── themes.json
-    └── writing.json
+├── styles.css
+├── script.js
+└── README.md
 ```
 
-## How To Update Content
+## How To Update Lessons
 
-Edit the JSON files in `content`.
+Open `script.js` and edit the `lessons` array.
 
-- `themes.json`: unit and vocabulary lessons
-- `grammar.json`: grammar rules, examples, mistakes, exercises
-- `functions.json`: communication functions and dialogues
-- `writing.json`: writing formats and samples
-- `practice.json`: exercises, answer keys, and mock sets
-- `site.json`: exam structure, reading strategy, and revision checklist
+Each lesson has:
 
-Each content item has an `id`, `type`, and `title`. Keep IDs unique because local storage uses them to track revised lessons.
+```js
+{
+  id: "unique-id",
+  category: "grammar",
+  title: "Lesson title",
+  minutes: 20,
+  summary: "Short exam-focused explanation",
+  examExample: "Exam-style example",
+  commonMistakes: ["Mistake 1", "Mistake 2"],
+  miniPractice: "Short practice task",
+  answerKey: "Correction or answer guidance",
+  tags: ["search", "keywords"]
+}
+```
 
-## Printing and PDF
+Supported categories:
 
-Use the `Print this lesson` button on any lesson card to print only that lesson.
+- `theme`
+- `grammar`
+- `vocabulary`
+- `function`
+- `writing`
+- `reading`
+- `revision`
 
-The file `study-guide.md` is a compact PDF-ready guide. Open it in any Markdown editor or browser extension and print/export to PDF.
+## How To Add Quiz Questions
 
-## Target Students
+Open `script.js` and edit the `quizQuestions` array.
 
-- Science streams
-- Technical streams
-- Economics streams
-- Arts and humanities streams
-- Original education streams
-- Any Moroccan 2nd year Bac student preparing for English written exams
+```js
+{
+  type: "Grammar",
+  q: "Question text",
+  a: ["Choice A", "Choice B", "Choice C", "Choice D"],
+  c: 1,
+  exp: "Explanation shown after answering"
+}
+```
+
+`c` is the zero-based index of the correct answer.
+
+## How To Add Writing Prompts
+
+Open `script.js` and add more text entries to `writingPrompts`.
+
+## How To Add Mock Exams
+
+Open `script.js` and add entries to `mockExams`:
+
+```js
+{
+  title: "Mock Exam Title",
+  tasks: [
+    "Reading task",
+    "Language task",
+    "Writing task"
+  ]
+}
+```
+
+## Data and Privacy
+
+No backend, database, login or Supabase is used. Student progress is saved only in the browser using `localStorage`.
+
+## Deployment
+
+This project can be deployed on GitHub Pages, Netlify, Vercel or any static hosting platform.
